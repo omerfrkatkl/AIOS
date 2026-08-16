@@ -407,3 +407,11 @@
 - **Gözlem:** `STATE.md` içerik olarak eskimişti (Aşama 2 ve 3 hâlâ "sırada" görünüyordu) ama tarih damgası taze olduğu için [[review-py-handoff-guvenilirligi-denetliyor]] uyarı vermedi. Dedektör zamansal bayatlığı yakalıyor, anlamsal bayatlığı değil.
 - **Eylem:** Risk tablosuna eklendi; şimdilik çözülmüyor, kaydediliyor.
 - **Kanıt:** `[gözlendi]`.
+
+## 2026-08-16 · Sohbete durum aktarımı GitHub deposu üzerinden · T-B
+
+- **Karar:** Sohbete durum aktarımı GitHub public deposu üzerinden yapılır (`github.com/omerfrkatkl/AIOS`); sohbet dosyaları `raw.githubusercontent.com` üzerinden seçerek okur. `bundle.py` yedek yol olarak kalır.
+- **Gerekçe:** Bundle her seferinde 102.000 karakterin tamamını taşıyordu ve `DECISIONS.md` büyüdükçe büyüyecekti; depo seçici okumaya izin veriyor ve "hangi kopya gerçek" sorusunu tanımı gereği kapatıyor. Yeni altyapı değil — klasör zaten git deposuydu.
+- **Kabul edilen bedel:** Depo public, yani karar geçmişi ve `hook.json` içindeki kullanıcı adı görünür.
+- **Doğrulama:** 10 dosya çekildi, parmak izleri `--files` çıktısıyla birebir eşleşti; push edilmemiş iki dosya aynı kontrolde yakalandı.
+- **Kanıt:** `[gözlendi]`.
