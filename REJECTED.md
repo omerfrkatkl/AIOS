@@ -60,3 +60,12 @@
 - **strength:** partial
 - **alternative:** Read-only subagent (keşif) + bağımsız temiz-bağlam inceleyici.
 - **approved:** 2026-08-15
+
+## R-006 · Claude Cowork'e gecmek
+
+- **keys:** cowork kullanalim | cowork uzerinden devam | switch to cowork | use cowork instead | move to cowork
+- **reason:** Kapi bir Claude Code Stop hook'u; Cowork'te karsiligi yok. Gecis G32'yi sessizce devre disi birakir.
+- **scope:** AIOS'un insasi ve planlamasi icin. Yonetilen projelerde dosya-agirlikli is icin (Asama 4 knowledge-base yuku) yeniden degerlendirilebilir.
+- **strength:** partial
+- **alternative:** Sohbet planlar + Claude Code uygular; sureklilik GitHub deposu uzerinden.
+- **approved:** 2026-08-16

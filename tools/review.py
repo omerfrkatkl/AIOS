@@ -252,7 +252,8 @@ def mark_done(_) -> int:
 
 TRACKED = [
     "CLAUDE.md", "STATE.md", "DECISIONS.md", "REJECTED.md", "REQUIREMENTS.md",
-    "hooks/gate.py", "tools/reject.py", "tools/review.py", "tools/bundle.py",
+    "PROJECT-INSTRUCTIONS.md",
+    "hooks/gate.py", "tools/reject.py", "tools/review.py", "tools/bundle.py", "tools/decide.py",
     "tests/test_gate.py", "tests/diagnose_transcript.py",
     "adapters/claude-code/install.py", "adapters/claude-code/hook.json",
 ]

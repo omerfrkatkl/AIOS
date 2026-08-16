@@ -23,12 +23,14 @@ from pathlib import Path
 
 AIOS_DIR = Path(__file__).resolve().parents[1]
 
-DOCS = ["STATE.md", "CLAUDE.md", "DECISIONS.md", "REJECTED.md", "REQUIREMENTS.md"]
+DOCS = ["STATE.md", "CLAUDE.md", "PROJECT-INSTRUCTIONS.md", "DECISIONS.md",
+        "REJECTED.md", "REQUIREMENTS.md"]
 CODE = [
     "hooks/gate.py",
     "tools/reject.py",
     "tools/review.py",
     "tools/bundle.py",
+    "tools/decide.py",
     "tests/test_gate.py",
     "tests/diagnose_transcript.py",
     "adapters/claude-code/install.py",

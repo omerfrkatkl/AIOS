@@ -415,3 +415,17 @@
 - **Kabul edilen bedel:** Depo public, yani karar geçmişi ve `hook.json` içindeki kullanıcı adı görünür.
 - **Doğrulama:** 10 dosya çekildi, parmak izleri `--files` çıktısıyla birebir eşleşti; push edilmemiş iki dosya aynı kontrolde yakalandı.
 - **Kanıt:** `[gözlendi]`.
+
+## 2026-08-16 · Cowork degerlendirildi, sohbet + Claude Code korunuyor · T-B
+
+- **Karar:** AIOS'un insasi ve planlamasi sohbet + Claude Code bolunmesiyle surer. Cowork kullanilmaz. R-006 olarak REJECTED'a kaydedildi.
+- **Gerekçe:** Kapi bir Claude Code Stop hook'u; Cowork'te hook mekanizmasi yok ve is izole bulut ortaminda kosuyor. Gecis G32'yi sessizce devre disi birakir ve kayboldugu fark edilmez.
+- **Alternatifler:** Cowork'e gecmek (elendi: G32 sessizce kaybolur) · Her ikisini kullanmak (elendi: iki onay yuzeyi)
+- **Geri alma:** Ucuz - adapters/cowork/ yazilabilir, ama zorlayacak kanca yoksa yazacak sey de yok
+- **Kanıt:** `[gözlendi]` — Anthropic destek dokumanlari incelendi
+
+## 2026-08-16 · decide.py kanit etiketi ASCII ve Ingilizce alias kabul ediyor · T-C
+
+- **Karar:** --evidence artik gozlendi/observed/uretildi/generated/varsayildi/assumed kabul ediyor, belgeye kanonik Turkce formu yaziliyor.
+- **Gerekçe:** Sohbette verilen ilk decide.py komutu calisamadi: secenek listesi Turkce diakritik istiyordu, komut ASCII yazilmisti. CLI token'inda diakritik olmasi kendi dil kuralimizla celisiyordu - makineye bakan her sey Ingilizce olmaliydi. Toleransli girdi, kanonik cikti.
+- **Kanıt:** `[gözlendi]` — Komut sessizce basarisiz oldu, Cowork girisi hic yazilmadi
