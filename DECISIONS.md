@@ -429,3 +429,9 @@
 - **Karar:** --evidence artik gozlendi/observed/uretildi/generated/varsayildi/assumed kabul ediyor, belgeye kanonik Turkce formu yaziliyor.
 - **Gerekçe:** Sohbette verilen ilk decide.py komutu calisamadi: secenek listesi Turkce diakritik istiyordu, komut ASCII yazilmisti. CLI token'inda diakritik olmasi kendi dil kuralimizla celisiyordu - makineye bakan her sey Ingilizce olmaliydi. Toleransli girdi, kanonik cikti.
 - **Kanıt:** `[gözlendi]` — Komut sessizce basarisiz oldu, Cowork girisi hic yazilmadi
+
+## 2026-08-16 · Gözden geçirildi · T-C
+
+- **Kapsam:** 57 karar gözden geçirildi.
+- **Onay bekleyen:** 0 (yok)
+- **Kanıt:** `[gözlendi]` — `tools/review.py --done`
