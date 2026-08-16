@@ -457,3 +457,11 @@
 - **Alternatifler:** git pre-commit kontrolu simdi yazmak (elendi: yasanmamis senaryo icin insaat, ~40 satir ama bakim yuku) · MCP sunucusu (elendi: model cagirmayi secmeli, hatirlamaya geri donus) · API sarmalayici (elendi: sohbet arayuzlerinde calismaz)
 - **Geri alma:** Ucuz - eslestirici zaten var, tek gereken farkli girdi kaynagi
 - **Kanıt:** `[gözlendi]` — S1/S2 arastirmasinda git seviyesindeki kontrol noktasi hic degerlendirilmemisti; bu bir arastirma bosluguydu
+
+## 2026-08-16 · Model yonlendirmesi: chat Opus 5 high, Claude Code Sonnet 5 · T-B
+
+- **Karar:** Chat tarafi Opus 5 / high effort. Claude Code Sonnet 5. Kapi eslesmesinde kapsam degerlendirmesi veya T-A karari gerekirse Claude Code gecici olarak Opus'a cikar. S7 kismen cevaplandi.
+- **Gerekçe:** G29: en guclu model her gorevde varsayilan degildir. Chat'te is mimari karar ve ince hata yakalama - yanlis karar pahali ve gec fark ediliyor. Claude Code'da is cogunlukla mekanik: komut, rapor, yapilandirilmis giris. Kota chat/Code/Cowork arasinda paylasiliyor, her yerde Opus haftalik siniri hizla yer. Extra high onerilmedi: bugunku hatalarin hicbiri dusunme derinligi eksikliginden degildi, disiplin ve dogrulama hatalariydi - dosyalar duzeltti, efor degil.
+- **Alternatifler:** Her yerde Opus (elendi: kota, ve mekanik iste kazanc kanitlanmadi) · Her yerde Sonnet (elendi: mimari kararda risk, geri alma maliyeti yuksek)
+- **Geri alma:** Ucuz - ayar degisikligi
+- **Kanıt:** `[varsayıldı]` — Olculmemis; yanlislama testi review.py'nin bozuk giris veya yanlis katman siniflandirmasi gostermesi
