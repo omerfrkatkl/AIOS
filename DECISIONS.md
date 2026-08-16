@@ -449,3 +449,11 @@
 - **Karar:** Kural 13: asama freni hem sayiya hem takvime baglanir. Kural 14: onceki konusmanin yeni konusmayi incelemesi gerekiyorsa dosyalarda eksik satir var demektir - konusma degil dosya duzeltilir.
 - **Gerekçe:** Yeni sohbete 'itirazlarimi tasi' denmisti; her konusma bir oncekinin onayina muhtacsa handoff olceklenmiyor. Inceleme yorumu artik eksik satirin dedektoru.
 - **Kanıt:** `[gözlendi]`
+
+## 2026-08-16 · Zorlama araca ozgu kalir; evrensel yedek tetikleyiciye baglandi · T-B
+
+- **Karar:** Kapi Claude Code hook'unda kalir. git pre-commit veya CI seviyesinde evrensel bir kontrol noktasi SIMDI yazilmaz; tetikleyicisi baska bir AI araciyla AIOS uzerinde calisilmaya baslanmasi.
+- **Gerekçe:** Zorlama bir kontrol noktasi gerektirir ve kontrol noktalari araclara aittir. Takas: erken kontrol noktasi etkili ama araca ozgu, gec olan tasinabilir ama yalnizca eyleme donusmus olani yakalar. Bilgi zaten tamamen tasinabilir (markdown), yalnizca zorlama tasinmiyor - T4 ihlal edilmiyor. Surtunme gorulmeden mekanizma kurulmaz.
+- **Alternatifler:** git pre-commit kontrolu simdi yazmak (elendi: yasanmamis senaryo icin insaat, ~40 satir ama bakim yuku) · MCP sunucusu (elendi: model cagirmayi secmeli, hatirlamaya geri donus) · API sarmalayici (elendi: sohbet arayuzlerinde calismaz)
+- **Geri alma:** Ucuz - eslestirici zaten var, tek gereken farkli girdi kaynagi
+- **Kanıt:** `[gözlendi]` — S1/S2 arastirmasinda git seviyesindeki kontrol noktasi hic degerlendirilmemisti; bu bir arastirma bosluguydu
