@@ -465,3 +465,17 @@
 - **Alternatifler:** Her yerde Opus (elendi: kota, ve mekanik iste kazanc kanitlanmadi) · Her yerde Sonnet (elendi: mimari kararda risk, geri alma maliyeti yuksek)
 - **Geri alma:** Ucuz - ayar degisikligi
 - **Kanıt:** `[varsayıldı]` — Olculmemis; yanlislama testi review.py'nin bozuk giris veya yanlis katman siniflandirmasi gostermesi
+
+## 2026-08-17 · Asama 4 yanlislanabilir testi sabitlendi · T-B
+
+- **Karar:** O1 output/ altinda derlenmis tek sayfalik PDF, en gec 3. calisma oturumu VEYA 14 gun icinde - hangisi once gelirse. O2 oturum 2 acilisinda yeniden anlatilan olgu <=1 ve ilk uretken komuta <=15 dk, oturum icinde aninda yazilan T-C girisiyle olculur. O3 dilim boyunca DECISIONS girisi 2-8 bandinda ve acilan T-A <=1. O4 AIOS disi iste kapsam disi BLOCKED <=1, asama basi canary satir sayisindan itibaren. Asama 4 icin yeni arac yazilmaz; her olcu baska amacla uretilen artefaktan okunur. Fren dolarsa asama uzatilmaz, negatif bulguyla kapanir.
+- **Gerekçe:** Esikler veri gorulmeden sabitlendi. Yeni olcum araci yazmak asamanin kendi amacini yer ve olcumu olctugunden bagimsiz kilmaz. O3 kasten iki tarafli: alt sinir 'protokolu atlamak daha hizli' kill cumlesinin dedektoru, ust sinir protokolun ise tasmasinin. Olcut-4 (yavaslatmama) OLCULMUYOR - karsi-olgusal A/B ikinci kosuyu birincinin ogrenmesiyle kirletir; O3 yalnizca vekil, olcut-4 2026-11-15'e kadar varsayildi kalir.
+- **Alternatifler:** Tek yonlu O3 esigi (elendi: az yazarak oynanabilir) · Karsi-olgusal A/B ile olcut-4 olcumu (elendi: kirlenme ve iki kat maliyet) · Yalnizca oturum sayisina bagli fren (elendi: uc oturum bir ayi bulabilir, onceki proje boyle batti)
+- **Geri alma:** Ucuz simdi, veri geldikten sonra esik donuyor
+- **Kanıt:** `[varsayıldı]`
+
+## 2026-08-17 · Acik risk: CLAUDE.md yuklenmiyor olabilir · T-C
+
+- **Karar:** Claude Code Documents/Projects kokunde basliyor ve kurallarini calisma dizininden okuyor; AIOS/CLAUDE.md bir seviye altta. Kurallar hic yuklenmemis olabilir. Asama 4 mutabakat kontrolunde dogrulanacak.
+- **Gerekçe:** Bugune kadar isleyen protokol, modele 'dosyalari oku' dendigi icin islemis olabilir - yani yarisi tesadufen calisiyor olabilir. Onceki turda bu risk dosyalara yazilacakti, yazilmadi; kural 14'un tarif ettigi hatanin kendisi.
+- **Kanıt:** `[varsayıldı]`
