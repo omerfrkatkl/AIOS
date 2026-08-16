@@ -1,0 +1,17 @@
+{
+  "_comment": "AIOS kapısının Claude Code adaptörü. Kaynak burasıdır; ~/.claude/settings.json bunun kurulmuş izidir. install.py ile birleştirilir.",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"C:\\Users\\Atakul\\Documents\\Projects\\AIOS\\hooks\\gate.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
