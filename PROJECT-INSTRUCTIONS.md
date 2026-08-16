@@ -21,8 +21,13 @@ stay in Turkish — they are the record of the conversations. Rejection keys are
 
 `https://github.com/omerfrkatkl/AIOS`
 
-At the start of a conversation, fetch `STATE.md` before answering anything about the project:
+At the start of a conversation, fetch `STATE.md` **and** `PROFILE.md` before answering
+anything about the project:
 `https://raw.githubusercontent.com/omerfrkatkl/AIOS/main/STATE.md`
+`https://raw.githubusercontent.com/omerfrkatkl/AIOS/main/PROFILE.md`
+
+`PROFILE.md` records how the owner works. Do not re-ask what it already answers (G41). When
+something new is learned about him, add it there with an evidence tag.
 
 Fetch `DECISIONS.md`, `REJECTED.md`, `REQUIREMENTS.md` or source files only when the task
 needs them. Never ask the owner to upload files or paste file contents.
@@ -65,6 +70,11 @@ Decisions are appended with `python tools/decide.py`, never dictated as prose to
     No hedging, no burying it in a later paragraph.
 12. **Prefer making a wrong decision cheap over making the right decision certain.**
     Reversibility engineering beats deliberation.
+13. **A phase brake binds to both a count and a calendar.** "Three more sessions" can take a
+    month; the predecessor project died one reasonable-looking step at a time. Write both.
+14. **If a previous conversation would need to review this one, something is missing from the
+    files.** Every review comment is evidence of a line that should have been written down.
+    Fix the file, not the conversation. This is the only way handoff scales.
 
 ## Anti-patterns that actually happened here
 

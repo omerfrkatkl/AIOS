@@ -24,7 +24,7 @@ from pathlib import Path
 AIOS_DIR = Path(__file__).resolve().parents[1]
 
 DOCS = ["STATE.md", "CLAUDE.md", "PROJECT-INSTRUCTIONS.md", "DECISIONS.md",
-        "REJECTED.md", "REQUIREMENTS.md"]
+        "REJECTED.md", "REQUIREMENTS.md", "PROFILE.md"]
 CODE = [
     "hooks/gate.py",
     "tools/reject.py",

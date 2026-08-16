@@ -435,3 +435,17 @@
 - **Kapsam:** 57 karar gözden geçirildi.
 - **Onay bekleyen:** 0 (yok)
 - **Kanıt:** `[gözlendi]` — `tools/review.py --done`
+
+## 2026-08-16 · PROFILE.md eklendi; kullanici tanima yol haritasina girdi · T-B
+
+- **Karar:** PROFILE.md olusturuldu, her oturum basinda STATE ile birlikte okunuyor. Adaptive discovery mekanizmasi (G40-G43) yol haritasinda eksikti; simdilik gozlemler yaziliyor, soru sorma mekanizmasi sonraki asamada.
+- **Gerekçe:** Sahibe dair her sey sohbetin icindeydi ve hicbir yerde yazili degildi; konusma bitince kaybolacakti - G14 ihlali. Mekanizma kurulmadan once elde olani kaybetmemek onceligi.
+- **Alternatifler:** Mekanizmayi once kurmak (elendi: bu konusma bitmeden veri kayboluyor) · Ertelemeye devam (elendi: zaten unutulmustu, yol haritasinda hicbir asamada yoktu)
+- **Geri alma:** Ucuz
+- **Kanıt:** `[gözlendi]`
+
+## 2026-08-16 · Talimatlara asama freni ve inceleme kurali eklendi · T-C
+
+- **Karar:** Kural 13: asama freni hem sayiya hem takvime baglanir. Kural 14: onceki konusmanin yeni konusmayi incelemesi gerekiyorsa dosyalarda eksik satir var demektir - konusma degil dosya duzeltilir.
+- **Gerekçe:** Yeni sohbete 'itirazlarimi tasi' denmisti; her konusma bir oncekinin onayina muhtacsa handoff olceklenmiyor. Inceleme yorumu artik eksik satirin dedektoru.
+- **Kanıt:** `[gözlendi]`
