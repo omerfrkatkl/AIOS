@@ -77,7 +77,8 @@ yalnızca `ledger/BRIEF.md` okunur.
 **Kapı (G32/G12)** — `REJECTED.md` + Stop hook. Ateşliyor, okuyor, bloke ediyor; modelin
 bilmediği bir reddi yakaladığı **gözlendi** (R-002/Zep). Test 11/11 · 0/12. Uzun oturum
 uyarısı: 120k karakter + dışarı yazılmamışsa bir kez. Hook komutu 2026-08-23'te
-`uv run --no-project python`'a bağlandı; komut satırı kanıtlandı, canlı ateşleme `[varsayıldı]`.
+`uv run --no-project python`'a bağlandı; canlı oturumlarda ateşlendiği gözlendi (canary,
+2026-08-23).
 
 **Onarım dedektörü** — `review.py` `Projects/CLAUDE.md` işaretçisini denetler (bir kez
 sessizce silinmişti `[gözlendi]`). Vizyon uyum görüntüsü `VISION-ANALYSIS.md`'de.
