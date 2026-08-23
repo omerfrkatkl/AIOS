@@ -39,51 +39,57 @@
 | 1 | Bilgi mimarisi | ✅ süreklilik testiyle kanıtlandı |
 | 2 | Karar sınırı ve görünürlüğü | ✅ `review.py` |
 | 3 | Context ve handoff | ✅ G12 · G13 · G14 |
-| **4** | **Doğrulama pilotu — knowledge-base döner** | **sürüyor — oturum 1/≤3 bitti** |
+| **4** | **Doğrulama pilotu — knowledge-base döner** | **oturum 2/≤3 bitti, O1 karşılandı** |
+| **4b** | **İkinci doğrulama yükü — `ledger` (AIOS sürer)** | **açılış bekliyor** |
 | 5–8 | Araştırma · planlama · review · yürütme | sonra |
 | 9+ | Self-improvement · salt-okunur panel | sonra |
 
-**Aşama 4'ün amacı AIOS'u ölçmek, PDF'i mükemmelleştirmek değil.** Yük harness'ı sürer;
-değerlendirme AIOS'un davranışına bakar, çıktının kalitesine değil. Bu ayrım bir kez kaydı.
+**Aşama 4 AIOS'u ölçer, PDF'i mükemmelleştirmek değil** — değerlendirme davranışa bakar,
+çıktı kalitesine değil.
 
 **Yanlışlanabilir test `[karar 2026-08-17]`:** O1 tek sayfalık PDF ≤3. oturum VEYA 14 gün
 (hangisi önce). O2 oturum 2 açılışında yeniden anlatılan olgu ≤1, ilk üretken komuta ≤15 dk.
 O3 dilim boyunca DECISIONS girişi 2–8, açılan T-A ≤1. O4 kapsam dışı BLOCKED ≤1, taban
 canary satırı = 10 (2026-08-17). Fren dolarsa aşama uzatılmaz, negatif bulguyla kapanır.
 
-**Oturum 1 (2026-08-17) bitti:** `knowledge-base/output/items.md` typst lehçesine çevrildi
-(`$$...$$` ve `\,` kaldırıldı), üç öğe (Theorem 3.2.4, general solution, fundamental set of
-solutions) kaynak s. 114 ile birebir karşılaştırılıp değişmeden korundu. Şablon yazılmadı,
-derleme yapılmadı — kasıtlı, oturum 2'nin işi.
+**Oturum 1 (2026-08-17):** `items.md` typst'e çevrildi; üç öğe kaynakla korundu. Ayrıntı
+DECISIONS'ta.
 
-**Oturum 2 buradan başlar:** typst şablonu yaz, `items.md`'deki üç öğeyi tek sayfada derle,
-`typst compile` sıfır dönene kadar doğrula (existence-proof yetmez). L[y] köşeli parantezinin
-ve otomatik operatör boşluklamasının derlemede görsel olarak beklendiği gibi çıktığını kontrol
-et — bu ikisi `[varsayıldı]` kaldı.
+**Oturum 2 (2026-08-23):** Gerçek yol `Projects/KB/` — "knowledge-base" klasör adı değildi.
+`main.typ` yazılıp derlendi (KB'nin olgun `template.typ`'i kasıtlı atlandı — DECISIONS'ta).
+**O1 karşılandı:** çıkış kodu 0, sayfa sayısı 1 `[gözlendi]`; L[y] parantezi ve operatör
+boşluklaması görsel doğrulandı — iki `[varsayıldı]` `[gözlendi]` oldu. Sahip dilimi paralel
+kendisi yaptığı için **ikinci yük açıldı: `ledger`** — iş bu kez AIOS tarafından taşınır.
+
+**Oturum 3 (varsa):** O2-O4 açık; aşamayı kapatmak sahibin onayına bırakıldı.
+
+**4b yanlışlanabilir test `[karar 2026-08-23]`:** P1 çalışan, kurulup çalıştırılabilir CLI
+≤3 çalışma oturumu VEYA 2026-09-30 (hangisi önce). P2 teknik seçimler (depolama biçimi,
+CLI çatısı) sahibeye sorulmadan AIOS tarafından kapatılır; DECISIONS'ta ≥2 alternatif +
+gerekçeyle kayıtlı olur. P3 dilim boyunca ledger girişi DECISIONS'ta 2–8 bandında, açılan
+T-A ≤1. Fren dolarsa negatif bulguyla kapanır. Açılış yeni oturumda, sıfır bağlamla:
+yalnızca `ledger/BRIEF.md` okunur.
 
 ---
 
 ## 3. Çalışan yetenekler
 
 **Kapı (G32/G12)** — `REJECTED.md` + Stop hook. Ateşliyor, okuyor, bloke ediyor; modelin
-bilmediği bir reddi yakaladığı **gözlendi** (R-002/Zep). Uzun oturum uyarısı: 120k karakter
-**ve** oturum boyunca `STATE`/`DECISIONS` yazılmamışsa bir kez. Test 11/11 · 0/12.
-Hook komutu 2026-08-23'te `uv run --no-project python`'a bağlandı (bare python kırıktı);
-komut satırı kanıtlandı, Claude Code restart sonrası canlı ateşleme `[varsayıldı]`.
+bilmediği bir reddi yakaladığı **gözlendi** (R-002/Zep). Test 11/11 · 0/12. Uzun oturum
+uyarısı: 120k karakter + dışarı yazılmamışsa bir kez. Hook komutu 2026-08-23'te
+`uv run --no-project python`'a bağlandı; komut satırı kanıtlandı, canlı ateşleme `[varsayıldı]`.
 
-**Onarım dedektörü** — `review.py` artık `Projects/CLAUDE.md` işaretçisini de denetliyor
-(yokluk/STALE uyarır); işaretçi bir kez sessizce silinmişti `[gözlendi]`. Vizyon uygunluk
-görüntüsü `VISION-ANALYSIS.md`'de; her faz planlamasında tazelenir.
+**Onarım dedektörü** — `review.py` `Projects/CLAUDE.md` işaretçisini denetler (bir kez
+sessizce silinmişti `[gözlendi]`). Vizyon uyum görüntüsü `VISION-ANALYSIS.md`'de.
 
 **Kaydetme** — `tools/reject.py --add|--approve|--status`. Kayıt `PENDING` doğar ve kapıda
 etkisizdir; yalnızca sahip aktive eder. 21 gün kayıt yoksa bayatlama uyarısı.
 
-**Görünürlük** — `tools/review.py`. Onay bekleyenler, katman dağılımı, bozuk `kapatır:`
-bağlantıları, `STATE` bayatlığı ve tavanı, banka sağlığı. `--files` parmak izi verir.
-Sağlıklıyken sessizdir.
+**Görünürlük** — `tools/review.py`: bekleyen onaylar, katmanlar, DANGLING `kapatır:`,
+STATE bayatlığı/tavanı, banka sağlığı; sağlıklıyken sessiz. `--files` parmak izi verir.
 
-**İş bölümü:** `DECISIONS.md`'yi **Claude Code yazar** — sohbetten kopya gönderilmez, sapma
-kaynağıydı. Kod dosyaları sohbette üretilir, parmak izi ile doğrulanır.
+**İş bölümü:** `DECISIONS.md`'yi Claude Code yazar — sohbetten kopya gönderilmez.
+Kod sohbette üretilir, parmak iziyle doğrulanır.
 
 ---
 
@@ -92,8 +98,7 @@ kaynağıydı. Kod dosyaları sohbette üretilir, parmak izi ile doğrulanır.
 Açık T-A yok, onay bekleyen yok. **T-A/1** (iş birimi = tek yetenek + yanlışlanabilir test) ve
 **T-A/2** (AIOS/PROJECT/ENVIRONMENT sınırı) 2026-08-16'da kapandı.
 
-> Bu bölüm bir zamanlar iki ayrı liste içeriyordu ve yeni bir oturum ikisini birleştirip bir
-> kararı düşürdü `[gözlendi]`. Benzer görünen iki liste yan yana durmayacak.
+> Benzer görünen iki liste yan yana durmaz — bir kez birleştirilip bir karar düşürülmüştü `[gözlendi]`.
 
 ---
 

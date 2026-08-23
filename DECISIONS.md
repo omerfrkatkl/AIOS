@@ -528,3 +528,31 @@
 - **Alternatifler:** Yalnizca Claude Code ile sinirlanmak (elendi: temel amacin ta kendisini reddeder) · Kapıyi arac-bagimsiz hale getirmeye simdi baslamak (elendi: zorlama mekanizmasi araclara ait; evrensel yedek tetikleyici karari 2026-08-16'da sureklemede)
 - **Geri alma:** Ucuz - opencode spike'i red gerekcesiyle kapanabilir
 - **Kanıt:** `[üretildi]`
+
+## 2026-08-23 · items.md'nin gerçek konumu KB reposuydu, "knowledge-base" değil · T-C
+
+- **Gözlem:** Oturum 2 açılışında `AIOS/knowledge-base/output/items.md` mevcut değildi. Dosya `Projects/KB/output/items.md` altında bulundu — proje klasörünün gerçek adı `KB`, oturum 1 notlarındaki "knowledge-base/output/" ifadesi klasör adı değil proje betimlemesiydi. Bulmak birkaç `find` komutu gerektirdi; O2'nin "yeniden anlatılan olgu" ölçütü kapsamında değil (olgu tekrar anlatılmadı, sadece yol arandı) ama gelecekte karışıklığı önlemek için kayda geçti.
+- **Eylem:** Bundan sonra bu dilimin çalışma dizini `Projects/KB/` olarak anılacak.
+- **Kanıt:** `[gözlendi]`
+
+## 2026-08-23 · Aşama 4 oturum 2: main.typ yazıldı, üç öğe tek sayfada derlendi — O1 karşılandı · T-C
+
+- **Karar:** `KB/output/main.typ` — bağımsız, minimal bir şablon — yazıldı ve `typst compile` ile `KB/output/main.pdf` üretildi. KB projesinin kendi `template/template.typ`'i (thm/def kutuları, rozetler, kapak sayfası) kasıtlı kullanılmadı.
+- **Gerekçe:** `template.typ`'in `project()` sarmalayıcısı `title` boş bırakılsa bile satır 335-336'da koşulsuz `outline()` + `pagebreak()` çağırıyor — bu tek sayfa hedefiyle doğrudan çelişiyor. Kutu/rozet/renk sistemi ayrıca bu pilotun kapsam dışı bıraktığı "typografi ayarı" alanına giriyor. Paylaşılan KB altyapısını (başka fixture'ların ve Complex Analysis derlemesinin de kullandığı) bu pilot için değiştirmek riskli ve kapsam dışıydı; bağımsız minimal dosya yazmak ucuz ve geri alınabilirdi.
+- **Doğrulama:** `typst compile` çıkış kodu 0 `[gözlendi]`. `pymupdf` ile sayfa sayısı = 1 `[gözlendi]`. Görsel önizleme (150 dpi PNG) kontrol edildi: `L[y]` köşeli parantezi literal karakter olarak beklenen gibi göründü, `+`/`=` çevresinde otomatik operatör boşluklaması beklenen gibi çalıştı — 2026-08-17 tarihli iki `[varsayıldı]` madde artık `[gözlendi]`.
+- **kapatır:** 2026-08-17/Asama 4 yanlislanabilir testi sabitlendi (yalnızca O1 ölçütü: tek sayfalık PDF ≤3. oturum VEYA 14 gün — 2 oturum, 6 gün içinde karşılandı; O2-O4 hâlâ açık, sahibin gözden geçirmesi bekleniyor)
+- **Kanıt:** `[gözlendi]`
+
+## 2026-08-23 · Yukarıdaki kapatır satırı review.py regex'iyle eşleşmiyor, düzeltme yeni girişle · T-C
+
+- **Gözlem:** `tools/review.py`'deki `CLOSES` regex'i (`^\s*-\s+\*\*kapatır:\*\*\s*(\d{4}-\d{2}-\d{2})/(.+?)\s*$`) satır sonuna kadar her şeyi başlık sayıyor. Bir önceki girişteki kapatır satırı başlıktan sonra parantezli açıklama içeriyordu, bu yüzden tam eşleşmedi ve `review.py --full` onu DANGLING olarak raporladı. `DECISIONS.md` append-only olduğu için o satır düzeltilmedi; doğru biçim tek başına aşağıda tekrarlanıyor.
+- **kapatır:** 2026-08-17/Asama 4 yanlislanabilir testi sabitlendi
+- **Kanıt:** `[gözlendi]`
+
+## 2026-08-23 · Ikinci dogrulama yuku secildi: ledger · T-B
+
+- **Karar:** Projects/ledger/ altinda kisisel gelir-gider CLI'i; is AIOS tarafindan tasinir. Yanlislanabilir test STATE yol haritasinda sabitlendi (P1-P3, esikler veri gorulmeden).
+- **Gerekçe:** Sahip KB dilimini paralel kendisi yaptigi icin 'AIOS-un surdugu is' kaniti zayifladi ve boylece istedi: 'baska bir proje ile test edilsin, onemli olan AIOS'. Ledger secildi cunku: dogal olarak cok oturumluya bolunur, gercek kullanim degeri var, ve teknik secim karari (depolama/CLI catisi) G43'u - teknoloji kararlarinin sahibeye itilmemesi - ilk kez gercekten sinar. KB bu testi hic koymamisti.
+- **Alternatifler:** Formul/flashcard calisma araci (canli tutuldu; sahip isterse degisir) · AIOS'un kendi panel spike'i (elendi: OS'in zayifligi ile yukun zayifliginin karismasi riski - pilot yuk secimindeki ucuncu gerekcenin aynisi)
+- **Geri alma:** Ucuz - ilk hafta icinde degistirilebilir, tek klasor
+- **Kanıt:** `[gözlendi]` — Sahibin acik talimati 2026-08-23

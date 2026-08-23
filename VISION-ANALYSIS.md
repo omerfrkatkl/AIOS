@@ -51,13 +51,16 @@ taramada **sessizce kırık bulundu ve onarıldı** — kırılganlığın dersi
 
 ## 5. Sahibin yön kararı (2026-08-23, bu oturum)
 
-**"Ana araç diye bir şey olmamalı."** Araç değişse sistem unutmadan devam etmeli.
-Bu, T4'ü tercihten gereksinime taşıyan beyandır. Sonuçları:
+**"Ana araç yok" ilkesi** — araç değişse sistem unutmadan devam etmeli. Sonuçları:
 
 1. Kapının araca-bağlı tetikleyicisi kabul edilen bir sınır olarak kalıyor (adaptör
    deseni, 2026-08-15) — ama her kullanılan araç için adaptör *gereksinim* haline gelir.
    opencode şu an kullanımda → **Faz 2a: opencode kapı adaptörü spike'ı (≤ yarım gün)**.
 2. REQUIREMENTS'ta T4 → gereksinim yükseltmesi önerisi (sahip onayına açık).
+
+**"İkinci yük" kararı (2026-08-23):** sahip KB dilimini paralel kendisi yaptığı için
+AIOS-un sürdüğü iş kanıtı zayıftı → `Projects/ledger/` açıldı; iş AIOS tarafından taşınır
+(G43'ün ilk gerçek sınavı). Yanlışlanabilir test STATE 4b'de: P1–P3, fren 2026-09-30.
 
 ## 6. Açık varsayımlar / riskler
 

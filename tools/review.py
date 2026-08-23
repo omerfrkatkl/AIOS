@@ -300,6 +300,13 @@ def fingerprints(_) -> int:
 
 
 def main() -> int:
+    # Decision titles are Turkish free text (≤, ş, ğ...). The Windows console
+    # defaults to a legacy codepage and crashes on unencodable characters -
+    # same failure class already fixed in gate.py, now hit in production
+    # via a DANGLING key containing '≤'.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
     p = argparse.ArgumentParser(description="Weekly decision review")
     p.add_argument("--full", action="store_true", help="show pending items in full")
     p.add_argument("--done", action="store_true", help="record that a review happened")
