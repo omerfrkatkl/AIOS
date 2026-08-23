@@ -166,6 +166,25 @@ def ledger_health() -> str:
     return f"REJECTED: {len(approved)} active · last record {gap} days ago{flag}"
 
 
+POINTER = AIOS_DIR.parent / "CLAUDE.md"
+POINTER_IMPORT = "@AIOS/CLAUDE.md"
+
+
+def rules_pointer_health() -> list[str]:
+    """Sessions may start one level up (Documents/Projects), where the agent
+    reads ./CLAUDE.md. That pointer lives outside this repo and once vanished
+    silently - the 2026-08-17 fix was found gone on 2026-08-23. Nothing else
+    detects its absence, so the weekly review does."""
+    problems = []
+    if not POINTER.exists():
+        problems.append(
+            f"rules pointer MISSING - {POINTER} "
+            "(sessions starting at Projects root load no rules)")
+    elif POINTER_IMPORT not in POINTER.read_text(encoding="utf-8"):
+        problems.append(f"rules pointer STALE - {POINTER} does not contain {POINTER_IMPORT}")
+    return problems
+
+
 def summarise(full: bool) -> int:
     entries = parse_decisions()
     if not entries:
@@ -208,6 +227,7 @@ def summarise(full: bool) -> int:
             lines.append(f"  ? {key}")
 
     lines.extend(handoff_health(entries))
+    lines.extend(rules_pointer_health())
     lines.append(ledger_health())
 
     for line in lines:
@@ -252,7 +272,7 @@ def mark_done(_) -> int:
 
 TRACKED = [
     "CLAUDE.md", "STATE.md", "DECISIONS.md", "REJECTED.md", "REQUIREMENTS.md",
-    "PROJECT-INSTRUCTIONS.md", "PROFILE.md",
+    "PROJECT-INSTRUCTIONS.md", "PROFILE.md", "vision.md", "VISION-ANALYSIS.md",
     "hooks/gate.py", "tools/reject.py", "tools/review.py", "tools/bundle.py", "tools/decide.py",
     "tests/test_gate.py", "tests/diagnose_transcript.py",
     "adapters/claude-code/install.py", "adapters/claude-code/hook.json",

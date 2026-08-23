@@ -82,7 +82,7 @@ to the owner. **False suppression costs more than repeating a proposal.**
 When the owner rejects a proposal, **you** draft the record:
 
 ```
-python tools/reject.py --add --title "..." --keys "türkçe ifade|english phrase|third" \
+uv run --no-project python tools/reject.py --add --title "..." --keys "türkçe ifade|english phrase|third" \
        --reason "..." --scope "where it applies" --strength firm|partial --alternative "..."
 ```
 
@@ -91,8 +91,8 @@ python tools/reject.py --add --title "..." --keys "türkçe ifade|english phrase
 - **Always write a scope.** The ledger is not a veto list; without a scope it suppresses good
   ideas too.
 - A record starts as `approved: PENDING` and is **inert at the gate**. Only the owner may
-  activate it: `python tools/reject.py --approve R-NNN`. You may not approve records.
-- Ledger health: `python tools/reject.py --status`
+  activate it: `uv run --no-project python tools/reject.py --approve R-NNN`. You may not approve records.
+- Ledger health: `uv run --no-project python tools/reject.py --status`
 
 ## Decision visibility  `[G4]`
 
@@ -110,7 +110,7 @@ A closing entry carries supersession links:
 decision as pending forever. Whenever the owner approves or rejects something, write the
 closing entry with one `kapatır:` line per item.
 
-Weekly review: `python tools/review.py` (add `--full` to expand pending items,
+Weekly review: `uv run --no-project python tools/review.py` (add `--full` to expand pending items,
 `--done` to record that a review happened). Recording a review is **not** approving anything.
 
 ## Verification

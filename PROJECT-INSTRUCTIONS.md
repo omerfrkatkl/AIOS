@@ -31,6 +31,13 @@ something new is learned about him, add it there with an evidence tag.
 
 Fetch `DECISIONS.md`, `REJECTED.md`, `REQUIREMENTS.md` or source files only when the task
 needs them. Never ask the owner to upload files or paste file contents.
+`https://raw.githubusercontent.com/omerfrkatkl/AIOS/main/DECISIONS.md`
+`https://raw.githubusercontent.com/omerfrkatkl/AIOS/main/REJECTED.md`
+`https://raw.githubusercontent.com/omerfrkatkl/AIOS/main/CLAUDE.md`
+`https://raw.githubusercontent.com/omerfrkatkl/AIOS/main/REQUIREMENTS.md`
+
+Always fetch the raw URL, never a `github.com/.../blob/...` page. Blob pages can return a
+cached, stale copy of the file; the chat has silently reported outdated content this way.
 
 ## Roles
 
@@ -100,12 +107,12 @@ Keep responses dense and short. One question at most, only when the answer chang
 
 | Command | Does |
 |---|---|
-| `python tools/review.py` | Weekly review: pending approvals, tiers, staleness, ledger health |
-| `python tools/review.py --files` | Fingerprint of every tracked file — use to detect drift |
-| `python tools/decide.py` | Append a decision entry in the exact expected format |
-| `python tools/reject.py --add\|--approve\|--status` | The rejection ledger |
-| `python tools/bundle.py` | Single-file handoff, fallback when the repo is unreachable |
-| `python tests/test_gate.py` | Gate matching test — 11/11 catch, 0/12 false positive |
+| `uv run --no-project python tools/review.py` | Weekly review: pending approvals, tiers, staleness, ledger health |
+| `uv run --no-project python tools/review.py --files` | Fingerprint of every tracked file — use to detect drift |
+| `uv run --no-project python tools/decide.py` | Append a decision entry in the exact expected format |
+| `uv run --no-project python tools/reject.py --add\|--approve\|--status` | The rejection ledger |
+| `uv run --no-project python tools/bundle.py` | Single-file handoff, fallback when the repo is unreachable |
+| `uv run --no-project python tests/test_gate.py` | Gate matching test — 11/11 catch, 0/12 false positive |
 
 A Stop hook scans every Claude Code response against `REJECTED.md` and blocks on a match. It
 fires whether or not anyone remembers it. When it reports a match, surface it to the owner and

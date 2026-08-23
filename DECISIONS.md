@@ -479,3 +479,52 @@
 - **Karar:** Claude Code Documents/Projects kokunde basliyor ve kurallarini calisma dizininden okuyor; AIOS/CLAUDE.md bir seviye altta. Kurallar hic yuklenmemis olabilir. Asama 4 mutabakat kontrolunde dogrulanacak.
 - **Gerekçe:** Bugune kadar isleyen protokol, modele 'dosyalari oku' dendigi icin islemis olabilir - yani yarisi tesadufen calisiyor olabilir. Onceki turda bu risk dosyalara yazilacakti, yazilmadi; kural 14'un tarif ettigi hatanin kendisi.
 - **Kanıt:** `[varsayıldı]`
+
+## 2026-08-17 · Sohbetin depo okumasi sessizce bayat donebiliyor · T-C
+
+- **Karar:** github.com blob sayfasi DECISIONS.md'nin 417 satirlik eski kopyasini iki kez dondu; makinede 482 satir, git status temiz, push up-to-date.
+- **Gerekçe:** Yakalayan sey review.py --files satir sayisi karsilastirmasiydi, baska hicbir sinyal yoktu. 2026-08-16 tarihli 'durum aktarimi GitHub deposu uzerinden' karari bu sorunu kapattigini varsayiyordu; kapatmiyor. Duzeltme 3. adimda.
+- **Kanıt:** `[gözlendi]`
+
+## 2026-08-17 · Asama 4 basladi; CLAUDE.md yukleme riski kapatildi · T-C
+
+- **Karar:** Oturum 1 = 2026-08-17, takvim freni 2026-08-31. O4 icin canary taban satir sayisi = 10.
+- **Gerekçe:** 2026-08-17 tarihli risk dogrulandi: Documents/Projects/CLAUDE.md yoktu, ~/.claude/CLAUDE.md de yoktu -- kural zinciri Projects kokunden baslayan oturumlarda AIOS/CLAUDE.md'ye ulasmiyordu. Duzeltme: Documents/Projects/CLAUDE.md olusturuldu, tek satirlik isaretci AIOS/CLAUDE.md'ye.
+- **kapatır:** 2026-08-17/Acik risk: CLAUDE.md yuklenmiyor olabilir
+- **Kanıt:** `[gözlendi]`
+
+## 2026-08-17 · items.md typst lehcesine cevrildi, uc oge sabit kaldi · T-C
+
+- **Karar:** Ayni uc oge korundu (Teorem 3.2.4, general solution, fundamental set of solutions) - kaynak sayfa 114 ile birebir karsilastirildi, secim degismedi. Matematik LaTeX'ten typst'e cevrildi: iki adet $$...$$ blogu bosluklu tek $ isaretine indirgendi (typst blok/satir-ici ayrimini cevre bosluk belirler), uc adet \, ince-bosluk komutu silindi.
+- **Gerekçe:** Belirsiz donusum tek nokta: L[y] kosegen parantezi typst'te matematik operatoru degil, duz karakter; buyuklugu icerige gore otomatik olceklenmiyor ama tek harfli 'y' icin sorun yaratmiyor, kaynaktaki gosterim korundu. \, kaldirilirken typst'in operatorler arasina kendiliginden bosluk koydugu varsayildi, derleme oturumunda (session 2) gorsel olarak dogrulanacak.
+- **Kanıt:** `[varsayıldı]` — Typst'in otomatik operator bosluklamasi ve L[] literal parantez davranisi smoke test disinda dogrulanmadi; session 2'de compile ile kontrol edilecek.
+
+## 2026-08-23 · Gözden geçirildi · T-C
+
+- **Kapsam:** 5 karar gözden geçirildi.
+- **Onay bekleyen:** 0 (yok)
+- **Kanıt:** `[gözlendi]` — `tools/review.py --done`
+
+## 2026-08-23 · Kapi yorumlayicisi bare python'dan uv run'a baglandi · T-B
+
+- **Karar:** hook.json komutu 'uv run --no-project python ...gate.py' oldu; install.py yeniden kosuldu (8 anahtar korundu, yedek alindi).
+- **Gerekçe:** Bare python WindowsApps stub'ina cozumleniyordu ve Stop hook sessizce oluyordu - G32'nin zorlama katmani down. Sahip uv'u Scoop'la kurdu ve ayrica python indirilmemesini istedi; uv run kurulu yorumlayiciyi surumden bagimsiz kullanir.
+- **Alternatifler:** python3.12 shim adini yazmak (elendi: minor-surum adi AIOS sahipli adaptore gomulur, 3.14'e geciste sessiz kirilir) · interpreter tam yolu (elendi: makineye ozgul yol AIOS dosyasina girer, ENVIRONMENT sinirini gerer)
+- **Geri alma:** Ucuz - tek satir + install.py
+- **Kanıt:** `[gözlendi]` — Canary FIRED 2026-08-23T03:16:51 tam komutla; demo R-002 yakaladi. Claude Code restart sonrasi canli atesleme [varsayildi]
+
+## 2026-08-23 · CLAUDE.md isaretcisi kalici dedektorle yeniden olusturuldu · T-B
+
+- **Karar:** Documents/Projects/CLAUDE.md tek satirlik '@AIOS/CLAUDE.md' ile yeniden yazildi; review.py'ye uc-vakali kontrol eklendi (yoksa MISSING, referans yoksa STALE, saglikliyken sessiz).
+- **Gerekçe:** 2026-08-17'de olusturulan isaretci sessizce silinmisti; repo disinda oldugu icin git onu korumuyor. Dedektor olmadan ayni kayip tekrar eder - 2026-08-16'daki zamansal bayatlik dersinin aynisi: calisan sey de kanit ister.
+- **Alternatifler:** Isaretciyi git'e almak (elendi: AIOS deposu Projects kokune tasinamaz, Topoloji C) · install.py'ye eklemek (elendi: install yalnizca ENVIRONMENT'a dokunur, Projects kokune yazma kapsami farkli)
+- **Geri alma:** Ucuz - tek dosya + review.py fonksiyonu
+- **Kanıt:** `[üretildi]`
+
+## 2026-08-23 · Ana arac ilkesi: sistem arac bagimsiz devam etmeli · T-B
+
+- **Karar:** Sahibin beyani kayda gecti: 'ana arac diye bir sey olmamali' - arac degisse bile unutmadan ve context kaybetmeden devam etmek projenin temel amaci. Sonuc 1: Faz 2a olarak opencode kapı adaptoru spike'i acilir (ust sinir yarim gun). Sonuc 2: REQUIREMENTS'ta T4'un gereksinime yukseltilmesi onerisi sahibin onayina sunulur.
+- **Gerekçe:** Bu beyan T4'u tercih olmaktan cikarip gereksinime tasiyor. Kapinin Claude Code Stop hook'una bagli tetikleyicisi kabul edilmis bir sinir olarak kalir (adaptör deseni 2026-08-15); ama her fiilen kullanilan arac icin adaptör yazmak artik gereksinimdir - opencode su an kullanimda.
+- **Alternatifler:** Yalnizca Claude Code ile sinirlanmak (elendi: temel amacin ta kendisini reddeder) · Kapıyi arac-bagimsiz hale getirmeye simdi baslamak (elendi: zorlama mekanizmasi araclara ait; evrensel yedek tetikleyici karari 2026-08-16'da sureklemede)
+- **Geri alma:** Ucuz - opencode spike'i red gerekcesiyle kapanabilir
+- **Kanıt:** `[üretildi]`

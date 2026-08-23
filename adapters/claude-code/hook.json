@@ -7,7 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python \"C:\\Users\\Atakul\\Documents\\Projects\\AIOS\\hooks\\gate.py\"",
+            "command": "uv run --no-project python \"C:\\Users\\Atakul\\Documents\\Projects\\AIOS\\hooks\\gate.py\"",
             "timeout": 10
           }
         ]

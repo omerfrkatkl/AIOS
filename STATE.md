@@ -7,7 +7,7 @@
 | **Sahip** | Proje sahibi. Claude yerinde güncelleyebilir, sahip diff'i gözden geçirir. |
 | **Okuma tetikleyicisi** | Her oturum başında + haftalık gözden geçirmede |
 | **Tavan** | ~900 kelime. Aşarsa eklenmez, budanır. |
-| **Son güncelleme** | 2026-08-16 |
+| **Son güncelleme** | 2026-08-23 |
 
 ---
 
@@ -39,12 +39,27 @@
 | 1 | Bilgi mimarisi | ✅ süreklilik testiyle kanıtlandı |
 | 2 | Karar sınırı ve görünürlüğü | ✅ `review.py` |
 | 3 | Context ve handoff | ✅ G12 · G13 · G14 |
-| **4** | **Doğrulama pilotu — knowledge-base döner** | **sırada** |
+| **4** | **Doğrulama pilotu — knowledge-base döner** | **sürüyor — oturum 1/≤3 bitti** |
 | 5–8 | Araştırma · planlama · review · yürütme | sonra |
 | 9+ | Self-improvement · salt-okunur panel | sonra |
 
 **Aşama 4'ün amacı AIOS'u ölçmek, PDF'i mükemmelleştirmek değil.** Yük harness'ı sürer;
 değerlendirme AIOS'un davranışına bakar, çıktının kalitesine değil. Bu ayrım bir kez kaydı.
+
+**Yanlışlanabilir test `[karar 2026-08-17]`:** O1 tek sayfalık PDF ≤3. oturum VEYA 14 gün
+(hangisi önce). O2 oturum 2 açılışında yeniden anlatılan olgu ≤1, ilk üretken komuta ≤15 dk.
+O3 dilim boyunca DECISIONS girişi 2–8, açılan T-A ≤1. O4 kapsam dışı BLOCKED ≤1, taban
+canary satırı = 10 (2026-08-17). Fren dolarsa aşama uzatılmaz, negatif bulguyla kapanır.
+
+**Oturum 1 (2026-08-17) bitti:** `knowledge-base/output/items.md` typst lehçesine çevrildi
+(`$$...$$` ve `\,` kaldırıldı), üç öğe (Theorem 3.2.4, general solution, fundamental set of
+solutions) kaynak s. 114 ile birebir karşılaştırılıp değişmeden korundu. Şablon yazılmadı,
+derleme yapılmadı — kasıtlı, oturum 2'nin işi.
+
+**Oturum 2 buradan başlar:** typst şablonu yaz, `items.md`'deki üç öğeyi tek sayfada derle,
+`typst compile` sıfır dönene kadar doğrula (existence-proof yetmez). L[y] köşeli parantezinin
+ve otomatik operatör boşluklamasının derlemede görsel olarak beklendiği gibi çıktığını kontrol
+et — bu ikisi `[varsayıldı]` kaldı.
 
 ---
 
@@ -53,6 +68,12 @@ değerlendirme AIOS'un davranışına bakar, çıktının kalitesine değil. Bu 
 **Kapı (G32/G12)** — `REJECTED.md` + Stop hook. Ateşliyor, okuyor, bloke ediyor; modelin
 bilmediği bir reddi yakaladığı **gözlendi** (R-002/Zep). Uzun oturum uyarısı: 120k karakter
 **ve** oturum boyunca `STATE`/`DECISIONS` yazılmamışsa bir kez. Test 11/11 · 0/12.
+Hook komutu 2026-08-23'te `uv run --no-project python`'a bağlandı (bare python kırıktı);
+komut satırı kanıtlandı, Claude Code restart sonrası canlı ateşleme `[varsayıldı]`.
+
+**Onarım dedektörü** — `review.py` artık `Projects/CLAUDE.md` işaretçisini de denetliyor
+(yokluk/STALE uyarır); işaretçi bir kez sessizce silinmişti `[gözlendi]`. Vizyon uygunluk
+görüntüsü `VISION-ANALYSIS.md`'de; her faz planlamasında tazelenir.
 
 **Kaydetme** — `tools/reject.py --add|--approve|--status`. Kayıt `PENDING` doğar ve kapıda
 etkisizdir; yalnızca sahip aktive eder. 21 gün kayıt yoksa bayatlama uyarısı.
