@@ -11,7 +11,8 @@
 
 ## Durum
 
-- Restukturizasyon: **F0–F3 bitti, F4 Zorlama v1 bitti** (kapı v3 + adaptörler + araç seti). Tek yetkili harita `PLAN.md` §8.
+- Restukturizasyon: **F0–F3 bitti, F4 Zorlama v1 inşası bitti** (kapı v3 + adaptörler + araç seti). Tek yetkili harita `PLAN.md` §8.
+- **PLAN revizyon 3 (2026-08-24):** platform genişlemesi — Kanal Sözleşmesi (yasa #7), GÖZLEMCİ katmanı, F12a/b/c/d, oturum türleri, iki-katmanlı puanlama, sindir.py, araştırma planı, provenance, öğrenme denetimi, GUI kapsamı. İzlenebilirlik eki: sahibin 58 isteği satır satır (§9). Sıra korundu: çekirdek → pilot → platform zekası.
 - **Çalışan zorlama:** kapı LEDGER'ı tarar (6 aktif rejected kayıt; test 11/11 · 0/12) — Claude Code'da tam blok, opencode'da tespit+log (bloke yüzeyi yok, belgeli sınır).
 - **Çalışan araçlar:** gate · review · decide · ledger · why · summary · context_cost · aioslog (tek JSONL standardı, logs/ yerel).
 - **Sahibin bekleyen canlı testi:** Claude Code restart → herhangi bir oturum kapat → `logs/aios.jsonl`'de FIRED; opencode restart → rejected ifade dene → BLOCKED (surface=opencode).
