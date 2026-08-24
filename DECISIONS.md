@@ -58,3 +58,15 @@
 - **Alternatifler:** Sifirdan yeni mimari (elendi: mevcut yasa ve katmanlar genislemeyi tasiyor, yeniden insa kayip) · Platform zekasini pilot oncesine almak (elendi: sahibin onayiyla cekirdek once kanitlanir) · Web-chat otomasyonunu simdi insa etmek (elendi: kirilganlik; manuel-first + sindir.py yeterli v1)
 - **Geri alma:** Ucuz - katman/alan eklemeleri; pilot sirasi korunuyor
 - **Kanıt:** `[gözlendi]` — Sahibin platform dokumu 2026-08-24 + izlenebilirlik tablosu onayi
+
+## 2026-08-24 · Arsiv kalici referans; geri-donus scripti emekli edildi · T-C
+
+- **Karar:** arsiv/ kalici referans olarak tutuldu (sifir calisma maliyeti; why.py'nin derinligi; gelecek fazlarin ders kaynagi; silmek zaten hicbir sey silmiyor - git gecmisi). arsivden-geri-don.ps1 silindi: F0'da yazildiginda yeni sistem yoktu; simdi kosulsa arsivdeki eski dosyalar yeni beyin dosyalarinin uzerine yazardi - sigorta tehlikeye donustu. Geri donusun gercek mekanizmasi git'tir (her faz commit'li).
+- **Gerekçe:** Sahibin olcutu: 'tutmak isimizi zorlastiriyorsa sil'. Arsiv zorlastirmiyor; script zorlastiriyor (kazara tetiklenme riski). Ayrica eski sistem artik ustun yazilmis durumda - geri donus senaryosu kalmadi.
+- **Kanıt:** `[gözlendi]` — Yeni zorlama calisiyor (test 11/11, gate FIRED log'da); git gecmisi tam
+
+## 2026-08-24 · REQUIREMENTS'a G45-G53 eklendi (platform genislemesi hizalandi) · T-C
+
+- **Karar:** Revizyon 3 ile onaylanan platform ozellikleri gereksinim kutugune formalize edildi: G45 otomatik model kesfi, G46 canli kota+yenileme penceresi, G47 Kanal Sozlesmesi, G48 web ciktisi sindirme, G49 oturum turleri, G50 ogrenme denetimi (unlearning), G51 provenance, G52 empirik zeka (sicil/tahminci/arena), G53 bagimlilik grafigi.
+- **Gerekçe:** PLAN ve vision revizyon 3 ile genisledi; gereksinim kutugu geride kaldi - uc belge hizali olmali (G-kaynak izlenebilirligi). Icerik sahibin onayladigi ozelliklerin formalizasyonu; yeni karer icermez.
+- **Kanıt:** `[gözlendi]` — Sahibin izlenebilirlik tablosu onayi 2026-08-24

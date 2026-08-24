@@ -34,10 +34,10 @@
 - Aktif kök yalnızca yeni sistemin dosyalarını içerir; eski hiçbir kural/state yüklenmez.
 - `arsiv/`: eski sistemin tamamı — **girdi değil, referans**.
 - git geçmişi aynen korunur (aynı repo).
-- Beyanlı istisnalar: PLAN.md kendisi + geçici bootstrap CLAUDE.md (F3'te yenisiyle değişir) + yeni DECISIONS.md (F0'da başladı).
+- Beyanlı istisnalar: PLAN.md kendisi + yeni DECISIONS.md (F0'da başladı) + geçici bootstrap CLAUDE.md (F3'te kalıcı olanla değiştirildi).
 - Yönetilen projelere (KB, ledger, PDF360, DC, DNS) dokunulmaz.
-- **Kabul edilmiş risk:** F0–F4 arasında zorlama yok. Erken sinyal: kapısız yoğun günlük kullanım → F4 öne çekilir.
-- **Geri dönüş:** `arsivden-geri-don.ps1` (v3 log'u arsiv/DECISIONS-v3.md'ye güvene alır).
+- **Kabul edilmiş risk:** F0–F3 arasında zorlama yoktu; F4 kuruldu ve install edildi — kalan açık kalem canlı restart testleri (sahipte).
+- **Geri dönüş:** git (her faz commit'li, her adım kayıtlı). `arsiv/` kalıcı referanstır; eski geri-dönüş scripti 2026-08-24'te emekli edildi (yeni sistem dosyalarını ezme riski — DECISIONS kaydı var).
 
 ## 2. Gizlilik mimarisi (hibrit — sahip kararı 2026-08-23)
 
@@ -48,7 +48,7 @@
 
 Sonuçları: yerel katmanın git yedeği yok → F5'te bundle-tabanlı yedekleme; sohbet PROFILE'ı raw'dan çekemez → sihirbaz diskten okur, sohbette bundle. Obsidian vault (F7) yereldir, asla repo'ya girmez.
 
-## 3. Yol haritası — 17 faz (F12 dört alt dilimli), ~155 adım
+## 3. Yol haritası — 17 faz (F12 dört alt dilimli), ~168 adım
 
 Fren semantiği: **inşaat fazlarında** fren = duraklama dedektörü (2 hafta oturum yok → sahip devam/ara/terk karar verir); **yalnız F8 pilotu** katı yanlışlanabilir frenle kapanır.
 
@@ -66,13 +66,13 @@ Arşiv + yeni DECISIONS + geri-dönüş scripti + geçici CLAUDE.md + bazal öl�
 4. `REQUIREMENTS.md` + `LICENSE` (MIT) + `README` köke
 **Test:** her yeni G yanlışlanabilir formda.
 
-### F3 · Beyin v1 (11 adım) — fren: 3 oturum
+### F3 · Beyin v1 (12 adım) — fren: 3 oturum
 1. Dosya mimarisi kararı (T-B) + **mimari karar kaydı** (katmanlar + sözleşmeler) · 2. STATE v1 + tavan · 3. LEDGER şeması (`approved|rejected|deferred` + `revisit:` + PENDING→insan onayı + iki dilli anahtarlar) · 4. PROFILE v1 (çalışma + kişilik + soru kuyruğu; arşivdeki açık sorular taşınır) — **yerel** · 5. .gitignore tasarımı (hibrit) · 6. Aktif-karar özeti üreticisi · 7. Token sayacı (birincil: açılışta yüklenen dosya hacmi) · 8. Eşzamanlılık kuralı v1 (tek aktif oturum) · 8b. **Oturum türleri:** proje / sohbet / araştırma — sohbet oturumu STATE/DECISIONS'a varsayılan yazmaz; yalnız yapılandırılmış sinyaller akar (tercih / hata / düzeltme / onay / erteleme — F16 taksonomisi) · 9. **Kalıcı CLAUDE.md** (geçicinin yerine) · 10. **Sohbet talimat dosyası v2** · 11. **Test:** açılış bağlamı ≤ bazalın %50'si
 
-### F4 · Zorlama v1 (12 adım) — fren: 3 oturum
+### F4 · Zorlama v1 (12 adım) — fren: 3 oturum — ✅ İNŞA BİTTİ (canlı test sahibde)
 1. **Log/hata standardı** (JSONL şeması + "ne oldu/neden/ne yapmalısın" kullanıcı formatı; logs/ yerel, bağlamaya asla yüklenmez) · 2. **opencode fizibilite spike'ı** (≤ yarım gün; yoksa zayıf-zorlama sınırı belgelenir) · 3. Kapı davranış envanteri arşivden (sidechain atlama, `stop_hook_active` koruması, UTF-8/BOM, uzun-oturum uyarısı, `--demo`, toleranslı eşleştirme) · 4–6. Kapı çekirdeği (taşınan test setiyle TDD) + üç-durum davranışı · 7. Claude Code adaptörü + install · 8. opencode adaptörü · 9. review v2 (kütük sağlığı, revisit, token trendi, tavan, işaretçi, **log sağlığı**) · 10. decide v2 + ledger aracı · 11. **why.py** (aktif + arşiv) · 12. **Test:** taşınan set %100 · R-002 bloke · deferred uyarı · çift-kurumsız install
 
-### F5 · Süreklilik + kartlar (8 adım) — fren: 2 oturum
+### F5 · Süreklilik + kartlar (9 adım) — fren: 2 oturum
 1. Handoff disiplini · 2. uzun-oturum uyarısı · 3. GitHub kanalı + bundle · 4. **yerel-katman yedekleme rutini** · 5. **oturum açılış sihirbazı** · 6. **acil durum kartı** · 7. **beyin kilometre taşları** (isimli anlık görüntü aracı: `aios tag` + diff — "bu tarihte beyin neydi?") · 8. **kuru koşu** (mini-işle tüm hat) · 9. **Test:** sıfır-bağlam devam + **süreklilik tatbikatı prototipi** (farklı araç, sıfır bağlam, ≤15 dk devam)
 
 ### F6 · Tanıma (8 adım) — fren: 3 oturum
@@ -87,7 +87,7 @@ Adaptif soru döngüsü: kuyruk şeması · tekrar-yasak · cevap→PROFILE (kan
 ### F9 · Karar protokolü v3 (14 adım) — fren: 3 oturum
 Literatür taraması (ADR/MCDA) · **iki-katmanlı puanlama: (1) evrensel sabitler = geçiş filtresi (modülerlik, loglama, hata yönetimi, açık kaynak — ihlal ≈ eleme, ağırlık değil); (2) proje ağırlıkları = sahibin beyanı ("bu projede hız önce"), proje başına kayıtlı; ölçek 0–1 normalize** · boyut/ağırlık şeması → **onayın** · kapanış kuralı (G21) · kanıt-etiketli puan formatı (kafadan puan geçersiz) · decide entegrasyonu · **karar sonuç-izleme** (sonuç alanı + revisit → kalibrasyon) · **kademeli otonom** (alan-bazlı güven seviyesi) · **tartışma protokolü** (≥2 AI, ≤3 tur, farklı sağlayıcı tercih, çıktı = karar hattına giren öneri) · **karar geri-çağırma** (etki analizi + geri alma planı). **Test:** kafadan-puan vakası reddedilir.
 
-### F10 · Araştırma motoru v1 (10 adım) — fren: 3 oturum
+### F10 · Araştırma motoru v1 (8 adım) — fren: 3 oturum
 Yöntem seçimi (G17) · araştırma hattı (soru→yöntem→kaynak→sentez→**kanıt-etiketli rapor**) · **araştırma önbelleği** (aynı soru → önce geçmiş rapor + tazelik kontrolü) · **puan girdileri raporlara atıfta zorunlu** · kaynak kütüğü · **araştırma planı formatı** (sahibin senaryosu: görev → kanal önerileri + kota notu ["Claude limiti bitiyor, yarım saat kaldı"] + çoklu-getiri ["üçünü birden yaptır"]) · **sindir.py** (web çıktısı yapıştırılır → LEDGER taraması + istek eşleşmesi + verdict; web AI'ın dosya erişimi olmadan doğrulayamadığını sistem telafi eder) · **provenance rozeti** (artefakt üstverisi: hangi model/kanal/raporlar/kanıt). **Test:** örnek soruda rapor üretilir; önbellek isabeti; sindir örnek çıktıda verdict.
 
 ### F11 · Beceri kütüphanesi (6 adım) — fren: 2 oturum
@@ -132,11 +132,11 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · **hata kayıtl
 
 | Risk | Erken sinyal | Önlem |
 |---|---|---|
-| F0–F4 zorlama boşluğu | kapısız yoğun kullanım | F4 öne çekilir |
+| Canlı test yapılmadan güven | hook kuruldu, restart testi yok | sahibin iki restart testi (F4 kapanış koşulu) |
 | Meta-döngü | PLAN dışı plan dosyası | yasak; §8 yeter |
 | Arşiv unutulması | dersler v2'lere girmedi | F1 açık adımı + why.py |
-| Token hedefi tutmaz | F3 testi kaldı | eşik değil yöntem gözden geçirilir |
-| opencode plugin/hook yetmez | spike başarısız | tek kanal + sınır belgelenir |
+| Açılış bağlamı büyür | >446 satır | digest kalitesi + budama (eşik değişmez) |
+| opencode plugin çalışmaz (session.idle gelmez) | restart sonrası canary sessiz | plugin revize veya tek-kanal belgelenir |
 | Tempo kayması | 2 hafta sessizlik | duraklama sinyali → sahip kararır |
 | Yerel katman kaybı | bundle yok | F5 yedekleme rutini |
 | Eşzamanlı yazım | iki oturum aynı dosyada | v1 tek-oturum, F14 kilidi |

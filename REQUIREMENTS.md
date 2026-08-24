@@ -103,6 +103,20 @@
 | **G43** | Pilotun amacı AIOS hakkında kanıt üretmektir; pilot AIOS'un yerine geçmez | 16 |
 | **G44** | Başarı ölçütü aşağıdadır — yanlışlanabilir + ölçüm tarihli | 16 |
 
+### Platform zekası ve mimari genişleme (revizyon 3, 2026-08-24 — sahip onaylı)
+
+| # | Gereksinim | § |
+|---|---|---|
+| **G45** | Otomatik model keşfi: OpenRouter ve benzeri platformlar arka planda denetlenir; yeni/ücretsiz/sınırsız modeller diff raporuyla bildirilir ("eski model yerine artık bu") | 5 |
+| **G46** | Canlı kota takibi: kanal başına kullanım defteri + yenileme pencere modeli; tükenmiş kanala yönlendirme yapılmaz | 5 |
+| **G47** | **Kanal Sözleşmesi:** her kaynak tür/parametre/girdi/limit/yetenek/enforcement/dosya-erişimi bildirir; UI, yönlendirici ve zorlama bu sözleşmeden çizer; web'de sahte kontrol gösterilmez | 5, 8, 10 |
+| **G48** | Web çıktısı sindirme: kopyalanan çıktı LEDGER taraması + istek eşleşmesi + verdict ile analiz edilir; hata-tekrarı yakalanır | 6 |
+| **G49** | Oturum türleri: proje / sohbet / araştırma; sohbet oturumu varsayılan beyne yazmaz, yalnız yapılandırılmış sinyal akar (tercih/hata/düzeltme/onay/erteleme) | 2, 4 |
+| **G50** | Öğrenme denetimi: öğrenme diff'i periyodik sunulur; yanlış öğrenme onay/düzelt/sil ile geri alınabilir (unlearning) | 4 |
+| **G51** | Provenance: her artefakt hangi model/kanal/raporlar/kanıtla üretildiğini üstveri olarak taşır | 6, 13 |
+| **G52** | Empirik zeka: kanal sicili (kanal×görev başarı verisi) + maliyet/tahminci + karşılaştırma arenası; yönlendirici sonuç verisiyle evrilir | 5 |
+| **G53** | Bağımlılık grafiği: bileşen/kanal çıkarma öncesi etki raporu ("bunu çıkarırsan şunlar kırılır") | 10 |
+
 ---
 
 ## T — Tercihler

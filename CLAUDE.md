@@ -20,6 +20,7 @@
 - Never take machine or world state from a report — run something.
 - **Owner Verification Gate:** every tangible change (content, behavior, visual, architectural) is tested by the owner before proceeding. Provide detailed test steps: commands + expected output + pass/fail format.
 - **Concurrency rule v1:** one active driver at a time; parallel work runs under the driver and enters the brain through the single writer.
+- **Session types:** project / chat / research. A chat session does NOT write STATE/DECISIONS by default — only structured signals flow to the brain (preference / error / correction / approval / deferral), each evidence-tagged.
 - Language: speak Turkish to the owner; machine-facing files and code in English; conversation records (STATE/DECISIONS/REQUIREMENTS content) in Turkish; ledger keys bilingual.
 - No new durable file without four fields: purpose, lifecycle, owner, read trigger.
 - **Personal layer never enters git:** PROFILE.md, LEDGER.md, logs/, inventory. Never paste them into public channels.
