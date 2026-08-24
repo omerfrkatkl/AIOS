@@ -11,12 +11,12 @@
 
 ## Durum
 
-- Restukturizasyon: **F0–F3 bitti, F4 Zorlama v1 inşası bitti** (kapı v3 + adaptörler + araç seti). Tek yetkili harita `PLAN.md` §8.
+- Restukturizasyon: **F0–F4 bitti** — zorlama her iki kanalda canlı kanıtlandı (Claude Code: FIRED clean ×2; opencode: extract ok S1 + BLOCKED L-002,L-003 surface=opencode). Tek yetkili harita `PLAN.md` §8.
 - **PLAN revizyon 3 (2026-08-24):** platform genişlemesi — Kanal Sözleşmesi (yasa #7), GÖZLEMCİ katmanı, F12a/b/c/d, oturum türleri, iki-katmanlı puanlama, sindir.py, araştırma planı, provenance, öğrenme denetimi, GUI kapsamı. İzlenebilirlik eki: sahibin 58 isteği satır satır (§9). Sıra korundu: çekirdek → pilot → platform zekası.
-- **Çalışan zorlama:** kapı LEDGER'ı tarar (6 aktif rejected kayıt; test 11/11 · 0/12) — Claude Code'da tam blok, opencode'da tespit+log (bloke yüzeyi yok, belgeli sınır). **Kapsam filtresi:** zorlama yalnız AIOS dizinindeki oturumlarda; sahibin paralel iş oturumları (Documents/All, Projects/DC) sessiz atlanır; yönetilen projeler F8 ritüeliyle opt-in.
-- **Çalışan araçlar:** gate · review · decide · ledger · why · summary · context_cost · aioslog (tek JSONL standardı, UTC, logs/ yerel).
-- **Sahibin bekleyen canlı testi:** opencode restart → rejected ifade dene → `surface=opencode` BLOCKED (SDK parametre hatası düzeltildi; extraction çok-sekalli hale geldi). Claude Code tarafı canlı testle kanıtlandı (FIRED 19:57).
-- Yönetilen projeler dokunulmadı; F8'e kadar yeni yönetilen proje başlatılmaz.
+- **Çalışan zorlama:** kapı LEDGER'ı tarar (6 aktif rejected; test 11/11 · 0/12). **Kapsam filtresi (geçici):** zorlama yalnız AIOS dizininde; F8 ritüeli yönetilen projeleri opt-in ile kapsama alır, o noktada yalnız-AIOS kısıtı kalkar (sahip kararı). Sahibin paralel iş oturumları (Documents/All, Projects/DC) kapsam dışı — sessiz atlanır.
+- **Çalışan araçlar:** gate · review · decide · ledger · why · summary · context_cost · aioslog (JSONL, UTC, logs/ yerel).
+- **Oturum türleri:** proje / sohbet / araştırma — sohbet varsayılan beyne yazmaz, yalnız yapılandırılmış sinyal akar (tercih/hata/düzeltme/onay/erteleme).
+- Yönetilen projeler (KB, ledger, PDF360, DC, DNS) dokunulmadı; F8'e kadar yeni yönetilen proje başlatılmaz.
 
 ## Çalışma disiplini
 
@@ -26,12 +26,12 @@
 
 ## Sıradaki
 
-1. Sahibin canlı testleri (yukarıda) → sonuçlar DECISIONS'a
-2. **F5 · Süreklilik + kartlar** — handoff, yerel-katman yedekleme, oturum sihirbazı, acil durum kartı, kuru koşu
+1. **F5 · Süreklilik + kartlar (9 adım):** handoff disiplini · uzun-oturum uyarısı (kapıda mevcut) · GitHub kanalı + bundle · yerel-katman yedekleme · oturum sihirbazı · acil durum kartı · beyin kilometre taşları · kuru koşu · test (sıfır-bağlam ≤15 dk)
+2. Sonra F6 Tanıma → F7 Obsidian → F8 Pilot (katı fren) → F9 karar sistemi → F12a/b/c/d → F13 failover → F14 bağlantı → F15 GUI → F16
 
 ## Açık riskler
 
 | Risk | Erken sinyal |
 |---|---|
-| opencode extraction hâlâ başarısız | restart sonrası "extract ok" yoksa → diag alanı (keys=...) revizeyi söyler |
+| opencode spawn ETIMEDOUT (bir kez görüldü) | tekrarlanırsa timeout 30s→60s veya direkt python yolu |
 | Tempo kayması | 2 hafta sessizlik → duraklama sinyali |
