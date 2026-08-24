@@ -1,4 +1,12 @@
-﻿handoff.md
+﻿# ——— Yerel bölge (hibrit gizlilik: kişisel katman git'e girmez) ———
+PROFILE.md
+LEDGER.md
+logs/
+inventory/
+*.local.md
+
+# ——— Çalışma artefaktları ———
 __pycache__/
-.gate-canary.log
 *.bak-*
+.gate-canary.log
+handoff.md

@@ -130,9 +130,11 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · G31 döngüsü
 | GUI inşası şişer | F15 kapsamı eriyip çekirdeği geciktirir | uygulama son fazda; istemci ilkesi |
 | Log gürültüsü | logs/ büyür, faydasız | rotasyon + review yalnız örnekler |
 
-## 7. Faz kapanış formatı
+## 7. Faz kapanış formatı ve Sahip Doğrulama Kapısı
 
-`F<n>: bitti/kısmi | test: <sonuç> | fren: <durum> | kanıt: <çıktı/komut> | sahip onayı: var/gerekmez | sonraki: F<n+1>`
+**Sahip Doğrulama Kapısı:** Her adımda elle tutulur bir değişiklik (içerik, davranış, görsel, mimari) varsa, sahip test etmeden sonraki adıma geçilmez. Claude her değişiklik için ayrıntılı test talimatı verir: çalıştırılacak komutlar + beklenen çıktı + "geçti/kaldı" bildirim formatı. Testler mantıksal gruplara (tur) ayrılabilir; her turun kapanışı sahibin "geçti"sidir.
+
+`F<n>: bitti/kısmi | test: <sonuç> | fren: <durum> | kanıt: <çıktı/komut> | sahip testi: <geçti/bekliyor> | sonraki: F<n+1>`
 
 ## 8. İlerleme
 
@@ -143,4 +145,5 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · G31 döngüsü
 | 2026-08-23 | PLAN revizyon 2 | ✅ | 17 faz: +F10 Araştırma motoru, F15 Windows GUI (opencode tasarım ref.), modülerlik yasası, log standardı, yetenek sağlayıcılar, tartışma, geri-çağırma, tatbikat |
 | 2026-08-23 | F1 · Vision v2 | ✅ bitti | ders listesi (10 kalem) + taslak sunuldu → **sahip onayı** → vision.md kökte (17 bölüm) · DECISIONS'a T-A kapanış girişi |
 | 2026-08-23 | F2 · REQUIREMENTS v2 | ✅ bitti | 44 G (yanlışlanabilir) + T/H/S + çelişki tablosu + **başarı ölçütü (ölçüm 2026-11-30)** → **sahip onayı** · LICENSE (MIT) + README eklendi |
-| → | F3 · Beyin v1 | sıradaki | 11 adım: dosya mimarisi + LEDGER + PROFILE + gitignore + özet üretici + sayaç + kalıcı CLAUDE.md + sohbet talimatı · test: açılış ≤446 satır |
+| 2026-08-23 | Kural: Sahip Doğrulama Kapısı | ✅ | her elle tutulur değişiklik sahibin testinden geçer; §7 güncellendi (sahip isteği) |
+| → | F3 · Beyin v1 | **TUR 1 inşa edildi, sahibin testi bekliyor** | tur 1: STATE/LEDGER/PROFILE/gitignore/CLAUDE.md/sohbet talimatı · tur 2: araçlar · tur 3: mimari kaydı + ölçüm ≤446 |
