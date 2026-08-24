@@ -98,3 +98,11 @@
 - **Karar:** Kuru kosu zinciri kosuldu: milestone tag (ms/f5-sonrasi) -> decide girdisi -> summary sihirbaz satiri -> context_cost olcumu -> gate demo (zorlama) -> bundle (handoff) -> backup (yerel katman) -> review (saglik). Butun halkalar cikti uretti.
 - **Gerekçe:** F5 testinin yarisi (kuru kosu) sahibin mudahalesi olmadan kanitlanabilir; diger yarisi (sifir-baglam tatbikat) sahibin canli testidir.
 - **Kanıt:** `[gözlendi]` — Bu giriin kendisi zincirin 1. halkasi
+
+## 2026-08-24 · F5 kapatildi: sureklilik tatbikati 11 saniyede gecti · T-B
+
+- **Karar:** Sifir-baglam tatbikat sahibin kendisi tarafindan yapildi: YENI bir Claude Code oturumu (farkli arac), tek istem ('STATE.md ve PLAN.md §8'i oku; nerede olduğumuzu ve sıradaki işi söyle') -> 11 SANIYEDE dogru yanit: F0-F5 durumu, F5 icerigi (bundle/backup/milestone/sihirbaz/EMERGENCY/kuru kosu), siradaki is (F6), acik risk notu (ETIMEDOUT) - hepsi dogru. Esik <=15 dakika idi; gerceklesen 11 saniye. Not: olcut-2'nin tam kosulu (>=3 hafta ara) 2026-11-30 olcumunde degerlendirilecek; bu tatbikat mekanizmayi kanitladi.
+- **Gerekçe:** F5'in testi 'farkli arac + sifir baglam + hizli devam' idi; dosya mimarisi baglami tasidi - arsiv donemindeki 'sureklilik testiyle kanitlandi' iddiasinin v3 versiyonu, simdi daha zengin beyinle. Yanitin dogrulugu sahibin yapistirdigi icerikten dogrulandi (yalnizca dosyalari okuyan uretebilir).
+- **Alternatifler:** Tatbikati 3 hafta sonraya birakmak (elendi: mekanizma kaniti ile olcut olcumunu ayirmak dogru; ikisi farkli seyler) · Ayni aracta test etmek (elendi: farkli-arac kosulu kanit degerini artirir)
+- **Geri alma:** Ucuz - tatbikat tekrarlanabilir; F5 araclari geri alınabilir
+- **Kanıt:** `[gözlendi]` — Sahibin raporu + yapistirilan yanit icerigi (2026-08-24)

@@ -11,7 +11,7 @@
 
 ## Durum
 
-- Restukturizasyon: **F0–F5 inşası bitti** — zorlama iki kanalda canlı; F5 araçları çalışıyor (bundle/backup/milestone/sihirbaz-satırı). Kalan: sahibin süreklilik tatbikatı. Tek yetkili harita `PLAN.md` §8.
+- Restukturizasyon: **F0–F5 bitti** — süreklilik tatbikatı 11 saniyede geçti (sıfır bağlam, farklı araç, doğru yanıt; eşik ≤15 dk). Kilometre taşı: `ms/f5-tamam`. Tek yetkili harita `PLAN.md` §8.
 - **PLAN revizyon 3 (2026-08-24):** platform genişlemesi — Kanal Sözleşmesi (yasa #7), GÖZLEMCİ katmanı, F12a/b/c/d, oturum türleri, iki-katmanlı puanlama, sindir.py, araştırma planı, provenance, öğrenme denetimi, GUI kapsamı. İzlenebilirlik eki: sahibin 58 isteği satır satır (§9). Sıra korundu: çekirdek → pilot → platform zekası.
 - **Çalışan zorlama:** kapı LEDGER'ı tarar (6 aktif rejected; test 11/11 · 0/12). **Kapsam filtresi (geçici):** zorlama yalnız AIOS dizininde; F8 ritüeli yönetilen projeleri opt-in ile kapsama alır, o noktada yalnız-AIOS kısıtı kalkar (sahip kararı). Sahibin paralel iş oturumları (Documents/All, Projects/DC) kapsam dışı — sessiz atlanır.
 - **Çalışan araçlar:** gate · review · decide · ledger · why · summary · context_cost · aioslog (JSONL, UTC, logs/ yerel).
@@ -26,9 +26,8 @@
 
 ## Sıradaki
 
-1. **Sahibin süreklilik tatbikatı** (F5 kapanışı): YENİ bir Claude Code oturumu aç (farklı araç), tek istem: "STATE.md ve PLAN.md §8'i oku; nerede olduğumuzu ve sıradaki işi söyle" — doğru yanıt süresi ≤15 dk
-2. **F6 · Tanıma** — adaptif soru döngüsü + öğrenme denetimi
-3. Sonra F7 Obsidian → F8 Pilot (katı fren) → F9 karar sistemi → F12a/b/c/d → F13 failover → F14 bağlantı → F15 GUI → F16
+1. **F6 · Tanıma (8 adım):** soru kuyruğu şeması · adaptif döngü (oturum başına ≤1 soru, doğal anda) · tekrar-yasak · cevap→PROFILE (kanıt etiketli) · kişilik üslup kuralı · öğrenme denetimi (backup diff'i) · test: 2 ardışık oturum tekrarsız
+2. Sonra F7 Obsidian → F8 Pilot (katı fren) → F9 karar sistemi → F12a/b/c/d → F13 failover → F14 bağlantı → F15 GUI → F16
 
 ## Açık riskler
 
