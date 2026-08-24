@@ -137,7 +137,7 @@ export default async ({ client, directory }) => {
         const r = spawnSync(
           "uv",
           ["run", "--no-project", "python", GATE, "--scan-file", LAST_FILE, "--surface", "opencode"],
-          { cwd: AIOS, encoding: "utf-8", timeout: 15_000 },
+          { cwd: AIOS, encoding: "utf-8", timeout: 30_000 },
         )
         if (r.error) aiosLog("ERROR", "error", "gate spawn failed: " + String(r.error))
       } catch (e) {

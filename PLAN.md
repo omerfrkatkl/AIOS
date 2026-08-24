@@ -69,7 +69,7 @@ Arşiv + yeni DECISIONS + geri-dönüş scripti + geçici CLAUDE.md + bazal öl�
 ### F3 · Beyin v1 (12 adım) — fren: 3 oturum
 1. Dosya mimarisi kararı (T-B) + **mimari karar kaydı** (katmanlar + sözleşmeler) · 2. STATE v1 + tavan · 3. LEDGER şeması (`approved|rejected|deferred` + `revisit:` + PENDING→insan onayı + iki dilli anahtarlar) · 4. PROFILE v1 (çalışma + kişilik + soru kuyruğu; arşivdeki açık sorular taşınır) — **yerel** · 5. .gitignore tasarımı (hibrit) · 6. Aktif-karar özeti üreticisi · 7. Token sayacı (birincil: açılışta yüklenen dosya hacmi) · 8. Eşzamanlılık kuralı v1 (tek aktif oturum) · 8b. **Oturum türleri:** proje / sohbet / araştırma — sohbet oturumu STATE/DECISIONS'a varsayılan yazmaz; yalnız yapılandırılmış sinyaller akar (tercih / hata / düzeltme / onay / erteleme — F16 taksonomisi) · 9. **Kalıcı CLAUDE.md** (geçicinin yerine) · 10. **Sohbet talimat dosyası v2** · 11. **Test:** açılış bağlamı ≤ bazalın %50'si
 
-### F4 · Zorlama v1 (12 adım) — fren: 3 oturum — ✅ İNŞA BİTTİ (canlı test sahibde)
+### F4 · Zorlama v1 (12 adım) — fren: 3 oturum — ✅ BİTTİ (canlı testler geçti, 2026-08-24)
 1. **Log/hata standardı** (JSONL şeması + "ne oldu/neden/ne yapmalısın" kullanıcı formatı; logs/ yerel, bağlamaya asla yüklenmez) · 2. **opencode fizibilite spike'ı** (≤ yarım gün; yoksa zayıf-zorlama sınırı belgelenir) · 3. Kapı davranış envanteri arşivden (sidechain atlama, `stop_hook_active` koruması, UTF-8/BOM, uzun-oturum uyarısı, `--demo`, toleranslı eşleştirme) · 4–6. Kapı çekirdeği (taşınan test setiyle TDD) + üç-durum davranışı · 7. Claude Code adaptörü + install · 8. opencode adaptörü · 9. review v2 (kütük sağlığı, revisit, token trendi, tavan, işaretçi, **log sağlığı**) · 10. decide v2 + ledger aracı · 11. **why.py** (aktif + arşiv) · 12. **Test:** taşınan set %100 · R-002 bloke · deferred uyarı · çift-kurumsız install
 
 ### F5 · Süreklilik + kartlar (9 adım) — fren: 2 oturum
@@ -82,7 +82,7 @@ Adaptif soru döngüsü: kuyruk şeması · tekrar-yasak · cevap→PROFILE (kan
 1. Vault kategori haritası (mevcut yapıdan) · 2. **v1: araç-bağımsız hedefli dosya erişimi** (tam-vault okuma yasak) · 3. v2: MCP semantik arama (yalnız v1 yetmezse) · 4. sorgu disiplini kuralı · 5. **Test:** 5 örnek soru vault'tan, sorgu başına ≤ hedef not · 6. sahip kontrolü
 
 ### F8 · Pilot (10 adım) — **KATI fren: 4 çalışma oturumu VEYA 6 hafta; dolursa negatif bulguyla kapanır**
-1. **Yeni-proje ritüeli** (tek komut: BRIEF + git init + MIT + README/CHANGELOG + STATE iskeleti + işaretçi) · 2. pilot seçimi (ledger aday, onayınla) + P-ölçütleri · 3–9. dilimler AIOS sürer (G43 sınavı) · 10. değerlendirme raporu
+1. **Yeni-proje ritüeli** (tek komut: BRIEF + git init + MIT + README/CHANGELOG + STATE iskeleti + işaretçi — işaretçi aynı zamanda **kapı opt-in**idir: kapsam filtresi o projede açılır) · 2. pilot seçimi (ledger aday, onayınla) + P-ölçütleri · 3–9. dilimler AIOS sürer (G43 sınavı) · 10. değerlendirme raporu
 
 ### F9 · Karar protokolü v3 (14 adım) — fren: 3 oturum
 Literatür taraması (ADR/MCDA) · **iki-katmanlı puanlama: (1) evrensel sabitler = geçiş filtresi (modülerlik, loglama, hata yönetimi, açık kaynak — ihlal ≈ eleme, ağırlık değil); (2) proje ağırlıkları = sahibin beyanı ("bu projede hız önce"), proje başına kayıtlı; ölçek 0–1 normalize** · boyut/ağırlık şeması → **onayın** · kapanış kuralı (G21) · kanıt-etiketli puan formatı (kafadan puan geçersiz) · decide entegrasyonu · **karar sonuç-izleme** (sonuç alanı + revisit → kalibrasyon) · **kademeli otonom** (alan-bazlı güven seviyesi) · **tartışma protokolü** (≥2 AI, ≤3 tur, farklı sağlayıcı tercih, çıktı = karar hattına giren öneri) · **karar geri-çağırma** (etki analizi + geri alma planı). **Test:** kafadan-puan vakası reddedilir.
@@ -170,8 +170,8 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · **hata kayıtl
 | 2026-08-24 | F3 · Beyin v1 | ✅ bitti | TUR1: STATE v1 (282 kelime) + LEDGER şeması (active: alanı) + PROFILE v1 (296 kelime, yerel) + hibrit gitignore + kalıcı CLAUDE.md + sohbet talimatı v2 · TUR2: tools/summary.py (4-vakalı sentetik test geçti) + tools/context_cost.py · TUR3: mimari karar kaydı (T-B) · **açılış 83 satır / 4424 bayt — hedef ≤446 TUTTU** · commit a2daebc + F3 kapanışı |
 | 2026-08-24 | F4 · Zorlama v1 | ✅ inşa bitti — **sahibin canlı testi bekliyor** | aioslog standardı · kapı v3 (3-durum, davranış envanteriyle) · test **11/11 + 0/12** · demo L-002 bloke · deferred 4-vaka · LEDGER göçü (L-001..L-006) · Claude Code adaptörü kuruldu · opencode adaptörü (spike: bloke yüzeyi yok → tespit+log) kuruldu · review/decide/ledger/why · **bekleyen: sahibin Claude Code + opencode restart testleri** |
 | 2026-08-24 | PLAN revizyon 3 | ✅ | platform genişlemesi: Kanal Sözleşmesi (yasa #7), GÖZLEMCİ katmanı, F12a/b/c/d, oturum türleri, iki-katmanlı puanlama, sindir.py, araştırma planı, provenance, öğrenme denetimi, kilometre taşları, bağımlılık grafiği, arena/tahminci/sicil, GUI kapsamı, F16 atıf+senkron+offline; §9 izlenebilirlik eki (sahibin 58 isteği satır satır) |
-| → | F4 canlı testleri | **sahipte** | Claude Code restart → FIRED; opencode restart → rejected ifade → BLOCKED (surface=opencode) |
-| → | F5 · Süreklilik + kartlar | sıradaki | canlı testler sonrası başlar |
+| 2026-08-24 | F4 · canlı testler | ✅ geçti | A: Claude Code restart → FIRED clean x2 · B: opencode → extract ok (S1) + **BLOCKED L-002,L-003 surface=opencode** · kapsam kararı: yalnız-AIOS kısıtı inşa dönemi için; F8 ritüeliyle yönetilen projelere genişler |
+| → | F5 · Süreklilik + kartlar | sıradaki | 9 adım: handoff · yedekleme · sihirbaz · kart · km taşları · kuru koşu |
 
 ## 9. İzlenebilirlik — sahibin istekleri ↔ plan (2026-08-24 denetimi, sahip onaylı)
 

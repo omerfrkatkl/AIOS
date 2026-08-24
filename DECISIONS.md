@@ -84,3 +84,11 @@
 - **Karar:** client.session.messages dogru cagri: { path: { id: sessionID } } (types.gen.d.ts'ten dogrulandi; { sessionID } gonderimi sessiz 422 uretiyordu). Cikarim cok-sekalli (S1 dizi / S2 info+parts / S3 fallback) + tanisal log (diag alani) + aiosLog ctx destegi. aioslog zaman damgalari UTC'ye birlestirildi (JS ile ayni).
 - **Gerekçe:** Test B'de tetikleyici calisti ama cikarim bos dondu; tahmin yerine SDK tip tanimlarindan kok neden okundu.
 - **Kanıt:** `[gözlendi]` — Sentetik 4-vaka testi + tur sonu dogrulamasi sahibin restart testiyle
+
+## 2026-08-24 · F4 canli testler gecti; kapsam filtresinin gunesi F8'de · T-B
+
+- **Karar:** F4 canli dogrulama tamam: (A) Claude Code restart sonrasi FIRED clean x2 (19:57) - tam-blok kanali canli. (B) opencode restart sonrasi extract ok (S1) + BLOCKED L-002,L-003 (surface=opencode) - tespit kanali canli. Kapsam filtresi karan: su an yalniz AIOS dizini (insa donemi); F8 ritüeli yonetilen proje isaretcisini yazdiginda kapsam o projeye genisler; butun yonetilen projeler kapsama alininca yalniz-AIOS kisiti kalkar (sahibin beyani: 'sonra iptal edelim, mantiken olmasi gereken'). spawn timeout 15s->30s (bir ETIMEDOUT gozlendi).
+- **Gerekçe:** Her iki kanalin canli kaniti log'da (aios.jsonl): Claude Code tam blok, opencode tespit+log. Kapsam kisiti insa donemi icin gecici korumadir; kalici hedef Topoloji C uyumu - yonetilen projelerde AIOS zorlamasi isaretciyle acilir.
+- **Alternatifler:** Kisiti kalici birakmak (elendi: yonetilen projelerde zorlama olmaz - G32'nin platform versiyonu bos kalir) · Hemen tum makineye acmak (elendi: sahibin paralel is oturumlari etkilenir; kapsam projeye-girmeyle genisler)
+- **Geri alma:** Ucuz - kapsam kosulu tek satir
+- **Kanıt:** `[gözlendi]` — aios.jsonl 18:10-18:14 kayitlari + sahibin iki restart testi
