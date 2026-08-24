@@ -7,14 +7,14 @@
 | **Sahip** | Proje sahibi; Claude yazar, sahip diff'i onaylar |
 | **Okuma tetikleyicisi** | Her oturum açılışı |
 | **Tavan** | ~900 kelime |
-| **Son güncelleme** | 2026-08-23 |
+| **Son güncelleme** | 2026-08-24 |
 
 ## Durum
 
-- Restukturizasyon sürüyor: **F0–F2 bitti**, **F3 Beyin v1 sürüyor** (TUR 1 inşa edildi, sahibin testi bekliyor). Tek yetkili harita `PLAN.md` §8.
-- Sistem şu an yalnızca belgelerden oluşuyor; zorlama makinesi (kapı/review/decide) **F4'te** gelir.
+- Restukturizasyon sürüyor: **F0–F2 bitti, F3 Beyin v1 bitti** (açılış 83 satır / 4424 bayt — hedef ≤446 tuttu). Tek yetkili harita `PLAN.md` §8.
+- Çalışan araçlar: `tools/summary.py` (aktif-karar özeti) · `tools/context_cost.py` (açılış ölçümü). Zorlama makinesi (kapı/review/decide) **F4'te** gelir.
 - Yönetilen projeler (KB, ledger, PDF360, DC, DNS) dokunulmadı; F8'e kadar yeni yönetilen proje başlatılmaz.
-- Sohbet kanalı: STATE + PLAN raw'dan okunur; PROFILE/LEDGER yereldir (hibrit gizlilik), sohbete gerekirse bundle ile gelir (F5+).
+- Sohbet kanalı: STATE + PLAN raw'dan okunur; PROFILE/LEDGER yereldir (hibrit gizlilik).
 
 ## Çalışma disiplini
 
@@ -24,10 +24,9 @@
 
 ## Sıradaki
 
-1. F3 TUR 1 sahibin testi (beyin dosyaları: 1.1–1.7)
-2. F3 TUR 2 (özet üretici + token sayacı) → test 2.1–2.4
-3. F3 TUR 3 (mimari karar kaydı + ölçüm ≤446 satır) → test 3.1–3.4 → F3 kapanışı
-4. F4 · Zorlama v1 (log standardı + opencode spike'ı ilk adımlar)
+1. **F4 · Zorlama v1** — ilk adımlar: log/hata standardı + opencode fizibilite spike'ı (≤ yarım gün)
+2. F4'ün sahibe gerçek testi: Claude Code restart sonrası canlı kapı ateşlemesi (canary)
+3. Sonra: kapı çekirdeği (taşınan test setiyle TDD) → adaptörler → review/decide/ledger/why
 
 ## Açık riskler
 

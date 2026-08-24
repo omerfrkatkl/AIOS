@@ -132,9 +132,12 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · G31 döngüsü
 
 ## 7. Faz kapanış formatı ve Sahip Doğrulama Kapısı
 
-**Sahip Doğrulama Kapısı:** Her adımda elle tutulur bir değişiklik (içerik, davranış, görsel, mimari) varsa, sahip test etmeden sonraki adıma geçilmez. Claude her değişiklik için ayrıntılı test talimatı verir: çalıştırılacak komutlar + beklenen çıktı + "geçti/kaldı" bildirim formatı. Testler mantıksal gruplara (tur) ayrılabilir; her turun kapanışı sahibin "geçti"sidir.
+**Sahip Doğrulama Kapısı (revize 2026-08-23 — sahip isteği):** Claude, komutla doğrulanabilen **her şeyi kendisi** doğrular ve kanıtıyla raporlar. Sahibe yalnızca şu üç tür test verilir:
+1. **Erişemediğim ortamlar:** canlı oturumlar (Claude Code restart, opencode), diğer uygulamalar (Obsidian, web-chat), başka makineler.
+2. **Sahibin kararı/beyanı gerekenler:** onay tarihleri, envanter verisi, pilot seçimi, "yeterli mi" yargısı.
+3. **Öznel değerlendirme:** tasarım beğenisi, çıktı kalitesi algısı, tempo yargısı.
 
-`F<n>: bitti/kısmi | test: <sonuç> | fren: <durum> | kanıt: <çıktı/komut> | sahip testi: <geçti/bekliyor> | sonraki: F<n+1>`
+`F<n>: bitti/kısmi | test: <sonuç> | fren: <durum> | kanıt: <çıktı/komut> | sahip testi: <geçti/yok/bekliyor> | sonraki: F<n+1>`
 
 ## 8. İlerleme
 
@@ -146,4 +149,6 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · G31 döngüsü
 | 2026-08-23 | F1 · Vision v2 | ✅ bitti | ders listesi (10 kalem) + taslak sunuldu → **sahip onayı** → vision.md kökte (17 bölüm) · DECISIONS'a T-A kapanış girişi |
 | 2026-08-23 | F2 · REQUIREMENTS v2 | ✅ bitti | 44 G (yanlışlanabilir) + T/H/S + çelişki tablosu + **başarı ölçütü (ölçüm 2026-11-30)** → **sahip onayı** · LICENSE (MIT) + README eklendi |
 | 2026-08-23 | Kural: Sahip Doğrulama Kapısı | ✅ | her elle tutulur değişiklik sahibin testinden geçer; §7 güncellendi (sahip isteği) |
-| → | F3 · Beyin v1 | **TUR 1 inşa edildi, sahibin testi bekliyor** | tur 1: STATE/LEDGER/PROFILE/gitignore/CLAUDE.md/sohbet talimatı · tur 2: araçlar · tur 3: mimari kaydı + ölçüm ≤446 |
+| 2026-08-24 | Kural revizesi (sahip isteği) | ✅ | Claude komutla doğrulanabilir her şeyi kendisi doğrular; sahibe yalnız erişilemez ortamlar / kararı-beyanı gerekenler / öznel yargı verilir |
+| 2026-08-24 | F3 · Beyin v1 | ✅ bitti | TUR1: STATE v1 (282 kelime) + LEDGER şeması (active: alanı) + PROFILE v1 (296 kelime, yerel) + hibrit gitignore + kalıcı CLAUDE.md + sohbet talimatı v2 · TUR2: tools/summary.py (4-vakalı sentetik test geçti) + tools/context_cost.py · TUR3: mimari karar kaydı (T-B) · **açılış 83 satır / 4424 bayt — hedef ≤446 TUTTU** · commit a2daebc + F3 kapanışı |
+| → | F4 · Zorlama v1 | sıradaki | ilk adımlar: log/hata standardı + opencode spike'ı · sahibin gerçek testi: Claude Code restart canlı canary |

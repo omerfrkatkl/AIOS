@@ -34,3 +34,11 @@
 - **Alternatifler:** Eski G1-G43'u tasimak (elendi: eski numaralar eski mimariye bagliydi; taze turetim kaynakla hizali) · olcutu vizyonda tutmak (elendi: vizyon kuzey-yildizdir, olcut gereksinimdir)
 - **Geri alma:** Ucuz - REQUIREMENTS yerinde revize edilir; olcut esigi veri gelmeden degistirilmez, degistirilirse bu bir girisle kayda gecer.
 - **Kanit:** `[gözlendi]` - sahibin acik onayi 2026-08-23.
+
+## 2026-08-24 · Beyin mimarisi: dort katman + sozlesmeler · T-B · kapanista
+
+- **Karar:** Sistem dort katmana ayrildi: (1) BEYIN - sozlesmeli dosyalar (STATE/DECISIONS/LEDGER/PROFILE/vault), (2) ZORLAMA - bagimsiz araclari (gate/review/decide/ledger/why/install), (3) YUZEY - istemciler (Claude Code/opencode/sohbet/gelecek GUI), (4) YUK - yonetilen projeler. Katmanlar arasi tek baglanti sozlesmelerdir (dort-alanli dosyalar, JSONL log standardi, manifest - F12). Beyin egemendir; yuzey olmadan sistem calisir.
+- **Gerekce:** Sahibin modulerlik isteğinin mimari karsiligi: bilesen ekleme/cikarma sozlesme+manifest isidir, cekirdek ameliyati degil. Yuzey-istemci kurali "ana arac yok" ilkesini korur.
+- **Alternatifler:** Tek MEMORY.md monoliti (elendi: sozlesmesiz siser, turler karisir) · veritabani merkezli depolama (elendi: markdown+git karari ve lock-in direnci) · arayüzle bütünleşik sistem (elendi: arayüz kilidi başarısız modu)
+- **Geri alma:** Ucuz simdi - dosyalar zaten ayri; birlestirme sonradan da mumkun ama gereksiz.
+- **Kanit:** `[gözlendi]` - F3 TUR1+TUR2: dosyalar uretildi; summary.py dort-vakali sentetik kutuk testini gecti (aktif/deferred/revisit-gemis/PENDING); context_cost.py acilis 83 satir / 4424 bayt (hedef <=446, bazal 892). Sahip Dogrulama Kapisi revize edildi: komutla dogrulanabilir her sey Claude tarafindan dogrulanir.
