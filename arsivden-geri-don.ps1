@@ -6,6 +6,14 @@
 
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $arsiv = Join-Path $root "arsiv"
+
+# Yeni (v3) DECISIONS once yana tasınır - eski log uzerine yazmasin diye.
+$v3 = Join-Path $root "DECISIONS.md"
+if (Test-Path $v3) {
+    Move-Item -LiteralPath $v3 -Destination (Join-Path $arsiv "DECISIONS-v3.md") -Force
+    Write-Output "v3 log guvene alindi: arsiv/DECISIONS-v3.md"
+}
+
 $items = @(
     "DECISIONS.md", "REJECTED.md", "PROFILE.md", "REQUIREMENTS.md",
     "STATE.md", "vision.md", "VISION-ANALYSIS.md", "CLAUDE.md",
@@ -23,5 +31,5 @@ foreach ($i in $items) {
     }
 }
 Write-Output ""
-Write-Output "Eski duzen geri geldi. PLAN.md ve DECISIONS.md (v3) root'ta kaldi - isterseniz elle arsivleyin."
+Write-Output "Eski duzen geri geldi. PLAN.md root'ta kaldi; v3 log arsiv/DECISIONS-v3.md olarak korundu."
 Write-Output "Hook geri kurulumu: uv run --no-project python arsiv/adapters/claude-code/install.py"
