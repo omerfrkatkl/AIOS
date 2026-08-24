@@ -24,9 +24,10 @@
 - **Sahip Doğrulama Kapısı (revize):** komutla doğrulanan her şey Claude'da; sahibe yalnız erişilemez ortamlar / kararı-beyanı gerekenler / öznel yargı.
 - **Eşzamanlılık kuralı v1:** tek aktif yürütücü; beyne tek yazıcı.
 
-## Durum (F6 eki)
+## Durum (F6/F6b eki)
 
-- **F6 canlı döngü — 2 tur tamam:** S-1 + takip zinciri (S-1a/b) soruldu → cevaplandı → PROFILE'a işlendi (öğrenci, yaz tatili, 28 Eylül tetikleyicisi) → audit her turu yakaladı → taban güncel. **Kapanış kanıtı sonraki oturumda:** S-1/a/b tekrar sorulmaz + audit temiz.
+- **F6 canlı döngü — 2 tur tamam:** S-1 + zinciri cevaplandı → PROFILE işlendi → audit yakaladı → taban güncel. Kapanış kanıtı sonraki oturumda (tekrar-yasak).
+- **F6b Interview Tur 1 tamam:** tasarım zevki + araç tercihleri + vault ilişkisi işlendi (kapsam ~%25 → ~%40). F7 girdisi kesinleşti: yeni AIOS vault'u AIOS/ içinde kurulacak. I-F3 önerisi sahibin kararında (Analitik Sistemi: bağımsız başla → AIOS yönetimine dönüş).
 - **Tetikleyici:** 2026-09-28 — yeni dönem planı → ritim satırı güncellenir (sahip bildirir).
 
 ## Sıradaki
