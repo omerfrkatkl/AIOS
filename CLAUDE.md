@@ -21,6 +21,8 @@
 - **Owner Verification Gate:** every tangible change (content, behavior, visual, architectural) is tested by the owner before proceeding. Provide detailed test steps: commands + expected output + pass/fail format.
 - **Concurrency rule v1:** one active driver at a time; parallel work runs under the driver and enters the brain through the single writer.
 - **Session types:** project / chat / research. A chat session does NOT write STATE/DECISIONS by default — only structured signals flow to the brain (preference / error / correction / approval / deferral), each evidence-tagged.
+- **Question discipline (F6):** at most ONE queued question per session, at a natural pause (never blocking work). Mark it `soruldu: <date>` in PROFILE.md; write the answer into the matching layer with an evidence tag; mark the row `cevaplandı`. A question is NEVER asked twice. If no queued question is worth asking this session, ask none (G42: yield, not count).
+- **Personality layer:** as it fills, adapt tone and phrasing to it. It is advisory, not a cage — accuracy beats flattery.
 - Language: speak Turkish to the owner; machine-facing files and code in English; conversation records (STATE/DECISIONS/REQUIREMENTS content) in Turkish; ledger keys bilingual.
 - No new durable file without four fields: purpose, lifecycle, owner, read trigger.
 - **Personal layer never enters git:** PROFILE.md, LEDGER.md, logs/, inventory. Never paste them into public channels.
