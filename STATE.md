@@ -11,26 +11,26 @@
 
 ## Durum
 
-- Restukturizasyon sürüyor: **F0–F2 bitti, F3 Beyin v1 bitti** (açılış 83 satır / 4424 bayt — hedef ≤446 tuttu). Tek yetkili harita `PLAN.md` §8.
-- Çalışan araçlar: `tools/summary.py` (aktif-karar özeti) · `tools/context_cost.py` (açılış ölçümü). Zorlama makinesi (kapı/review/decide) **F4'te** gelir.
-- Yönetilen projeler (KB, ledger, PDF360, DC, DNS) dokunulmadı; F8'e kadar yeni yönetilen proje başlatılmaz.
-- Sohbet kanalı: STATE + PLAN raw'dan okunur; PROFILE/LEDGER yereldir (hibrit gizlilik).
+- Restukturizasyon: **F0–F3 bitti, F4 Zorlama v1 bitti** (kapı v3 + adaptörler + araç seti). Tek yetkili harita `PLAN.md` §8.
+- **Çalışan zorlama:** kapı LEDGER'ı tarar (6 aktif rejected kayıt; test 11/11 · 0/12) — Claude Code'da tam blok, opencode'da tespit+log (bloke yüzeyi yok, belgeli sınır).
+- **Çalışan araçlar:** gate · review · decide · ledger · why · summary · context_cost · aioslog (tek JSONL standardı, logs/ yerel).
+- **Sahibin bekleyen canlı testi:** Claude Code restart → herhangi bir oturum kapat → `logs/aios.jsonl`'de FIRED; opencode restart → rejected ifade dene → BLOCKED (surface=opencode).
+- Yönetilen projeler dokunulmadı; F8'e kadar yeni yönetilen proje başlatılmaz.
 
 ## Çalışma disiplini
 
 - Kanıt etiketleri · T-A/B/C (varsayılan T-C) · append-only DECISIONS · dört-alanlı dosyalar · tek yetkili plan = PLAN.md.
-- **Sahip Doğrulama Kapısı:** her elle tutulur değişiklik sahibin testinden geçer; test talimatı komut + beklenen çıktı ile verilir.
-- **Eşzamanlılık kuralı v1:** tek aktif yürütücü; paralel iş yürütücünün kontrolünde ve beyne tek yazıcıyla işlenir.
+- **Sahip Doğrulama Kapısı (revize):** komutla doğrulanan her şey Claude'da; sahibe yalnız erişilemez ortamlar / kararı-beyanı gerekenler / öznel yargı.
+- **Eşzamanlılık kuralı v1:** tek aktif yürütücü; beyne tek yazıcı.
 
 ## Sıradaki
 
-1. **F4 · Zorlama v1** — ilk adımlar: log/hata standardı + opencode fizibilite spike'ı (≤ yarım gün)
-2. F4'ün sahibe gerçek testi: Claude Code restart sonrası canlı kapı ateşlemesi (canary)
-3. Sonra: kapı çekirdeği (taşınan test setiyle TDD) → adaptörler → review/decide/ledger/why
+1. Sahibin canlı testleri (yukarıda) → sonuçlar DECISIONS'a
+2. **F5 · Süreklilik + kartlar** — handoff, yerel-katman yedekleme, oturum sihirbazı, acil durum kartı, kuru koşu
 
 ## Açık riskler
 
 | Risk | Erken sinyal |
 |---|---|
-| F4'e dek zorlama yok (sahip onaylı) | kapısız yoğun günlük kullanım başlarsa F4 öne çekilir |
-| Tempo kayması | 2 hafta sessizlik → duraklama sinyali, sahip kararır |
+| opencode plugin'in session.idle olayı beklediği gibi gelmemesi | opencode restart sonrası canary sessizse plugin revize |
+| Tempo kayması | 2 hafta sessizlik → duraklama sinyali |

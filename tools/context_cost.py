@@ -16,6 +16,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from aioslog import log_event  # noqa: E402
+
 BASELINE_LINES = 892
 BASELINE_BYTES = 77_447
 TARGET_LINES = BASELINE_LINES // 2  # 446
@@ -58,6 +61,8 @@ def main() -> int:
     print(f"BAZAL : {BASELINE_LINES} satır / {BASELINE_BYTES} bayt")
     verdict = "HEDEF TUTTU" if total_lines <= TARGET_LINES else "HEDEF AŞILDI"
     print(f"HEDEF : <= {TARGET_LINES} satır (bazalın %50'si) -> {verdict}")
+    log_event("context_cost", "MEASURED", "info", f"{total_lines} satır / {total_bytes} bayt",
+              lines=total_lines, bytes=total_bytes, verdict=verdict)
     return 0
 
 

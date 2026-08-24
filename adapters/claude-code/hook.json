@@ -1,0 +1,17 @@
+{
+  "_comment": "AIOS gate adapter for Claude Code. Source of truth lives here; ~/.claude/settings.json holds only the installed trace. install.py merges this in.",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python \"C:\\Users\\Atakul\\Documents\\Projects\\AIOS\\hooks\\gate.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

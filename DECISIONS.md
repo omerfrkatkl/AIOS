@@ -42,3 +42,11 @@
 - **Alternatifler:** Tek MEMORY.md monoliti (elendi: sozlesmesiz siser, turler karisir) · veritabani merkezli depolama (elendi: markdown+git karari ve lock-in direnci) · arayüzle bütünleşik sistem (elendi: arayüz kilidi başarısız modu)
 - **Geri alma:** Ucuz simdi - dosyalar zaten ayri; birlestirme sonradan da mumkun ama gereksiz.
 - **Kanit:** `[gözlendi]` - F3 TUR1+TUR2: dosyalar uretildi; summary.py dort-vakali sentetik kutuk testini gecti (aktif/deferred/revisit-gemis/PENDING); context_cost.py acilis 83 satir / 4424 bayt (hedef <=446, bazal 892). Sahip Dogrulama Kapisi revize edildi: komutla dogrulanabilir her sey Claude tarafindan dogrulanir.
+
+## 2026-08-24 · F4 zorlama v1: kapi yeniden insa edildi, opencode siniri belgelendi · T-B
+
+- **Karar:** Kapi v3 hooks/gate.py: LEDGER uc-durum (rejected bloke / deferred uyar / approved sessiz / PENDING etkisiz), tasinan 23-vakali test seti, aioslog JSONL standardi, --scan-file tespit modu, uzun-oturum uyarisi, fail-open. Claude Code adaptoru kuruldu (settings.json 8 anahtar, yedekli). opencode adaptoru: SPIKE sonucu - opencode'da yaniti bloke eden Stop-hook karsiligi YOK (yuzey: event/tool.execute.before/permission.ask); v1 = tespit+log (zayif zorlama), plugin session.idle'da son yaniti tarar. R-001..R-006 -> L-001..L-006 goctu (aktif tarihler arsivden).
+- **Gerekçe:** Davranis envanteri arsivden tasindi (sidechain atlama, stop_hook_active korumasi, UTF-8/BOM, flush-yarisi retry, toleransli eslestirme) - sifirdan yazarken kazanilan dersler silinmedi. opencode siniri kabul edildi: tespit edilemeyen degil, bloke edilemeyen; tam blok kanali Claude Code'da kaliyor (adaptör deseni 2026-08-15).
+- **Alternatifler:** opencode'u tam zorlama ile kurcalamak (elendi: bloke yuzeyi yok, yamaya girisir) · opencode adaptörünü yazmamak (elendi: sahibin gunluk araci orada, G32 orada olmezse sessiz devre disi) · eski gate.py'yi kopyalamak (elendi: sahip 'sifirdan' karari; davranis envanteriyle turetim ayni kaliteyi tasidi)
+- **Geri alma:** Ucuz - install.py --uninstall + arsivden-geri-don.ps1
+- **Kanıt:** `[gözlendi]` — test 11/11 + 0/12; demo L-002 bloke; deferred 4-vakali sentetik test; kurulumlar idempotent; gate FIRED log'da
