@@ -141,4 +141,5 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · G31 döngüsü
 | 2026-08-23 | PLAN yazıldı | ✅ | F0 ile birlikte |
 | 2026-08-23 | F0 · adım 1–6 | ✅ bitti | arşiv + sigorta + bazal 892 satır/77.447 bayt; hook temiz kaldırıldı; commit 76e1b9d |
 | 2026-08-23 | PLAN revizyon 2 | ✅ | 17 faz: +F10 Araştırma motoru, F15 Windows GUI (opencode tasarım ref.), modülerlik yasası, log standardı, yetenek sağlayıcılar, tartışma, geri-çağırma, tatbikat |
-| → | F1 · Vision v2 | sürüyor | ders taraması + taslak → sahip onayı |
+| 2026-08-23 | F1 · Vision v2 | ✅ bitti | ders listesi (10 kalem) + taslak sunuldu → **sahip onayı** → vision.md kökte (17 bölüm) · DECISIONS'a T-A kapanış girişi |
+| → | F2 · REQUIREMENTS v2 | sıradaki | G-türetimi + yeni başarı ölçütü → sahip onayı |
