@@ -13,9 +13,9 @@
 
 - Restukturizasyon: **F0–F3 bitti, F4 Zorlama v1 inşası bitti** (kapı v3 + adaptörler + araç seti). Tek yetkili harita `PLAN.md` §8.
 - **PLAN revizyon 3 (2026-08-24):** platform genişlemesi — Kanal Sözleşmesi (yasa #7), GÖZLEMCİ katmanı, F12a/b/c/d, oturum türleri, iki-katmanlı puanlama, sindir.py, araştırma planı, provenance, öğrenme denetimi, GUI kapsamı. İzlenebilirlik eki: sahibin 58 isteği satır satır (§9). Sıra korundu: çekirdek → pilot → platform zekası.
-- **Çalışan zorlama:** kapı LEDGER'ı tarar (6 aktif rejected kayıt; test 11/11 · 0/12) — Claude Code'da tam blok, opencode'da tespit+log (bloke yüzeyi yok, belgeli sınır).
-- **Çalışan araçlar:** gate · review · decide · ledger · why · summary · context_cost · aioslog (tek JSONL standardı, logs/ yerel).
-- **Sahibin bekleyen canlı testi:** Claude Code restart → herhangi bir oturum kapat → `logs/aios.jsonl`'de FIRED; opencode restart → rejected ifade dene → BLOCKED (surface=opencode).
+- **Çalışan zorlama:** kapı LEDGER'ı tarar (6 aktif rejected kayıt; test 11/11 · 0/12) — Claude Code'da tam blok, opencode'da tespit+log (bloke yüzeyi yok, belgeli sınır). **Kapsam filtresi:** zorlama yalnız AIOS dizinindeki oturumlarda; sahibin paralel iş oturumları (Documents/All, Projects/DC) sessiz atlanır; yönetilen projeler F8 ritüeliyle opt-in.
+- **Çalışan araçlar:** gate · review · decide · ledger · why · summary · context_cost · aioslog (tek JSONL standardı, UTC, logs/ yerel).
+- **Sahibin bekleyen canlı testi:** opencode restart → rejected ifade dene → `surface=opencode` BLOCKED (SDK parametre hatası düzeltildi; extraction çok-sekalli hale geldi). Claude Code tarafı canlı testle kanıtlandı (FIRED 19:57).
 - Yönetilen projeler dokunulmadı; F8'e kadar yeni yönetilen proje başlatılmaz.
 
 ## Çalışma disiplini

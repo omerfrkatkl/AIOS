@@ -393,6 +393,19 @@ def main() -> int:
         log_event("gate", "SKIPPED", "info", "stop_hook_active")
         return 0
 
+    # Scope filter: the hook is installed at user level, so it fires for EVERY
+    # Claude Code session on this machine. AIOS enforcement applies only to
+    # sessions inside the AIOS directory; managed projects opt in later (F8
+    # ritual writes their marker). Other work (owner's parallel sessions) is
+    # skipped SILENTLY - no log, no latency beyond the check.
+    cwd = os.path.abspath(os.path.expanduser(payload.get("cwd") or ""))
+    try:
+        in_scope = os.path.commonpath([cwd, str(AIOS_DIR)]) == str(AIOS_DIR)
+    except ValueError:
+        in_scope = False
+    if not in_scope:
+        return 0
+
     try:
         ledger = parse_ledger(LEDGER_PATH)
         reject, defer = ledger["reject"], ledger["defer"]

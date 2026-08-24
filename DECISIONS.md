@@ -70,3 +70,17 @@
 - **Karar:** Revizyon 3 ile onaylanan platform ozellikleri gereksinim kutugune formalize edildi: G45 otomatik model kesfi, G46 canli kota+yenileme penceresi, G47 Kanal Sozlesmesi, G48 web ciktisi sindirme, G49 oturum turleri, G50 ogrenme denetimi (unlearning), G51 provenance, G52 empirik zeka (sicil/tahminci/arena), G53 bagimlilik grafigi.
 - **Gerekçe:** PLAN ve vision revizyon 3 ile genisledi; gereksinim kutugu geride kaldi - uc belge hizali olmali (G-kaynak izlenebilirligi). Icerik sahibin onayladigi ozelliklerin formalizasyonu; yeni karer icermez.
 - **Kanıt:** `[gözlendi]` — Sahibin izlenebilirlik tablosu onayi 2026-08-24
+
+## 2026-08-24 · Kapi kapsami: yalniz AIOS dizini (paralel oturum korumasi) · T-B
+
+- **Karar:** Kullanici seviyesindeki hook/plugin her oturumda atesliyor; kapsam filtresi eklendi - zorlama yalnizca AIOS dizinindeki oturumlarda uygulanir. Dis oturumlar SESSIZ atlanir (log girdisi yok, gecikme yok). Yonetilen projeler F8 ritüelinin yazacagi isaretciyle opt-in olacak. opencode plugin ayni directory kontroluyle korunur.
+- **Gerekçe:** Sahibin paralel is oturumlari var (baska dizinlerde opencode + Claude Code). AIOS redlerinin baska isin akisini bloklamasi = karisim; ayrica diger oturumlarin yanit metadata'sinin AIOS log'una yazilmasi gizlilik ihlali. Topoloji C ilkesi: konvansiyonlar yonetilen projelere uygulanir, dis alanlara degil.
+- **Alternatifler:** Tum makinede zorlama (elendi: sahibin diger isini AIOS redleriyle bloklar - karisim) · Her projeye manuel config (elendi: surtunme; F8 ritueli opt-in isaretciyle otomatik halleder) · Kapsami Documents/Projects yapmak (elendi: DC gibi oncesi projeler de icine girer)
+- **Geri alma:** Ucuz - tek kosul satiri
+- **Kanıt:** `[gözlendi]` — Dis cwd sessiz (log girdisi yok), AIOS cwd FIRED - komutla dogrulandi
+
+## 2026-08-24 · opencode plugin cikarim hatasi kok nedeni: SDK parametre sekli · T-C
+
+- **Karar:** client.session.messages dogru cagri: { path: { id: sessionID } } (types.gen.d.ts'ten dogrulandi; { sessionID } gonderimi sessiz 422 uretiyordu). Cikarim cok-sekalli (S1 dizi / S2 info+parts / S3 fallback) + tanisal log (diag alani) + aiosLog ctx destegi. aioslog zaman damgalari UTC'ye birlestirildi (JS ile ayni).
+- **Gerekçe:** Test B'de tetikleyici calisti ama cikarim bos dondu; tahmin yerine SDK tip tanimlarindan kok neden okundu.
+- **Kanıt:** `[gözlendi]` — Sentetik 4-vaka testi + tur sonu dogrulamasi sahibin restart testiyle

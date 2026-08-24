@@ -21,7 +21,7 @@ const LOG_DIR = path.join(AIOS, "logs")
 const LAST_FILE = path.join(LOG_DIR, "opencode-last.txt")
 const GATE = path.join(AIOS, "hooks", "gate.py")
 
-function aiosLog(event, severity, msg) {
+function aiosLog(event, severity, msg, ctx) {
   try {
     fs.mkdirSync(LOG_DIR, { recursive: true })
     const rec = {
@@ -31,6 +31,7 @@ function aiosLog(event, severity, msg) {
       severity,
       msg,
     }
+    if (ctx && typeof ctx === "object") Object.assign(rec, ctx)
     fs.appendFileSync(path.join(LOG_DIR, "aios.jsonl"), JSON.stringify(rec) + "\n")
   } catch {}
 }
@@ -52,14 +53,12 @@ async function lastAssistantText(client, sessionID) {
   //   S3: unknown -> tolerant whole-object collect (fallback, logged)
   let res
   try {
-    res = await client.session.messages({ sessionID })
+    // SDK shape: SessionMessagesData = { path: { id } } - verified from
+    // @opencode-ai/sdk types.gen.d.ts (passing { sessionID } silently 422s).
+    res = await client.session.messages({ path: { id: sessionID } })
   } catch (e1) {
-    try {
-      res = await client.session.chat({ sessionID })
-    } catch (e2) {
-      aiosLog("ERROR", "error", "fetch failed: " + msgOf(e1) + " / " + msgOf(e2))
-      return ""
-    }
+    aiosLog("ERROR", "error", "fetch failed: " + msgOf(e1))
+    return ""
   }
   const data = res?.data ?? res
   const diag = typeof data === "object" && data !== null
@@ -116,14 +115,20 @@ function msgOf(e) {
   return (e && (e.message ?? String(e))) ?? "unknown"
 }
 
-export default async ({ client }) => {
+export default async ({ client, directory }) => {
+  // Scope filter: the plugin is installed globally, so it fires for EVERY
+  // opencode session on this machine. AIOS enforcement (detection+log) applies
+  // only to sessions inside the AIOS directory; the owner's parallel work in
+  // other folders is skipped silently - no log, no spawn.
+  const SCOPE = AIOS.toLowerCase()
   return {
     event: async ({ event }) => {
       try {
+        const dir = path.resolve(directory ?? "").toLowerCase()
+        if (!(dir === SCOPE || dir.startsWith(SCOPE + path.sep))) return
         const type = event?.type ?? event?.name
         if (type !== "session.idle") return
-        const sessionID =
-          event?.properties?.sessionID ?? event?.sessionID ?? event?.properties?.sessionID
+        const sessionID = event?.properties?.sessionID ?? event?.sessionID
         if (!sessionID) return
         const text = await lastAssistantText(client, sessionID)
         if (!text.trim()) return // extraction already logged the reason
