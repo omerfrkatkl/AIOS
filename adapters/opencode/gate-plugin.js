@@ -46,31 +46,74 @@ function collectText(node, out) {
 }
 
 async function lastAssistantText(client, sessionID) {
-  // Tolerant of SDK shape drift: try the documented call, then fall back.
-  let messages
+  // Tolerant of SDK shape drift. Known shapes:
+  //   S1: flat array of messages [{role, parts|content|...}, ...]
+  //   S2: { info: [{role, id}, ...], parts: [{messageID, type:"text", text}, ...] }
+  //   S3: unknown -> tolerant whole-object collect (fallback, logged)
+  let res
   try {
-    const res = await client.session.messages({ sessionID })
-    messages = res.data ?? res
-  } catch {
+    res = await client.session.messages({ sessionID })
+  } catch (e1) {
     try {
-      const res = await client.session.chat({ sessionID })
-      messages = res.data ?? res
-    } catch (e) {
-      aiosLog("ERROR", "error", "message fetch failed: " + (e?.message ?? String(e)))
+      res = await client.session.chat({ sessionID })
+    } catch (e2) {
+      aiosLog("ERROR", "error", "fetch failed: " + msgOf(e1) + " / " + msgOf(e2))
       return ""
     }
   }
-  if (!Array.isArray(messages)) return ""
-  for (let i = messages.length - 1; i >= 0; i--) {
-    const m = messages[i]
-    const role = m?.role ?? m?.info?.role
-    if (role !== "assistant") continue
-    const out = []
-    collectText(m?.parts ?? m?.content ?? m?.info?.parts ?? m, out)
-    const text = out.filter((s) => s && s.trim()).join("\n")
-    if (text.trim()) return text
+  const data = res?.data ?? res
+  const diag = typeof data === "object" && data !== null
+    ? "keys=" + Object.keys(data).join("|") : typeof data
+
+  if (Array.isArray(data)) {
+    for (let i = data.length - 1; i >= 0; i--) {
+      const m = data[i]
+      const role = m?.role ?? m?.info?.role
+      if (role !== "assistant") continue
+      const out = []
+      collectText(m?.parts ?? m?.content ?? m?.message ?? m, out)
+      const t = out.filter((s) => s && s.trim()).join("\n")
+      if (t.trim()) {
+        aiosLog("FIRED", "info", "extract ok (S1 array, msg " + i + ")")
+        return t
+      }
+    }
+    aiosLog("FIRED", "info", "no assistant text in array len=" + data.length)
+    return ""
   }
+
+  if (data && Array.isArray(data.info) && Array.isArray(data.parts)) {
+    for (let i = data.info.length - 1; i >= 0; i--) {
+      const info = data.info[i]
+      if (info?.role !== "assistant") continue
+      const out = []
+      for (const p of data.parts) {
+        if (p && p.type === "text" && typeof p.text === "string"
+            && (p.messageID ? p.messageID === info.id : true)) out.push(p.text)
+      }
+      const t = out.filter((s) => s && s.trim()).join("\n")
+      if (t.trim()) {
+        aiosLog("FIRED", "info", "extract ok (S2 info+parts, msg " + i + ")")
+        return t
+      }
+    }
+    aiosLog("FIRED", "info", "no assistant text in info len=" + data.info.length)
+    return ""
+  }
+
+  const out = []
+  collectText(data, out)
+  const t = out.filter((s) => s && s.trim()).join("\n")
+  if (t.trim()) {
+    aiosLog("FIRED", "info", "extract ok (S3 fallback whole-text; " + diag + ")")
+    return t
+  }
+  aiosLog("ERROR", "error", "extraction failed entirely", { diag })
   return ""
+}
+
+function msgOf(e) {
+  return (e && (e.message ?? String(e))) ?? "unknown"
 }
 
 export default async ({ client }) => {
@@ -83,10 +126,7 @@ export default async ({ client }) => {
           event?.properties?.sessionID ?? event?.sessionID ?? event?.properties?.sessionID
         if (!sessionID) return
         const text = await lastAssistantText(client, sessionID)
-        if (!text.trim()) {
-          aiosLog("FIRED", "info", "empty response")
-          return
-        }
+        if (!text.trim()) return // extraction already logged the reason
         fs.mkdirSync(LOG_DIR, { recursive: true })
         fs.writeFileSync(LAST_FILE, text, "utf-8")
         const r = spawnSync(

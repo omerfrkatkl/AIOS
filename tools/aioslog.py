@@ -15,7 +15,7 @@ Rules:
 
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,7 +41,7 @@ def log_event(source: str, event: str, severity: str = "info", msg: str = "", **
         LOG_DIR.mkdir(exist_ok=True)
         _rotate()
         record = {
-            "ts": datetime.now().isoformat(timespec="milliseconds"),
+            "ts": datetime.now(timezone.utc).isoformat(timespec="milliseconds"),
             "source": source,
             "event": event,
             "severity": severity,
