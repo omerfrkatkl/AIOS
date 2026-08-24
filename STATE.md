@@ -24,9 +24,13 @@
 - **Sahip Doğrulama Kapısı (revize):** komutla doğrulanan her şey Claude'da; sahibe yalnız erişilemez ortamlar / kararı-beyanı gerekenler / öznel yargı.
 - **Eşzamanlılık kuralı v1:** tek aktif yürütücü; beyne tek yazıcı.
 
+## Durum (F6 eki)
+
+- **F6 canlı döngü başladı:** S-1 soruldu (2026-08-24); cevap PROFILE'a işlenecek. Kapanış testi: sonraki oturumda S-1 tekrar sorulmaz + audit.py diff'i temiz.
+
 ## Sıradaki
 
-1. **F6 · Tanıma (8 adım):** soru kuyruğu şeması · adaptif döngü (oturum başına ≤1 soru, doğal anda) · tekrar-yasak · cevap→PROFILE (kanıt etiketli) · kişilik üslup kuralı · öğrenme denetimi (backup diff'i) · test: 2 ardışık oturum tekrarsız
+1. S-1 cevabını bekle → PROFILE'a işle → F6 kapanışı (tekrar-yasak kanıtı sonraki oturumda)
 2. Sonra F7 Obsidian → F8 Pilot (katı fren) → F9 karar sistemi → F12a/b/c/d → F13 failover → F14 bağlantı → F15 GUI → F16
 
 ## Açık riskler
