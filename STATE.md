@@ -26,11 +26,12 @@
 
 ## Durum (F6 eki)
 
-- **F6 canlı döngü — ilk tur tamam:** S-1 soruldu → cevaplandı → PROFILE'a işlendi ("öğrenci, ritim dönemsel") → audit yakaladı → yeni taban alındı. **Kapanış kanıtı sonraki oturumda:** S-1 bir daha sorulmaz + audit temiz.
+- **F6 canlı döngü — 2 tur tamam:** S-1 + takip zinciri (S-1a/b) soruldu → cevaplandı → PROFILE'a işlendi (öğrenci, yaz tatili, 28 Eylül tetikleyicisi) → audit her turu yakaladı → taban güncel. **Kapanış kanıtı sonraki oturumda:** S-1/a/b tekrar sorulmaz + audit temiz.
+- **Tetikleyici:** 2026-09-28 — yeni dönem planı → ritim satırı güncellenir (sahip bildirir).
 
 ## Sıradaki
 
-1. Sonraki oturum: S-1 tekrar sorulmaz (F6 kapanış kanıtı) → istenirse **F7 · Obsidian** başlar
+1. Sonraki oturum: S-1 zinciri tekrar sorulmaz (F6 kapanış kanıtı) → istenirse **F7 · Obsidian** başlar
 2. F7 sonrası: F8 Pilot (katı fren) → F9 → F10 → F11 → F12a/b/c/d → F13 → F14 → F15 GUI → F16
 2. Sonra F7 Obsidian → F8 Pilot (katı fren) → F9 karar sistemi → F12a/b/c/d → F13 failover → F14 bağlantı → F15 GUI → F16
 
