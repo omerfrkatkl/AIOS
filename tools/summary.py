@@ -21,6 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DECISIONS = ROOT / "DECISIONS.md"
 LEDGER = ROOT / "LEDGER.md"
+STATE = ROOT / "STATE.md"
 ACTIVE_DAYS = 14
 
 DEC_HEAD = re.compile(
@@ -99,6 +100,20 @@ def ledger_section(today: date) -> None:
         print(f"  PENDING (kapıda etkisiz, sahibin tarihi bekler): {len(pending)}")
 
 
+def next_step_section() -> None:
+    """Wizard line (F5): the first item of STATE.md's Sıradaki section."""
+    if not STATE.exists():
+        return
+    in_section = False
+    for line in STATE.read_text(encoding="utf-8").splitlines():
+        if line.startswith("## "):
+            in_section = line.strip().lower().startswith("## sıradaki")
+            continue
+        if in_section and re.match(r"^\d+\.", line.strip()):
+            print("SIRADAKI: " + line.strip())
+            return
+
+
 def main() -> int:
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):
@@ -107,6 +122,7 @@ def main() -> int:
     print(f"AKTİF KARAR ÖZETİ · {today.isoformat()}")
     decisions_section(today)
     ledger_section(today)
+    next_step_section()
     return 0
 
 

@@ -10,3 +10,6 @@ __pycache__/
 *.bak-*
 .gate-canary.log
 handoff.md
+
+# ——— Yedekler (yerel katman) ———
+backups/

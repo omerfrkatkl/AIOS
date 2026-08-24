@@ -92,3 +92,9 @@
 - **Alternatifler:** Kisiti kalici birakmak (elendi: yonetilen projelerde zorlama olmaz - G32'nin platform versiyonu bos kalir) · Hemen tum makineye acmak (elendi: sahibin paralel is oturumlari etkilenir; kapsam projeye-girmeyle genisler)
 - **Geri alma:** Ucuz - kapsam kosulu tek satir
 - **Kanıt:** `[gözlendi]` — aios.jsonl 18:10-18:14 kayitlari + sahibin iki restart testi
+
+## 2026-08-24 · F5 kuru kosu: tum hat dogrulandi · T-C
+
+- **Karar:** Kuru kosu zinciri kosuldu: milestone tag (ms/f5-sonrasi) -> decide girdisi -> summary sihirbaz satiri -> context_cost olcumu -> gate demo (zorlama) -> bundle (handoff) -> backup (yerel katman) -> review (saglik). Butun halkalar cikti uretti.
+- **Gerekçe:** F5 testinin yarisi (kuru kosu) sahibin mudahalesi olmadan kanitlanabilir; diger yarisi (sifir-baglam tatbikat) sahibin canli testidir.
+- **Kanıt:** `[gözlendi]` — Bu giriin kendisi zincirin 1. halkasi

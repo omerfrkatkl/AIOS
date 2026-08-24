@@ -171,7 +171,8 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · **hata kayıtl
 | 2026-08-24 | F4 · Zorlama v1 | ✅ inşa bitti — **sahibin canlı testi bekliyor** | aioslog standardı · kapı v3 (3-durum, davranış envanteriyle) · test **11/11 + 0/12** · demo L-002 bloke · deferred 4-vaka · LEDGER göçü (L-001..L-006) · Claude Code adaptörü kuruldu · opencode adaptörü (spike: bloke yüzeyi yok → tespit+log) kuruldu · review/decide/ledger/why · **bekleyen: sahibin Claude Code + opencode restart testleri** |
 | 2026-08-24 | PLAN revizyon 3 | ✅ | platform genişlemesi: Kanal Sözleşmesi (yasa #7), GÖZLEMCİ katmanı, F12a/b/c/d, oturum türleri, iki-katmanlı puanlama, sindir.py, araştırma planı, provenance, öğrenme denetimi, kilometre taşları, bağımlılık grafiği, arena/tahminci/sicil, GUI kapsamı, F16 atıf+senkron+offline; §9 izlenebilirlik eki (sahibin 58 isteği satır satır) |
 | 2026-08-24 | F4 · canlı testler | ✅ geçti | A: Claude Code restart → FIRED clean x2 · B: opencode → extract ok (S1) + **BLOCKED L-002,L-003 surface=opencode** · kapsam kararı: yalnız-AIOS kısıtı inşa dönemi için; F8 ritüeliyle yönetilen projelere genişler |
-| → | F5 · Süreklilik + kartlar | sıradaki | 9 adım: handoff · yedekleme · sihirbaz · kart · km taşları · kuru koşu |
+| 2026-08-24 | F5 · Süreklilik + kartlar | ✅ inşa bitti — **sahibin tatbikatı bekliyor** | bundle v3 (kişisel katman hariç; --personal) · backup.py (zip, retention 5) · milestone.py (ms/ tag) · sihirbaz satırı (summary SIRADAKI) · EMERGENCY.md · **kuru koşu: 6 halka çıktı üretti** · kalan: sahibin sıfır-bağlam tatbikatı (≤15 dk) |
+| → | F6 · Tanıma | sıradaki | tatbikat sonrası |
 
 ## 9. İzlenebilirlik — sahibin istekleri ↔ plan (2026-08-24 denetimi, sahip onaylı)
 
