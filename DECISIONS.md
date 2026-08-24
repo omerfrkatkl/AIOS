@@ -26,3 +26,11 @@
 - **Alternatifler:** Eski vizyonu yerinde yamamak (elendi: yeni istekler eski yapiya sigmiyordu) · daha uzun taslak (elendi: detay F2'nin isi, vizyon siserse north-star kaybolur)
 - **Geri alma:** Ucuz - arsiv/vision.md (v1) + git gecmisi; v2 yerinde revize edilebilir.
 - **Kanit:** `[gözlendi]` - sahibin acik onayi 2026-08-23.
+
+## 2026-08-23 · REQUIREMENTS v2 turetildi; yeni basari olcutu kilitlendi · T-A · onaylandi
+
+- **Karar:** vision v2'den 44 gereksinim turetildi (G1-G44): hat/akis, kalici beyin (3-durum hafiza + vault), tanima, kaynak zekasi (envanter+yönlendirici+failover+yetenek saglayicilar), karar sistemi (arastirma motoru + puanlama + sonuc-izleme + kademeli otonom + geri-cagirma + tartisma), Windows GUI yuzeyi, token sozlesmesi, modulerlik, log standardi, acik kaynak, sureklilik tatbikati, kurtarma. Ayarici: LICENSE (MIT) + README eklendi.
+- **Gerekce:** Her G yanlislanabilir formda yazildi (olculebilir ifadeler: teknik soru=0, acilis <=446 satir, tatbikat <=15 dk). Celiski tablosu dört gerilimi cozmus durumda. Yeni basari olcutu esikleri veri gorulmeden sabitlendi, olcum tarihi 2026-11-30.
+- **Alternatifler:** Eski G1-G43'u tasimak (elendi: eski numaralar eski mimariye bagliydi; taze turetim kaynakla hizali) · olcutu vizyonda tutmak (elendi: vizyon kuzey-yildizdir, olcut gereksinimdir)
+- **Geri alma:** Ucuz - REQUIREMENTS yerinde revize edilir; olcut esigi veri gelmeden degistirilmez, degistirilirse bu bir girisle kayda gecer.
+- **Kanit:** `[gözlendi]` - sahibin acik onayi 2026-08-23.

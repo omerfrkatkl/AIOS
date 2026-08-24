@@ -142,4 +142,5 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · G31 döngüsü
 | 2026-08-23 | F0 · adım 1–6 | ✅ bitti | arşiv + sigorta + bazal 892 satır/77.447 bayt; hook temiz kaldırıldı; commit 76e1b9d |
 | 2026-08-23 | PLAN revizyon 2 | ✅ | 17 faz: +F10 Araştırma motoru, F15 Windows GUI (opencode tasarım ref.), modülerlik yasası, log standardı, yetenek sağlayıcılar, tartışma, geri-çağırma, tatbikat |
 | 2026-08-23 | F1 · Vision v2 | ✅ bitti | ders listesi (10 kalem) + taslak sunuldu → **sahip onayı** → vision.md kökte (17 bölüm) · DECISIONS'a T-A kapanış girişi |
-| → | F2 · REQUIREMENTS v2 | sıradaki | G-türetimi + yeni başarı ölçütü → sahip onayı |
+| 2026-08-23 | F2 · REQUIREMENTS v2 | ✅ bitti | 44 G (yanlışlanabilir) + T/H/S + çelişki tablosu + **başarı ölçütü (ölçüm 2026-11-30)** → **sahip onayı** · LICENSE (MIT) + README eklendi |
+| → | F3 · Beyin v1 | sıradaki | 11 adım: dosya mimarisi + LEDGER + PROFILE + gitignore + özet üretici + sayaç + kalıcı CLAUDE.md + sohbet talimatı · test: açılış ≤446 satır |
