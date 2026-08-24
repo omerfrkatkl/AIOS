@@ -20,6 +20,7 @@ from aioslog import log_event, user_error  # noqa: E402
 
 BACKUP_DIR = AIOS_DIR / "backups"
 LOCAL_FILES = ["PROFILE.md", "LEDGER.md"]
+VAULT_DIR = AIOS_DIR / "vault"
 KEEP = 5
 
 
@@ -32,15 +33,19 @@ def backup() -> int:
     BACKUP_DIR.mkdir(exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     target = BACKUP_DIR / f"aios-local-{stamp}.zip"
+    vault_files = [p for p in VAULT_DIR.rglob("*") if p.is_file()] if VAULT_DIR.exists() else []
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as z:
         for f in LOCAL_FILES:
             z.write(AIOS_DIR / f, f)
+        for p in vault_files:
+            z.write(p, p.relative_to(AIOS_DIR))
     archives = sorted(BACKUP_DIR.glob("aios-local-*.zip"))
     for old in archives[:-KEEP]:
         old.unlink()
-    log_event("backup", "CREATED", "info", target.name, files=len(LOCAL_FILES))
+    log_event("backup", "CREATED", "info", target.name,
+              files=len(LOCAL_FILES) + len(vault_files))
     print(f"Yedek: {target.relative_to(AIOS_DIR)} "
-          f"({len(LOCAL_FILES)} dosya · {target.stat().st_size:,} bayt) · "
+          f"({len(LOCAL_FILES) + len(vault_files)} dosya · {target.stat().st_size:,} bayt) · "
           f"arşivde {min(len(archives), KEEP)} kopya")
     return 0
 

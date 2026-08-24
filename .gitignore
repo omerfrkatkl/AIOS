@@ -5,6 +5,8 @@ logs/
 inventory/
 *.local.md
 
+vault/
+
 # ——— Çalışma artefaktları ———
 __pycache__/
 *.bak-*
