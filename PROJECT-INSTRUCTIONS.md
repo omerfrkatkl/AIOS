@@ -65,7 +65,11 @@ End substantive turns with a numbered **Yapılacaklar** list: which files go whe
 
 | Command | Does |
 |---|---|
-| `uv run --no-project python tools/summary.py` | Active-decision digest (F3+) |
+| `uv run --no-project python tools/summary.py` | Active-decision digest + wizard line (F3+) |
 | `uv run --no-project python tools/context_cost.py` | Session-opening context measurement (F3+) |
+| `uv run --no-project python tools/bundle.py` | Chat handoff bundle — docs+code; `--personal` adds PROFILE/LEDGER (never share publicly) |
+| `uv run --no-project python tools/backup.py` | Local-layer backup zip (PROFILE+LEDGER, retention 5; `--restore ZIP`) |
+| `uv run --no-project python tools/milestone.py <name>` | Named brain snapshot (git tag `ms/<name>`) |
+| `uv run --no-project python tools/audit.py` | Learning audit: PROFILE/LEDGER diff vs last backup |
 | `uv run --no-project python tests/test_gate.py` | Gate matching test (F4+) |
 | F4+ | gate · review · decide · ledger · why · install |

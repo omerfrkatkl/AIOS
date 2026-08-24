@@ -106,3 +106,11 @@
 - **Alternatifler:** Tatbikati 3 hafta sonraya birakmak (elendi: mekanizma kaniti ile olcut olcumunu ayirmak dogru; ikisi farkli seyler) · Ayni aracta test etmek (elendi: farkli-arac kosulu kanit degerini artirir)
 - **Geri alma:** Ucuz - tatbikat tekrarlanabilir; F5 araclari geri alınabilir
 - **Kanıt:** `[gözlendi]` — Sahibin raporu + yapistirilan yanit icerigi (2026-08-24)
+
+## 2026-08-24 · F6b Derin Interview Kampanyasi eklendi; mekanizma!=deger dersi · T-B
+
+- **Karar:** F6b eklendi (F6 sonrasi, F7 oncesi): kapsam haritasi PROFILE'da (12 alan + platform alanlari, alan basina yuzde), interview modu ('beni tani' tetikleyici, 3-5'lik baglantili gruplar, platform-oncelikli siralama: tasarim zevki -> arac/model tercihleri -> proje turleri -> ...), vault-first (Documents/All hedefli okuma, bilinen sorulmaz). Kural revizesi: <=1/oturum yalniz normal oturumlarda; interview modunda gruplar serbest (G42 verim + tekrar-yasak gecerli). Sistemik ders: mekanizma fazlarina icerik kampanyasi adimlari (F8 pilot, F12a envanter oturumu, F12b diff kosulari). Vault yolu bulundu: Documents/All (obsidian.json'dan).
+- **Gerekçe:** Sahibin itirazi hakliydi: '3 soruyla neremi anladin - onlarca/yuzlerce soru gerekmez mi'. F6 mekanizmayi kurdu ama kampanyayi planlamamisti; vision §3 12 alan sayiyor ve sahibin acik sozuyle 'cok sayida soruya acik'. Ayrica sahibin paralel oturum bilgisi: vault Documents/All'da - interview v1 dosya erisimiyle okuyabilir.
+- **Alternatifler:** Serpistirilmis soru modu (elendi: sahibin secimi grup grup uzun oturum) · Vault'suz interview (elendi: sahibin secimi vault-first; cift sorma riski) · F7'den sonra baslamak (elendi: sahibin secimi simdi; v1 dosya erisimi yeterli)
+- **Geri alma:** Ucuz - kampanya PROFILE kapsam haritasiyla sinirli; kural tek satir
+- **Kanıt:** `[gözlendi]` — Sahibin itirazi + 4 soru-cevap + vault yapisi gozlendi (11 klasor + vision.md)

@@ -78,11 +78,16 @@ Arşiv + yeni DECISIONS + geri-dönüş scripti + geçici CLAUDE.md + bazal öl�
 ### F6 · Tanıma (8 adım) — fren: 3 oturum
 Adaptif soru döngüsü: kuyruk şeması · tekrar-yasak · cevap→PROFILE (kanıt etiketli) · kişilik üslup kuralı · G42 verim ölçütü · **öğrenme denetimi** (öğrenme diff'i: "bu hafta bunları öğrendim — doğru mu?" → onay/düzelt/sil; yanlış-preferans sürüklenmesine karşı unlearning). **Test:** 2 ardışık oturum tekrarsız. Sahip kontrolü: soru kalitesi.
 
+### F6b · Derin Interview Kampanyası (kampanya — oturum sayısı veriye göre) — fren: 4 oturum
+**Ders kaydı (2026-08-24):** F6 mekanizmayı kurdu, içerik kampanyası planlanmamıştı — "mekanizma kuruldu ≠ değer teslim edildi." Bu ders diğer mekanizma fazlarına da içerik adımı olarak işlendi.
+1. **Kapsam haritası PROFILE'da** — alan başına yüzde (vision §3'ün 12 alanı + platform alanları: tasarım zevki, araç/model tercihleri, proje türleri) · 2. **interview modu kuralları CLAUDE.md'e** ("beni tanı" tetikleyici; 3–5'lik bağlantılı gruplar; alan sırası platform-öncelikli; durdur/devam; ≤1/oturum kuralı yalnız normal oturumlarda) · 3. **vault-first:** her soru öncesi `Documents/All` hedefli okuma (Knowledge/Study/Projects/...) — bilinen sorulmaz, tekrar-yasak vault'a da uygulanır · 4–6. tur tur kampanya (her grup sonrası PROFILE işleme + kapsam yüzdesi + audit) · 7. **kapanış:** "seni şöyle tanıdım" özeti → sahip onayı · 8. **Test:** kapsam ~%25 → %80+ · tekrar-yasak (kuyruk+vault+sorulanlar) · audit temiz
+
 ### F7 · Kişisel bilgi deposu (6 adım) — fren: 2 oturum
-1. Vault kategori haritası (mevcut yapıdan) · 2. **v1: araç-bağımsız hedefli dosya erişimi** (tam-vault okuma yasak) · 3. v2: MCP semantik arama (yalnız v1 yetmezse) · 4. sorgu disiplini kuralı · 5. **Test:** 5 örnek soru vault'tan, sorgu başına ≤ hedef not · 6. sahip kontrolü
+1. Vault kategori haritası (mevcut yapıdan) · 2. **v1: araç-bağımsız hedefli dosya erişimi** (tam-vault okuma yasak) · 3. v2: MCP semantik arama (yalnız v1 yetmezse) · 4. sorgu disiplini kuralı · 5. **Test:** 5 örnek soru vault'tan, sorgu başına ≤ hedef not · 6. sahip kontrolü · **açık soru (sahibin kararı):** AIOS öğrenmeleri vault'a yansınsın mı (PROFILE tercihleri vault'a yazılsın) — vault insan-alanı mı kalır?
 
 ### F8 · Pilot (10 adım) — **KATI fren: 4 çalışma oturumu VEYA 6 hafta; dolursa negatif bulguyla kapanır**
 1. **Yeni-proje ritüeli** (tek komut: BRIEF + git init + MIT + README/CHANGELOG + STATE iskeleti + işaretçi — işaretçi aynı zamanda **kapı opt-in**idir: kapsam filtresi o projede açılır) · 2. pilot seçimi (ledger aday, onayınla) + P-ölçütleri · 3–9. dilimler AIOS sürer (G43 sınavı) · 10. değerlendirme raporu
+**Not (bilinçli sıralama, sahibin onayı):** pilot F9/F10 makinelerinden ÖNCE koşar — pilot kararları puanlama/araştırma motorusuz, T-A/B/C disipliniyle alınır; makineler pilot kanıtıyla sonraki işlerde kullanılır.
 
 ### F9 · Karar protokolü v3 (14 adım) — fren: 3 oturum
 Literatür taraması (ADR/MCDA) · **iki-katmanlı puanlama: (1) evrensel sabitler = geçiş filtresi (modülerlik, loglama, hata yönetimi, açık kaynak — ihlal ≈ eleme, ağırlık değil); (2) proje ağırlıkları = sahibin beyanı ("bu projede hız önce"), proje başına kayıtlı; ölçek 0–1 normalize** · boyut/ağırlık şeması → **onayın** · kapanış kuralı (G21) · kanıt-etiketli puan formatı (kafadan puan geçersiz) · decide entegrasyonu · **karar sonuç-izleme** (sonuç alanı + revisit → kalibrasyon) · **kademeli otonom** (alan-bazlı güven seviyesi) · **tartışma protokolü** (≥2 AI, ≤3 tur, farklı sağlayıcı tercih, çıktı = karar hattına giren öneri) · **karar geri-çağırma** (etki analizi + geri alma planı). **Test:** kafadan-puan vakası reddedilir.
@@ -177,7 +182,7 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · **hata kayıtl
 
 ## 9. İzlenebilirlik — sahibin istekleri ↔ plan (2026-08-24 denetimi, sahip onaylı)
 
-**Özet:** 58 ayrı istek → 47 tam karşılık · 7 belirli faza ertelenmiş (G9) · 4 fiziksel sınır + tasarlanmış çözüm · **0 görmezden gelinen, 0 basitleştirilen.**
+**Özet:** 61 ayrı istek → 50 tam karşılık · 7 belirli faza ertelenmiş (G9) · 4 fiziksel sınır + tasarlanmış çözüm · **0 görmezden gelinen, 0 basitleştirilen.** (Revizyon 3 sonrası +3: interview kampanyası, empirik zeka grubu, dayanıklılık grubu.)
 
 | Alan | İstek | Karşılık |
 |---|---|---|
@@ -192,5 +197,9 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · **hata kayıtl
 | Modülerlik | Ekle/çıkar basit; kayıt defteri; bağımlılık analizi; açık kaynak | Yasalar 2–3; G24/G29/G30/G35; F12a grafik |
 | Loglama | Tek standard; 3-satırlı kullanıcı hatası; öğrenmeye dönüşüm | G32–G34; F4 (çalışıyor) |
 | Token/dikkat | Açılış minimal; sayaç; dikkat kriteri | G26–G28 (açılış 82 satır) |
-| Süreç | 100 aşamaya kadar plan; asla acele yok; her adımda test (ikimizin); sor; birlikte doğrula | 17 faz ~155 adım; SDK; frenler; yanlışlanabilir testler |
+| Süreç | 100 aşamaya kadar plan; asla acele yok; her adımda test (ikimizin); sor; birlikte doğrula | 17 faz ~168 adım; SDK; frenler; yanlışlanabilir testler |
+| **Tanıma derinliği** (sahibin itirazı, 2026-08-24) | "3 soruyla neremi anladın — onlarca/yüzlerce soru gerekmez mi?" | **F6b Derin Interview Kampanyası** (kapsam haritası + grup grup + vault-first; hedef %80+) |
+| **Mekanizma ≠ değer** (sistemik ders) | F6 vakası: boru hattı kuruldu, içerik akmadı | Her mekanizma fazına içerik kampanyası adımı (F8 pilot, F12a envanter oturumu, F12b diff koşuları) |
+| **Empirik zeka + güven** (Claude önerisi, sahip onaylı) | Kanal sicili, tahminci, arena, provenance, öğrenme denetimi, kum havuzu/diff | F12d / F9 / F10 / F15 |
+| **Dayanıklılık** (Claude önerisi, sahip onaylı) | Kilometre taşları, bağımlılık grafiği, çoklu-cihaz senkron, offline degrade | F5 / F12a / F16 |
 | Bilinçli sınırlar | Web-chat kotası dışarıdan okunamaz; opencode bloke yüzeyi yok; tartışma karar vermez; sohbet ham yazılmaz | Her biri için tasarlanmış çözüm (§3 ilgili faz + §6 risk) |

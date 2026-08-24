@@ -48,9 +48,10 @@ APPROVED_DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 TRACKED = [
     "CLAUDE.md", "STATE.md", "DECISIONS.md", "REQUIREMENTS.md", "PLAN.md",
-    "vision.md", "PROJECT-INSTRUCTIONS.md", "README.md", "LICENSE",
+    "vision.md", "PROJECT-INSTRUCTIONS.md", "README.md", "LICENSE", "EMERGENCY.md",
     "hooks/gate.py", "tools/summary.py", "tools/context_cost.py", "tools/aioslog.py",
     "tools/review.py", "tools/decide.py", "tools/ledger.py", "tools/why.py",
+    "tools/bundle.py", "tools/backup.py", "tools/milestone.py", "tools/audit.py",
     "tests/test_gate.py",
     "adapters/claude-code/hook.json", "adapters/claude-code/install.py",
     "adapters/opencode/gate-plugin.js", "adapters/opencode/install.py",
