@@ -33,5 +33,5 @@
 
 | Risk | Erken sinyal |
 |---|---|
-| opencode plugin'in session.idle olayı beklediği gibi gelmemesi | opencode restart sonrası canary sessizse plugin revize |
+| opencode extraction hâlâ başarısız | restart sonrası "extract ok" yoksa → diag alanı (keys=...) revizeyi söyler |
 | Tempo kayması | 2 hafta sessizlik → duraklama sinyali |
