@@ -351,6 +351,24 @@ def demo() -> int:
     return 0
 
 
+def _in_scope(cwd: str) -> bool:
+    """AIOS dir is always in scope; managed projects opt in via a `.aios`
+    marker at their root (written by the F8 new-project ritual). Walks up
+    from cwd so project subdirectories are covered too."""
+    if not cwd:
+        return False
+    cwd_p = Path(cwd)
+    try:
+        if os.path.commonpath([str(cwd_p), str(AIOS_DIR)]) == str(AIOS_DIR):
+            return True
+    except ValueError:
+        pass
+    for base in [cwd_p, *cwd_p.parents]:
+        if (base / ".aios").exists():
+            return True
+    return False
+
+
 def main() -> int:
     if "--demo" in sys.argv:
         return demo()
@@ -394,16 +412,11 @@ def main() -> int:
         return 0
 
     # Scope filter: the hook is installed at user level, so it fires for EVERY
-    # Claude Code session on this machine. AIOS enforcement applies only to
-    # sessions inside the AIOS directory; managed projects opt in later (F8
-    # ritual writes their marker). Other work (owner's parallel sessions) is
-    # skipped SILENTLY - no log, no latency beyond the check.
+    # Claude Code session on this machine. AIOS enforcement applies to sessions
+    # inside the AIOS directory and to opted-in managed projects (`.aios`
+    # marker). Everything else is skipped SILENTLY - no log, no latency.
     cwd = os.path.abspath(os.path.expanduser(payload.get("cwd") or ""))
-    try:
-        in_scope = os.path.commonpath([cwd, str(AIOS_DIR)]) == str(AIOS_DIR)
-    except ValueError:
-        in_scope = False
-    if not in_scope:
+    if not _in_scope(cwd):
         return 0
 
     try:

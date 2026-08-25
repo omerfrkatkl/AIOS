@@ -7,38 +7,34 @@
 | **Sahip** | Proje sahibi; Claude yazar, sahip diff'i onaylar |
 | **Okuma tetikleyicisi** | Her oturum açılışı |
 | **Tavan** | ~900 kelime |
-| **Son güncelleme** | 2026-08-24 |
+| **Son güncelleme** | 2026-08-25 |
 
 ## Durum
 
-- Restukturizasyon: **F0–F5 bitti** — süreklilik tatbikatı 11 saniyede geçti (sıfır bağlam, farklı araç, doğru yanıt; eşik ≤15 dk). Kilometre taşı: `ms/f5-tamam`. Tek yetkili harita `PLAN.md` §8.
-- **PLAN revizyon 3 (2026-08-24):** platform genişlemesi — Kanal Sözleşmesi (yasa #7), GÖZLEMCİ katmanı, F12a/b/c/d, oturum türleri, iki-katmanlı puanlama, sindir.py, araştırma planı, provenance, öğrenme denetimi, GUI kapsamı. İzlenebilirlik eki: sahibin 58 isteği satır satır (§9). Sıra korundu: çekirdek → pilot → platform zekası.
-- **Çalışan zorlama:** kapı LEDGER'ı tarar (6 aktif rejected; test 11/11 · 0/12). **Kapsam filtresi (geçici):** zorlama yalnız AIOS dizininde; F8 ritüeli yönetilen projeleri opt-in ile kapsama alır, o noktada yalnız-AIOS kısıtı kalkar (sahip kararı). Sahibin paralel iş oturumları (Documents/All, Projects/DC) kapsam dışı — sessiz atlanır.
-- **Çalışan araçlar:** gate · review · decide · ledger · why · summary · context_cost · aioslog (JSONL, UTC, logs/ yerel).
-- **Oturum türleri:** proje / sohbet / araştırma — sohbet varsayılan beyne yazmaz, yalnız yapılandırılmış sinyal akar (tercih/hata/düzeltme/onay/erteleme).
-- Yönetilen projeler (KB, ledger, PDF360, DC, DNS) dokunulmadı; F8'e kadar yeni yönetilen proje başlatılmaz.
+- Restukturizasyon: **F0–F7 v1 bitti; F8 pilot başladı (yük = ledger).** Tek yetkili harita `PLAN.md` §8. Süreklilik tatbikatı: 11 saniye (F5 kapanışı, `ms/f5-tamam`).
+- **Çalışan zorlama:** kapı LEDGER'ı tarar (6 aktif rejected; test 11/11 · 0/12) — Claude Code tam blok, opencode tespit+log. **Kapsam:** AIOS dizini + `.aios` işaretli yönetilen projeler (ledger opt-in edildi); DC / Documents/All sessiz atlanır (sahibin paralel işleri korumada).
+- **Çalışan araçlar:** gate · review · decide · ledger · why · summary · context_cost · aioslog · bundle · backup · milestone · audit · newproject (ritüel). aioslog UTC; logs/ yerel.
+- **F6/F6b:** S-1 + zinciri cevaplandı → PROFILE işlendi; interview Tur 1 tamam (kapsam ~%40); **kapanış kanıtı sonraki oturumda** (S-1 zinciri tekrar sorulmaz + audit temiz).
+- **F7 v1:** `vault/` (AIOS/vault, gitignored, backup kapsamında) + iki-vault disiplini (Documents/All salt-okunur). Açık soru: öğrenmeler vault'a yansısın mı (sahip kararı).
+- **Tetikleyici:** 2026-09-28 — yeni dönem planı → ritim güncellenir.
+- **Pilot eşikleri (veri öncesi kilitli):** P1 çalışan CLI ≤4 oturum VEYA 6 hafta (katı fren) · P2 teknik soru = 0, her seçim ≥2 alternatif + gerekçe · P3 DECISIONS 2–8, T-A ≤1 · P4 "sohbetten yavaş değil".
 
 ## Çalışma disiplini
 
 - Kanıt etiketleri · T-A/B/C (varsayılan T-C) · append-only DECISIONS · dört-alanlı dosyalar · tek yetkili plan = PLAN.md.
 - **Sahip Doğrulama Kapısı (revize):** komutla doğrulanan her şey Claude'da; sahibe yalnız erişilemez ortamlar / kararı-beyanı gerekenler / öznel yargı.
-- **Eşzamanlılık kuralı v1:** tek aktif yürütücü; beyne tek yazıcı.
-
-## Durum (F6/F6b eki)
-
-- **F6 canlı döngü — 2 tur tamam:** S-1 + zinciri cevaplandı → PROFILE işlendi → audit yakaladı → taban güncel. Kapanış kanıtı sonraki oturumda (tekrar-yasak).
-- **F6b Interview Tur 1 tamam:** tasarım zevki + araç tercihleri + vault ilişkisi işlendi (kapsam ~%25 → ~%40). F7 girdisi kesinleşti: yeni AIOS vault'u AIOS/ içinde kurulacak. I-F3 önerisi sahibin kararında (Analitik Sistemi: bağımsız başla → AIOS yönetimine dönüş).
-- **Tetikleyici:** 2026-09-28 — yeni dönem planı → ritim satırı güncellenir (sahip bildirir).
+- **Araştırılabilirlik filtresi:** objektif sorular sahibe SORULMAZ — F10 hattına gider.
+- **Eşzamanlılık v1:** tek aktif yürütücü; beyne tek yazıcı. **Oturum türleri:** proje/sohbet/araştırma (sohbet → yalnız yapılandırılmış sinyal).
 
 ## Sıradaki
 
-1. Sonraki oturum: S-1 zinciri tekrar sorulmaz (F6 kapanış kanıtı) → istenirse **F7 · Obsidian** başlar
-2. F7 sonrası: F8 Pilot (katı fren) → F9 → F10 → F11 → F12a/b/c/d → F13 → F14 → F15 GUI → F16
-2. Sonra F7 Obsidian → F8 Pilot (katı fren) → F9 karar sistemi → F12a/b/c/d → F13 failover → F14 bağlantı → F15 GUI → F16
+1. **Pilot ilk dilim:** teknik karar araştırması — depolama biçimi + CLI çatısı — web araştırmasıyla, sahibe teknik soru olmadan (P2/G43 sınavı)
+2. Sonra: ilk çalışan dilim (P1'e doğru) → F9 karar sistemi → F10 → F11 → F12a/b/c/d → F13 → F14 → F15 GUI → F16
 
 ## Açık riskler
 
 | Risk | Erken sinyal |
 |---|---|
-| opencode spawn ETIMEDOUT (bir kez görüldü) | tekrarlanırsa timeout 30s→60s veya direkt python yolu |
-| Tempo kayması | 2 hafta sessizlik → duraklama sinyali |
+| Pilot teknik kararları yetersiz araştırılmış | P2 ihlali: gerekçesiz/alternatifsiz seçim DECISIONS'ta |
+| opencode spawn ETIMEDOUT (bir kez) | tekrarlanırsa timeout 30s→60s veya direkt python yolu |
+| Tempo kayması (öğrenci ritmi değişken) | 2 hafta sessizlik → duraklama sinyali |

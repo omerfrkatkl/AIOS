@@ -178,7 +178,9 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · **hata kayıtl
 | 2026-08-24 | F4 · canlı testler | ✅ geçti | A: Claude Code restart → FIRED clean x2 · B: opencode → extract ok (S1) + **BLOCKED L-002,L-003 surface=opencode** · kapsam kararı: yalnız-AIOS kısıtı inşa dönemi için; F8 ritüeliyle yönetilen projelere genişler |
 | 2026-08-24 | F5 · Süreklilik + kartlar | ✅ bitti — **tatbikat 11 saniyede geçti** (sıfır bağlam, farklı araç, doğru yanıt; eşik ≤15 dk; ms/f5-tamam) | bundle v3 (kişisel katman hariç; --personal) · backup.py (zip, retention 5) · milestone.py (ms/ tag) · sihirbaz satırı (summary SIRADAKI) · EMERGENCY.md · kuru koşu 6/6 |
 | → | F6 · Tanıma | sıradaki | 8 adım: soru kuyruğu + adaptif döngü + öğrenme denetimi |
-| → | F6 · Tanıma | sıradaki | tatbikat sonrası |
+| 2026-08-24 | F6 · Tanıma | ✅ inşa + 2 tur canlı döngü | kapanış kanıtı sonraki oturumda (tekrar-yasak) |
+| 2026-08-24 | F7 · Kişisel bilgi deposu v1 | ✅ bitti | vault/ + iki-vault disiplini + backup kapsamı; açık soru: öğrenmeler vault'a yansısın mı |
+| 2026-08-25 | F8 · Pilot | ✅ başladı — ritüel + P-ölçütleri kilitli | yük=ledger; ilk dilim: teknik karar araştırması (P2/G43) |
 
 ## 9. İzlenebilirlik — sahibin istekleri ↔ plan (2026-08-24 denetimi, sahip onaylı)
 

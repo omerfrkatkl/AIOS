@@ -120,3 +120,11 @@
 - **Kapsam:** 14 karar gözden geçirildi.
 - **Onay bekleyen:** 0 (yok)
 - **Kanıt:** `[gözlendi]` — `tools/review.py --done`
+
+## 2026-08-25 · F8 pilot basladi: yuk=ledger, P1-P4 esikleri kilitlendi · T-B
+
+- **Karar:** Pilot yuk: ledger (kisisel gelir-gider CLI, Projects/ledger/BRIEF.md hazif). Yeni-proje ritueli insa edildi (tools/newproject.py: BRIEF+git+MIT+README/CHANGELOG+STATE+.aios kapi opt-in) ve ledger'e --augment ile uygulandi (BRIEF korunudu, 5 bilesen eklendi). Kapsam filtresi .aios marker yuruyusuyle genisletildi: ledger oturumlari artik zorlanir, DC/Documents-All sessiz kalir (komutla dogrulandi). P-olcutler veri gorulmeden kilitlendi: P1 calisan CLI <=4 oturum VEYA 6 hafta (KATI fren, dolursa negatif bulguyla kapanir); P2 teknik secimler AIOS tarafindan, sahibe teknik soru=0, her secim >=2 alternatif+gerekce; P3 DECISIONS 2-8 bandi, T-A <=1; P4 sahibin algi 'dogrudan sohbetten yavas degil'.
+- **Gerekçe:** Sahibin onayi ('plan dahilinde gidiyorsak onayliyorum') + pilot oncesi esik sabitleme kurali 8. G43'un ilk gercek sinavi: depolama bicimi ve CLI catisi kararlari arastirmayla AIOS tarafindan kapatilir. .aios opt-in mekanizmasi kapsam filtresinin insa-donemi kisitini duzenli cikis noktasina bagladi (sahibin 'sonra iptal edelim' kararinin uygulama yolu).
+- **Alternatifler:** Pilot yuk olarak baska proje (elendi: sahibin onayi ledger uzerinde) · P-olcutleri pilot sirasinda ayarlamak (elendi: kural 8 - esik veri gorulmeden sabitlenir)
+- **Geri alma:** Ucuz simdi - ilk hafta icinde yuk degisir; fren dolursa negatif bulguyla kapanir
+- **Kanıt:** `[gözlendi]` — Rituel ciktisi + kapsam testi (ledger FIRED, DC sessiz) komutla dogrulandi
