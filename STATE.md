@@ -33,8 +33,8 @@
 
 ## Sıradaki
 
-1. Pilot devam: export alt komutu (BRIEF #4) + sahibin gerçek kullanımı (P4)
-2. F6 kapanış kanıtı sonraki oturumda; sonra F9 karar sistemi → F10 → F11 → F12a/b/c/d → F13 → F14 → F15 GUI → F16 → F9 karar sistemi → F10 → F11 → F12a/b/c/d → F13 → F14 → F15 GUI → F16
+1. **Pilot kullanıma açık:** export komutu canlı (BRIEF #4 tamam, test 4/4) — sahibin gerçek kullanımı P4 algı ölçümünü üretir
+2. F6 kapanış kanıtı sonraki oturumda; sonra F9 karar sistemi → F10 → F11 → F12a/b/c/d → F13 → F14 → F15 GUI → F16
 
 ## Açık riskler
 
