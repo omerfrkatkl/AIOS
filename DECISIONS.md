@@ -114,3 +114,9 @@
 - **Alternatifler:** Serpistirilmis soru modu (elendi: sahibin secimi grup grup uzun oturum) · Vault'suz interview (elendi: sahibin secimi vault-first; cift sorma riski) · F7'den sonra baslamak (elendi: sahibin secimi simdi; v1 dosya erisimi yeterli)
 - **Geri alma:** Ucuz - kampanya PROFILE kapsam haritasiyla sinirli; kural tek satir
 - **Kanıt:** `[gözlendi]` — Sahibin itirazi + 4 soru-cevap + vault yapisi gozlendi (11 klasor + vision.md)
+
+## 2026-08-25 · Gözden geçirildi · T-C
+
+- **Kapsam:** 14 karar gözden geçirildi.
+- **Onay bekleyen:** 0 (yok)
+- **Kanıt:** `[gözlendi]` — `tools/review.py --done`
