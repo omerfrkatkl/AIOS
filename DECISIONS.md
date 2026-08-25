@@ -128,3 +128,11 @@
 - **Alternatifler:** Pilot yuk olarak baska proje (elendi: sahibin onayi ledger uzerinde) · P-olcutleri pilot sirasinda ayarlamak (elendi: kural 8 - esik veri gorulmeden sabitlenir)
 - **Geri alma:** Ucuz simdi - ilk hafta icinde yuk degisir; fren dolursa negatif bulguyla kapanir
 - **Kanıt:** `[gözlendi]` — Rituel ciktisi + kapsam testi (ledger FIRED, DC sessiz) komutla dogrulandi
+
+## 2026-08-25 · Pilot ilk dilim: teknik kararlar ledger deposuna islendi (G43 gecti) · T-C
+
+- **Karar:** Ledger'in iki teknik karari web arastirmasiyla alindi ve ledger/DECISIONS.md'e islendi (Topoloji C: proje kararlari proje deposunda): depolama = SQLite tek dosya + CSV/JSON export; CLI catisi = Typer. AIOS DECISIONS'ina yalnizca bu ozet girisi yazildi - P3 bandi ledger/DECISIONS sayimindan okunur.
+- **Gerekçe:** P2 geregi: her secim >=2 alternatif + arastirma gerekcesiyle; sahibe teknik soru sorulmadi (soru=0). Kaynak ayrimi: proje ici kararlar proje deposunda, AIOS-deney kanitlari AIOS deposunda (Topoloji C ADR dersi).
+- **Alternatifler:** Kararlari AIOS DECISIONS'a yazmak (elendi: Topoloji C ADR dersi - proje kararlarindan uzakta duran kayitlar terk edilir) · Arastirma yapmadan dogrudan secim (elendi: P2 gerekliligi + sahibin 'kafamiza gore degil' talimati)
+- **Geri alma:** Ucuz
+- **Kanıt:** `[gözlendi]` — Web arastirmasi 2026-08-25, cok kaynakli; ledger commit 8fa1444
