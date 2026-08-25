@@ -34,11 +34,12 @@
 
 ## Sıradaki
 
-1. **R-004 karar-noktası (sahibin, soruldu):** OpenRouter’a tek-seferlik $10 kredi → 50→1000 istek/gün (kalıcı, 20×kapasite)
-2. **Ollama devreye-alım önşartı** (R-002): gerçek ajan zincirinde tool-calling testi (yerel kurulum gerekir)
-3. kotu.py’ye OpenRouter GET /api/v1/key gerçek-kota okuması (R-004 önerisi)
-4. gorev-kur onayı (sahip) · F6 kapanış kanıtı (yeni oturum) · interview Tur 2 ("beni tanı")
-5. F12d empirik zeka → F13 failover → F14 bağlantı → F15 GUI (P4 gerçek ölçüm) → F16
+1. **F12a %100 kapanışı:** araç-yönlendirme v1 (kartlarda `calistirma` + route YÜRÜTME satırı + `--json`)
+2. **F12d başlangıcı:** kanal sicili şeması v1 · kotu.py OpenRouter gerçek-kota okuması (GET /api/v1/key, R-004)
+3. **Ara-işler:** Ollama kurulum + tool-calling testi (sahibin iznine bağlı, R-002 önşartı) · backup ritmi
+4. **Veri dönemi (2026-09-28):** ledger + usage.jsonl doğal akış → F12d dolması → F13 failover → F14 bağlantı → F15 GUI (T-A framework kararı başta; P4 burada) → F16
+5. **Sistem-bitimi:** kişisel doldurma kampanyası (PROFILE üzerine, ≥%80) · F7 vault-yansıtma kararı
+> **KİŞİSEL-VERİ DONDRUMASI AKTİF (2026-08-25):** interview/yeni kişisel veri toplanmaz; PROFILE korunur; devamı PLAN §3.5 madde 5'te.
 
 ## Açık riskler
 
