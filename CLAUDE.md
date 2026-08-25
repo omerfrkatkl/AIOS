@@ -11,6 +11,7 @@
 4. Update `STATE.md` in place (owner reviews the diff).
 5. Update `PLAN.md` §8 if a step or phase moved.
 6. Append decisions to `DECISIONS.md` — append-only, never edit old entries.
+7. Regenerate the owner dashboard: `uv run --no-project python tools/pano.py` (F9.5).
 
 ## Standing rules
 

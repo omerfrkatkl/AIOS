@@ -6,6 +6,7 @@ inventory/
 *.local.md
 
 vault/
+pano.html
 
 # ——— Çalışma artefaktları ———
 __pycache__/
