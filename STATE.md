@@ -11,7 +11,8 @@
 
 ## Durum
 
-- Restukturizasyon: **F0–F10 bitti + F9.5 panosu inşa edildi.** Tek yetkili harita `PLAN.md` (checkbox'lı yürütme haritası — her oturum oradan devam eder). Kilometre taşları: `ms/f5-tamam`.
+- Restukturizasyon: **F0–F11 bitti + F9.5/F10-v2 kapandı.** Tek yetkili harita `PLAN.md` (checkbox'lı yürütme haritası — her oturum oradan devam eder). Kilometre taşları: `ms/f5-tamam`.
+- **F11 beceri kütüphanesi:** skills/ şeması + indeks + çağrılma kuralı (tetik-eşleşmesinde öneri; yan-etki normal kapıdan) · 4 beceri: haftalik-review, yeni-proje, derle-dogrula (standart doğrulama taraması), donemsel-ozet (opt-in) · CLAUDE.md oturum-başı keşif satırı · sahibin isimle-çağrım onayı bekliyor.
 - **F9 karar sistemi (10/10):** iki-katmanlı puanlama (evrensel sabitler filtresi + proje ağırlıkları 0–1) · decide.py --scores/--sonuc-izle/--ilgili · sentetik test 3/3 (atıfsız puan reddedilir) · tartışma/geri-çağırma/kademeli otonom/sonuç-izleme kuralları CLAUDE.md'de.
 - **F10 araştırma hattı v2 (makine-denetlenebilir):** kriter kitabı `research/README.md` (T1-T3 kontrol-listesi, manşet=tam-çekim+destek, obs-tabanlı tazelik, negatif-arama zorunlu, mekanik güven) · sindir.py check/claim/badge · **R-001 v2** (check TEMİZ exit 0; negatif-arama OpenAI'ın Şubat 2026 SWE-V emeklilik kararını buldu → bağımsız harness'ta açık-ağırlık farkı yalnız 0,6 puan, Verified rakamları şişik; L-003 gerekçesi güncellendi) · decide.py bayat-atıf uyarısı · pano+review araştırma görünür.
 - **F9.5 HTML panosu:** pano.py SplitWire-formatı (sidebar + çipler + kartlar, koyu/amber). **Sahibin görsel onayı bekliyor.**
@@ -31,10 +32,9 @@
 
 ## Sıradaki
 
-1. **Sahibin pano testi** (görsel onay) → F9.5 kapanışı
-2. **F6 kapanış kanıtı** (yeni oturumda otomatik)
-3. **F11 · Beceri kütüphanesi** — skills/ şeması + ilk beceriler (haftalık-review, yeni-proje, derle-doğrula)
-4. F12a (envanter oturumu) → F12b/c/d → F13 → F14 → F15 GUI (P4 gerçek ölçüm) → F16
+1. **F12a · Kayıt defteri + yönlendirici** — ORTASINDA **sahibin envanter oturumu** gerekiyor (kanal/model envanteri: hangi abonelikler, hangi modellere erişim)
+2. F6 kapanış kanıtı (yeni oturumda otomatik) · interview Tur 2 ("beni tanı") · pilot gerçek kullanım
+3. F12b/c/d → F13 failover → F14 bağlantı → F15 GUI (P4 gerçek ölçüm) → F16
 
 ## Açık riskler
 

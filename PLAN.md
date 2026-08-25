@@ -117,8 +117,8 @@ Fren semantiği: inşaat fazlarında duraklama dedektörü (2 hafta sessizlik �
 - [x] R-001 v2: negatif-arama OpenAI'ın Şubat 2026 SWE-V emeklilik kararını buldu → manşet değişti; vals.ai T1-nötr tam-çekim (açık-ağırlık farkı ~15 puan DEĞİL 0,6 puan); 14 yapılandırılmış iddia; check TEMİZ exit 0
 - [x] pano araştırma bölümü (tazelik çipleri) + review.py RESEARCH satırı
 ### ☐ F11 · Beceri kütüphanesi (6 adım) — fren: 2 oturum
-- [ ] skills/ şeması · [ ] ilk beceriler (haftalık-review, yeni-proje, derle-doğrula) · [ ] dönemsel özet (opt-in) · [ ] çağırma kuralı · [ ] test · [ ] sahip kontrolü
-
+- [x] skills/ şeması · [ ] ilk beceriler (haftalık-review, yeni-proje, derle-doğrula) · [ ] dönemsel özet (opt-in) · [ ] çağırma kuralı · [ ] test · [ ] sahip kontrolü
+> Kapanış kanıtı (2026-08-25): skills/README.md indeks+şema+çağrılma kuralı · 4 beceri (haftalik-review, yeni-proje, derle-dogrula, donemsel-ozet) · CLAUDE.md oturum-başı keşif satırı · derle-dogrula uçtan-uca koşuldu (7 kontrol: unittest 13/13+5/5, gate %100, review sağlıklı, bağlam hedefte, check TEMİZ)
 ### ☐ F12a · Kayıt defteri + yönlendirici v1 (16 adım) — fren: 4 oturum
 - [ ] model kartı şeması (Kanal Sözleşmesi) · [ ] OpenWebUI/LM Studio öncül araştırması · [ ] üretici script · [ ] **senin envanter oturumun** · [ ] limit doğrulama araştırmaları · [ ] gizlilik bölgesi · [ ]–[ ] yönlendirici v1 · [ ] registry.py --update (sözlü bildirim) · [ ] yetenek sağlayıcılar · [ ] bağımlılık grafiği · [ ] araç-yönlendirme · [ ] test
 

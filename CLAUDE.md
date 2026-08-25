@@ -5,6 +5,7 @@
 1. Read `STATE.md` + `PROFILE.md`, and the active-decision digest (`uv run --no-project python tools/summary.py`, when present).
 2. Read `PLAN.md` §8 (Progress) — know the current phase and next step.
 3. Open with one line: where we are, what is pending, what is next.
+4. If this session's likely work matches a skill trigger in `skills/README.md`, load that skill before starting (F11).
 
 ## Session end
 
