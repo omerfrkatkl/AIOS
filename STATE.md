@@ -21,7 +21,7 @@
 - **review.py aynı-gün-karar hatası düzeltildi** (dosya-sırası tabanlı; 9 görünmez karar kurtarıldı).
 - **Bekleyen onay:** gorev-kur --kos (günlük kesif-poll'un Task Scheduler kaydı) — sahibin "onayın" bekliyor.
 - **F9.5 panosu sahibin görsel onayını aldı** ("tasarım iyi duruyor"). **F8 pilot:** P1-P3 ✅, P4 ⏸ F15 sonrası. **F6:** kapanış kanıtı yeni oturumda. **F6b interview:** Tur 1 ~%40, Tur 2 "beni tanı" tetiklemeli.
-- **Çalışan zorlama:** kapı FIRED (test 11/11) · kapsam AIOS+.aios. **Araçlar (18):** gate review decide ledger why summary context_cost aioslog bundle backup milestone audit newproject pano sindir registry kesif kotu. Testler 35/35.
+- **Çalışan zorlama:** kapı FIRED (test 11/11) · kapsam AIOS+.aios. **Araçlar (19):** gate review decide ledger why summary context_cost aioslog bundle backup milestone audit newproject pano sindir registry kesif kotu. Testler 35/35.
 - **Tetikleyici:** 2026-09-28 dönem planı → ritim güncellenir.
 
 ## Çalışma disiplini
@@ -35,7 +35,7 @@
 ## Sıradaki
 
 1. **F12a %100 kapanışı:** araç-yönlendirme v1 (kartlarda `calistirma` + route YÜRÜTME satırı + `--json`)
-2. **F12d başlangıcı:** kanal sicili şeması v1 · kotu.py OpenRouter gerçek-kota okuması (GET /api/v1/key, R-004)
+2. ✓ **F12d başlangıcı bitti (2026-08-26):** sicil.py + kotu openrouter-kota
 3. **Ara-işler:** Ollama kurulum + tool-calling testi (sahibin iznine bağlı, R-002 önşartı) · backup ritmi
 4. **Veri dönemi (2026-09-28):** ledger + usage.jsonl doğal akış → F12d dolması → F13 failover → F14 bağlantı → F15 GUI (T-A framework kararı başta; P4 burada) → F16
 5. **Sistem-bitimi:** kişisel doldurma kampanyası (PROFILE üzerine, ≥%80) · F7 vault-yansıtma kararı

@@ -189,6 +189,49 @@ def cmd_gorev(args) -> int:
     return 0
 
 
+def parse_openrouter_key(payload: dict) -> dict:
+    """R-004: GET /api/v1/key cevabindan kota-bilinci cikarimi (saf fonksiyon).
+    NOT: OpenRouter istek-sayisi vermez; gunluk kapak is_free_tier'den belirlenir
+    (ucretsiz=50/gun; hic $10+ kredi alindiysa 1000/gun). Istek sayaci usage.jsonl'dir."""
+    d = payload.get("data", {})
+    free = bool(d.get("is_free_tier"))
+    return {
+        "is_free_tier": free,
+        "gunluk_kapak_istek": 50 if free else 1000,
+        "kullanim_bugun_kredi": d.get("usage_daily"),
+        "kalan_limit": d.get("limit_remaining"),
+    }
+
+
+def cmd_orkey(args) -> int:
+    import os
+    import urllib.request
+
+    name = args.env_var
+    key = os.environ.get(name)
+    if not key:
+        print(f"HATA: {name} ortam-degiskeni yok — anahtari once tanimla.",
+              file=sys.stderr)
+        return 1
+    req = urllib.request.Request(
+        "https://openrouter.ai/api/v1/key",
+        headers={"Authorization": f"Bearer {key}", "User-Agent": "AIOS-kotu/1"})
+    try:
+        with urllib.request.urlopen(req, timeout=args.timeout) as r:
+            payload = json.loads(r.read().decode("utf-8"))
+    except Exception as exc:
+        print(f"HATA: sorgu basarisiz: {exc}", file=sys.stderr)
+        return 1
+    b = parse_openrouter_key(payload)
+    print(f"OPENROUTER KOTA (gerçek okuma)")
+    print(f"  hesap türü      : {'ücretsiz' if b['is_free_tier'] else 'kredili'}")
+    print(f"  günlük kapak    : {b['gunluk_kapak_istek']} istek/gün (:free modeller)")
+    print(f"  bugün kredi     : {b['kullanim_bugun_kredi']}")
+    print(f"  anahtar limiti  : {b['kalan_limit'] if b['kalan_limit'] is not None else 'sınırsız'}")
+    print("  NOT: API istek-sayısı vermez → gerçek istek sayacı usage.jsonl (kotu kayit).")
+    return 0
+
+
 def main() -> int:
     for stream in (sys.stdout, sys.stderr):
         try:
@@ -210,8 +253,14 @@ def main() -> int:
     g.add_argument("--kos", action="store_true",
                    help="sisteme gorev yazar (SAHIBIN ONAYIYLA kosulur)")
 
+    o = sub.add_parser("openrouter-kota")
+    o.add_argument("--env-var", default="OPENROUTER_API_KEY",
+                   help="anahtarın ortam-değişkeni adı")
+    o.add_argument("--timeout", type=int, default=15)
+
     a = ap.parse_args()
-    return {"kayit": cmd_kayit, "durum": cmd_durum, "gorev-kur": cmd_gorev}[a.cmd](a)
+    return {"kayit": cmd_kayit, "durum": cmd_durum, "gorev-kur": cmd_gorev,
+            "openrouter-kota": cmd_orkey}[a.cmd](a)
 
 
 if __name__ == "__main__":

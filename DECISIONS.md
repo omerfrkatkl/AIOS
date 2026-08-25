@@ -244,3 +244,9 @@
 - **Karar:** Kartlara calistirma alanı eklendi (12/12: CLI/web/API yürütme-bilgisi, anahtar-adlarıyla); route çıktısına YÜRÜTME satırı ve --json yapısal-çıktı (F15 registry-driven panelleri için sözleşme) eklendi; test 15 senaryoya çıktı
 - **Gerekçe:** Yasa #7 Kanal Sözleşmesi: UI/yönlendirici kartlardan çizer — yürütme bilgisi de karttan gelmeli; JSON çıktısı F15 GUI'nin route tüketimini bugünden sözleşmeliyor
 - **Kanıt:** `[gözlendi]` — unittest 43/43 · canlı: route insan+JSON · validate 12 kart TEMİZ
+
+## 2026-08-26 · F12d başlangıcı: kanal sicili v1 + OpenRouter gerçek-kota okuması · T-C
+
+- **Karar:** tools/sicil.py (ekle/ozet --json; n<5 yetersiz-veri guard'ı; TEST-etiket ayrımı — dondurma politikası uyumlu) ve kotu.py openrouter-kota alt-komutu (GET /api/v1/key; is_free_tier'den 50/1000 kapak-belirleme; API'nin istek-sayısı VERMEDİĞİ açıkça notlandı — gerçek sayacı usage.jsonl olmaya devam eder)
+- **Gerekçe:** F12d'nin ham-veri katmanı veri gelmeden kurulabilir; R-004'ün izleme-önerisi uygulandı; aşırı-talep yok: OpenRouter'ın sağlamadığı veri uydurulmadı
+- **Kanıt:** `[gözlendi]` — unittest 51/51 · canlı: TEST kayıt+özet guard · anahtarsız davranış exit 1 temiz

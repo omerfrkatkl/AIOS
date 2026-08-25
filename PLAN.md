@@ -130,11 +130,11 @@ Fren semantiği: inşaat fazlarında duraklama dedektörü (2 hafta sessizlik �
 
 > **Oturum kanıtı (2026-08-25):** kesif.py canlı 3 poll (418 model; ilk=taban, sonrakiler sessiz-sağlık) · test 29/29 · gürültü-kusuru yakalandı-düzeltildi (ilk-poll merdiven muafiyeti + not tavanı).
 ### 🟡 F12c · Kota takipçisi (6/7 — bildirim/düğme F15'e)
-- [x] kullanım defteri (registry/usage.jsonl — sahibin sohbet girdisiyle AJAN yazar) · [x] yenileme pencere modeli (kart kota_model alanı + window_bounds: ay-devri/31-clamp testli) · [ ] bildirim/düğme ⏸ F15 GUI panosuna · [x] Task Scheduler (AIOS-kesif-poll Ready; canlı koşum: 418 model · 1 FIYAT · sonuç 0) · [x] yönlendirici entegrasyonu (route dolu kanalı atlar + KOTA NOTU basar) · [x] test (tests/test_kotu.py 6 senaryo) · [x] **devreye alma** (sahip onayıyla 2026-08-25; geri-alma: schtasks /Delete)
+- [x] kullanım defteri (registry/usage.jsonl — sahibin sohbet girdisiyle AJAN yazar) · [x] yenileme pencere modeli (kart kota_model alanı + window_bounds: ay-devri/31-clamp testli) · [ ] bildirim/düğme ⏸ F15 GUI panosuna · [x] Task Scheduler (AIOS-kesif-poll Ready; canlı koşum: 418 model · 1 FIYAT · sonuç 0) · [x] yönlendirici entegrasyonu (route dolu kanalı atlar + KOTA NOTU basar) · [x] test (tests/test_kotu.py 6 senaryo) · [x] **devreye alma** (sahip onayıyla 2026-08-25; geri-alma: schtasks /Delete) · [x] openrouter-kota gerçek okuma (GET /api/v1/key; is_free_tier→50/1000 kapak; API istek-sayısı vermez notu)
 
 > **Oturum kanıtı (2026-08-25):** pencere matematiği 3 hata yakalanıp düzeltildi (ay-devri, önceki-ay, clamp) · canlı G46 kanıtı: DOLU kart route'dan elendi, alternatif önerildi · test 35/35.
 ### ☐ F12d · Empirik zeka (8 adım) — fren: 3 oturum
-- [ ] kanal sicili · [ ] tahminci · [ ] arena · [ ]–[ ] maliyet defteri · [ ] test · [ ] sahip kontrolü
+- [x] kanal sicili v1 (tools/sicil.py: ekle/ozet --json; n<5 yetersiz-veri guard’ı; TEST-etiket ayrımı; 8 senaryo) · [ ] tahminci · [ ] arena · [ ]–[ ] maliyet defteri · [ ] test · [ ] sahip kontrolü
 
 ### ☐ F13 · Failover (12 adım) — fren: 4 oturum
 - [ ] sinyaller · [ ] geçiş kuralı (görev sınırında) · [ ] API otomatik / web öneri · [ ] test · [ ] devreye alma (onayın)
