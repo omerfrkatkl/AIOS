@@ -213,3 +213,9 @@
 - **Karar:** Ücretsiz API kanallarının kotaları araştırıldı (izleme raporu, tetik 2026-09-24): OpenRouter :free 20 RPM + 50/gün taban ( ömür-boyu krediyle kalıcı 1000/gün), NVIDIA NIM hesap-geneli ~40 RPM (kredi sistemi Eylül 2025'te kaldırıldı — kart notu düzeltildi), Gemini sayıları yayınlanmıyor/çakışık (yapısal bulgular güvenilir). Üç karta doğrulanmış limit notları işlendi
 - **Gerekçe:** F12a'nın son adımı; kota-baskısı yüksek claude-code-cli için alternatif kanalların gerçek kapasitesi yönlendirici ve kotu.py tasarımını belirler
 - **Kanıt:** `[gözlendi]` — sindir check TEMİZ exit 0 · 12 kaynak · 3xT2 tam-çekim · karşıt-sorgu muhasebeli
+
+## 2026-08-25 · OpenRouter  kredi: erteleme · T-C
+
+- **Karar:** Sahip şu an satın alım yapmıyor; 50 istek/gün taban kapasiteyle devam. Kota baskısı artarsa veya F13 failover çalışınca yeniden gündeme gelir
+- **Gerekçe:** Opsiyonel maliyet; acil değil
+- **Kanıt:** `[gözlendi]` — sahip beyanı 2026-08-25 · R-004 bulgusu referans
