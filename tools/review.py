@@ -52,6 +52,7 @@ TRACKED = [
     "hooks/gate.py", "tools/summary.py", "tools/context_cost.py", "tools/aioslog.py",
     "tools/review.py", "tools/decide.py", "tools/ledger.py", "tools/why.py",
     "tools/bundle.py", "tools/backup.py", "tools/milestone.py", "tools/audit.py",
+    "tools/sindir.py", "tools/registry.py", "tools/kesif.py", "tools/kotu.py",
     "tests/test_gate.py",
     "adapters/claude-code/hook.json", "adapters/claude-code/install.py",
     "adapters/opencode/gate-plugin.js", "adapters/opencode/install.py",

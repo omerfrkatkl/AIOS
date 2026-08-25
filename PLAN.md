@@ -143,6 +143,7 @@ Fren semantiği: inşaat fazlarında duraklama dedektörü (2 hafta sessizlik �
 ### ☐ F15 · Windows GUI uygulaması (kaba — yaklaştıkça ayrışır)
 Gerçek pencere uygulaması · tasarım referansı opencode · teknoloji araştırması (S3/S4) · registry-driven paneller · parametre panelleri (kanal sözleşmesinden) · kota panosu · model matrisi · olay akışı · sohbet modu · kum havuzu/diff · deneysel: tarayıcı otomasyonu · **P4 gerçek ölçümü burada**
 
+> **Ön-hazırlık kanıtı (2026-08-25, F15'ten önce):** R-003 GUI-teknoloji araştırması check TEMİZ exit 0 — pywebview birincil aday (pano.html'i sarar), Flet yedek, Tauri/Electron dil-ekseniyle elendi. Framework KARARI F15 başında sahibin onayına gelir (T-A).
 ### ☐ F16 · Self-improvement + hata öğrenme kütüğü (kaba)
 Log analizinden öğrenme (kapıya bağlı) · AI-atıf (desen/kaynak/bağlam/düzeltme) · sinyal taksonomisi işletimi · G31 döngüsü · periyodik tatbikat · çoklu-cihaz senkron · offline degrade
 

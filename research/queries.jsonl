@@ -4,3 +4,5 @@
 {"ts": "2026-08-25T13:53:53Z", "query": "best coding llm 2026 swe-bench verified leaderboard comparison", "kind": "ana", "tool": "websearch", "report": "R-001"}
 {"ts": "2026-08-25T14:34:05Z", "query": "OpenWebUI vs LM Studio vs Ollama 2026 comparison local LLM hosting which to choose", "kind": "ana", "tool": "websearch", "report": "R-002"}
 {"ts": "2026-08-25T14:34:05Z", "query": "Ollama criticism problems limitations enshittification complaints", "kind": "counter", "tool": "websearch", "report": "R-002"}
+{"ts": "2026-08-25T15:42:05Z", "query": "Tauri vs Electron vs pywebview vs Flet 2026 desktop app wrapper comparison Python", "kind": "ana", "tool": "websearch", "report": "R-003"}
+{"ts": "2026-08-25T15:42:05Z", "query": "Flet desktop app 2026 production ready criticism review Python UI", "kind": "counter", "tool": "websearch", "report": "R-003"}

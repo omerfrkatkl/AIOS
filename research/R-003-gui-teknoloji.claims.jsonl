@@ -1,0 +1,6 @@
+{"model": "Tauri 2.x", "metrik": "hello-paket-MB", "deger": 3.2, "obs": "2026-08", "harness": "Nickel-benchmark", "kaynak": "K1", "derece": "T2", "not": ""}
+{"model": "Electron 43", "metrik": "hello-paket-MB", "deger": 85.0, "obs": "2026-08", "harness": "Nickel-benchmark", "kaynak": "K1", "derece": "T2", "not": ""}
+{"model": "Tauri 2.x", "metrik": "bosta-RAM-MB", "deger": 42.0, "obs": "2026-08", "harness": "Nickel-benchmark", "kaynak": "K1", "derece": "T2", "not": ""}
+{"model": "Electron 43", "metrik": "bosta-RAM-MB", "deger": 168.0, "obs": "2026-08", "harness": "Nickel-benchmark", "kaynak": "K1", "derece": "T2", "not": ""}
+{"model": "Tauri", "metrik": "GitHub-yildiz-bin", "deger": 109.0, "obs": "2026-08", "harness": "", "kaynak": "K1", "derece": "T2", "not": ""}
+{"model": "Electron", "metrik": "GitHub-yildiz-bin", "deger": 122.0, "obs": "2026-08", "harness": "", "kaynak": "K1", "derece": "T2", "not": ""}

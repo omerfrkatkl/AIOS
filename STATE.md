@@ -23,7 +23,8 @@
 - **F8 pilot:** P1/P2/P3 ✅ · **P4 ⏸ ölçülemedi** (sahibin kullanıcı yüzü yoktu) → görünürlük + gerçek kullanım sonrası. Ledger beklemede (dönem başlayınca doğal kullanım).
 - **F6:** kapanış kanıtı sonraki yeni oturumda (S-1 zinciri sorulmaz + audit temiz). **F6b interview:** Tur 1 tamam (kapsam ~%40), Tur 2+ "beni tanı" tetiklemeli.
 - **Çalışan zorlama:** kapı 6 aktif rejected tarar (test 11/11 · 0/12) — Claude Code blok, opencode tespit. **Kapsam:** AIOS dizini + `.aios` işaretli projeler; DC/Documents-All sessiz.
-- **Çalışan araçlar (15):** gate · review · decide · ledger · why · summary · context_cost · aioslog · bundle · backup · milestone · audit · newproject · pano · sindir.
+- **Çalışan araçlar (18):** gate · review · decide · ledger · why · summary · context_cost · aioslog · bundle · backup · milestone · audit · newproject · pano · sindir · registry · kesif · kotu.
+- **R-003 kararlı rapor:** GUI teknolojisi — pywebview birincil aday (pano.html sarmalar), Flet yedek; Tauri/Electron dil-ekseniyle elendi. Kesin karar F15'te sahibin (T-A).
 - **Tetikleyici:** 2026-09-28 dönem planı → ritim güncellenir.
 
 ## Çalışma disiplini
