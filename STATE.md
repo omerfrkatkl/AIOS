@@ -26,10 +26,15 @@
 - **Araştırılabilirlik filtresi:** objektif sorular sahibe SORULMAZ — F10 hattına gider.
 - **Eşzamanlılık v1:** tek aktif yürütücü; beyne tek yazıcı. **Oturum türleri:** proje/sohbet/araştırma (sohbet → yalnız yapılandırılmış sinyal).
 
+## Durum (F8 eki)
+
+- **Pilot ilk çalışan dilim canlı doğrulandı:** add/expense/income/summary komutları; test 3/3; DB UTF-8 sağlam; negatif tutar tuzağı expense/income komutlarıyla çözüldü. P1 çekirdeği 1. oturumda sağlandı.
+- Teknik kararlar ledger deposunda (Topoloji C): SQLite + Typer (web araştırmalı, ≥2 alternatif + gerekçe — DECISIONS ledger/DECISIONS.md).
+
 ## Sıradaki
 
-1. **Pilot ilk dilim:** teknik karar araştırması — depolama biçimi + CLI çatısı — web araştırmasıyla, sahibe teknik soru olmadan (P2/G43 sınavı)
-2. Sonra: ilk çalışan dilim (P1'e doğru) → F9 karar sistemi → F10 → F11 → F12a/b/c/d → F13 → F14 → F15 GUI → F16
+1. Pilot devam: export alt komutu (BRIEF #4) + sahibin gerçek kullanımı (P4)
+2. F6 kapanış kanıtı sonraki oturumda; sonra F9 karar sistemi → F10 → F11 → F12a/b/c/d → F13 → F14 → F15 GUI → F16 → F9 karar sistemi → F10 → F11 → F12a/b/c/d → F13 → F14 → F15 GUI → F16
 
 ## Açık riskler
 
