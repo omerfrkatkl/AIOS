@@ -201,3 +201,9 @@
 - **Kapsam:** 9 karar gözden geçirildi.
 - **Onay bekleyen:** 0 (yok)
 - **Kanıt:** `[gözlendi]` — `tools/review.py --done`
+
+## 2026-08-25 · Envanter oturumu tamamlandı: 12 kanal kartı · T-C
+
+- **Karar:** Sahibin beyanlarıyla registry dolduruldu: gemini-abonelik (Google One/Gemini 5TB katman) + 5 ücretsiz web kanalı (ChatGPT/Qwen/Grok/DeepSeek/Kimi) + 3 ücretsiz API (OpenRouter/NVIDIA NIM bulut/Gemini AI Studio); claude-code-cli'ye gerçek limit deneyimi notlandı ('çok çabuk bitiyor'); ollama-yerel-aday'a donanım gerçeği işlendi (16GB RAM + RTX 5060 8GB VRAM → yalnız 7-8B Q4; sahip deneyimi kaliteyi yetersiz buldu → pasif kaldı)
+- **Gerekçe:** G10 envanter gereksinimi; F12a'nın sahibe-bağlı tek adımıydı; kota baskısı yüksek olduğu için alternatif kanallar stratejik önem kazandı
+- **Kanıt:** `[gözlendi]` — sahip beyanı 2026-08-25 · validate 12 kart TEMİZ
