@@ -238,3 +238,9 @@
 - **Karar:** Sistem inşası boyunca yeni kişisel veri/interview toplanmaz; mevcut PROFILE (onaylı öğrenmeler + otonom seviyeleri) KORUNUR, silinmez; testlerde sentetik fixture veya TEST-etiketli veri; sistem tamamlandığında üzerine-ekleme kampanyası (kapsam hedefi ≥%80). PLAN revizyon 4.1: 17 bayat-işaret düzeltmesi + eksik maddeler (Ollama tool-testi, kota-okuma, revisit takvimi, yedek ritmi, F6 kapanış kanıtı adımı)
 - **Gerekçe:** Sahibin verimlilik tercihi: sistem önce, kişisel katman sonra. Bilinen etki: REQUIREMENTS 'Tanıma derinliği' gereksinimi (%40→%80 kapsam) bilinçli olarak gecikir
 - **Kanıt:** `[gözlendi]` — sahibin beyanı 2026-08-25: 'mevcut dursun' · CLAUDE.md+PLAN §3.5+protokol-6 işlendi
+
+## 2026-08-26 · F12a araç-yönlendirme v1 — faz %100 kapandı · T-C
+
+- **Karar:** Kartlara calistirma alanı eklendi (12/12: CLI/web/API yürütme-bilgisi, anahtar-adlarıyla); route çıktısına YÜRÜTME satırı ve --json yapısal-çıktı (F15 registry-driven panelleri için sözleşme) eklendi; test 15 senaryoya çıktı
+- **Gerekçe:** Yasa #7 Kanal Sözleşmesi: UI/yönlendirici kartlardan çizer — yürütme bilgisi de karttan gelmeli; JSON çıktısı F15 GUI'nin route tüketimini bugünden sözleşmeliyor
+- **Kanıt:** `[gözlendi]` — unittest 43/43 · canlı: route insan+JSON · validate 12 kart TEMİZ

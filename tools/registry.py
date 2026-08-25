@@ -227,15 +227,31 @@ def cmd_route(args) -> int:
         return 1
     hits.sort(key=lambda x: (-len(x[1]), x[0].get("gizlilik") == "yerel"))
     best, best_matched = hits[0]
+    alts = [c["id"] for c, _ in hits[1:3]]
+    yurutme = best.get("calistirma", "")
+    if getattr(args, "json", False):
+        import json as _json
+        print(_json.dumps({
+            "gorev": args.task,
+            "gerekli_yetenekler": sorted(needed),
+            "gizli": gizli,
+            "oneri": {"id": best["id"], "saglayici": best["saglayici"],
+                      "model": best["model"], "gizlilik": best["gizlilik"],
+                      "yurutme": yurutme or None},
+            "alternatifler": alts,
+            "atlanan_dolu": atlanan,
+        }, ensure_ascii=False, indent=2))
+        return 0
     print(f"ONERI: {best['id']} ({best['saglayici']} · {best['model']})")
     print(f"GEREKCE: yetenek eslesmesi {sorted(best_matched)} · gizlilik={best['gizlilik']}"
           f"{' (gorev gizlilik-isaretli, yerel tercih edildi)' if gizli else ''}"
           f" · dogrulanma={best.get('dogrulanma')} · kanit={best.get('kanit')}")
+    if yurutme:
+        print(f"YURUTME: {yurutme}")
     if atlanan:
         print(f"KOTA NOTU: dolu kanal atlandi: {', '.join(atlanan)} (G46)")
-    if len(hits) > 1:
-        alts = ", ".join(c["id"] for c, _ in hits[1:3])
-        print(f"ALTERNATIF: {alts}")
+    if alts:
+        print(f"ALTERNATIF: {', '.join(alts)}")
     return 0
 
 
@@ -326,6 +342,7 @@ def main() -> int:
     r = sub.add_parser("route")
     r.add_argument("--task", required=True)
     r.add_argument("--gizli", action="store_true", help="gizlilik-hassas gorev: yalniz yerel/hibrit")
+    r.add_argument("--json", action="store_true", help="yapisal cikti (F15 panelleri icin)")
     u = sub.add_parser("update")
     u.add_argument("card_id")
     y = sub.add_parser("yetenek")

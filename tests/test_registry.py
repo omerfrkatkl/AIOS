@@ -144,6 +144,51 @@ class TestYetenekEtki(unittest.TestCase):
         self.assertEqual(rc, 1)
 
 
+class TestAracYonlendirme(unittest.TestCase):
+    """F12a son madde: calistirma alanı + route --json."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.old = registry.CARDS
+        registry.CARDS = Path(self.tmp.name)
+        (registry.CARDS / "a.json").write_text(json.dumps(kart(
+            id="arac-ana", yetenekler=["kod"],
+            calistirma="test CLI komutu")), encoding="utf-8")
+        (registry.CARDS / "b.json").write_text(json.dumps(kart(
+            id="arac-yedek", saglayici="Y", model="m2", yetenekler=["kod"],
+            calistirma="yedek komut")), encoding="utf-8")
+
+    def tearDown(self):
+        registry.CARDS = self.old
+        self.tmp.cleanup()
+
+    def _route(self, **kw):
+        ns = {"task": "kod refactor yap", "gizli": False, "json": False}
+        ns.update(kw)
+        return registry.cmd_route(type("A", (), ns)())
+
+    def test_yurutme_satiri_insanda(self):
+        import io, contextlib
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            rc = self._route()
+        out = buf.getvalue()
+        self.assertEqual(rc, 0)
+        self.assertIn("YURUTME: test CLI komutu", out)
+
+    def test_json_yapisal(self):
+        import io, contextlib, json as _json
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            rc = self._route(json=True)
+        data = _json.loads(buf.getvalue())
+        self.assertEqual(rc, 0)
+        self.assertEqual(data["oneri"]["id"], "arac-ana")
+        self.assertEqual(data["oneri"]["yurutme"], "test CLI komutu")
+        self.assertEqual(data["alternatifler"], ["arac-yedek"])
+        self.assertIn("gerekli_yetenekler", data)
+
+
 
 if __name__ == "__main__":
     unittest.main()
