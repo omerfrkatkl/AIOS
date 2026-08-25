@@ -183,3 +183,9 @@
 - **Puanlama (0–1, kanıt-atıflı):** uygunluk 0.9 [gözlendi: R-002 manset K1+K2 mutabakati] | bakim-maliyeti 0.8 [gözlendi: R-002 K1 Docker+SDK] | performans 0.7 [gözlendi: R-002 K2 tool-calling sinirli] | ekosistem 0.95 [gözlendi: R-002 K4 179k yildiz] | kilitlenme 0.9 [gözlendi: R-002 MIT lisansi]
 - **ilgili:** 2026-08-25 · F10 v2 arastirma hatti
 - **Kanıt:** `[üretildi]` — R-002 check TEMIZ exit 0 · sindir testleri 13/13
+
+## 2026-08-25 · F12b kesif hatti v1: OpenRouter poller + merdiven · T-C
+
+- **Karar:** tools/kesif.py: modeller API'sini ceker, snapshot diff'ler (YENI/KALDI/FIYAT/UCRETSIZ/CTX), merdiven siniflandirmasi (L1 log / L2 arastirma-tetik ucretsiz+buyuk-saglayici / L3 kart-etki G53); snapshotlar registry/discovery yerel bolgede; zamanlama F12c Task Scheduler ile
+- **Gerekçe:** G45 otomatik model kesfi gereksinimi; 'eski model yerine artik bu' bildirimi icin temel altyapi
+- **Kanıt:** `[üretildi]` — canli 3 poll (418 model) + test 29/29 + idempotentlik dogrulandi

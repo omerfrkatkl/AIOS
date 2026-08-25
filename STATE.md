@@ -12,6 +12,7 @@
 ## Durum
 
 - Restukturizasyon: **F0–F11 bitti; F12a yarım (sahip envanteri bekliyor); F9.5/F10-v2 kapandı.** Tek yetkili harita `PLAN.md` (checkbox'lı yürütme haritası — her oturum oradan devam eder). Kilometre taşları: `ms/f5-tamam`.
+- **F12b keşif hattı v1:** tools/kesif.py — OpenRouter poller (canlı doğrulandı) · diff tipleri YENI/KALDI/FIYAT/UCRETSIZ/CTX · merdiven L1-log/L2-araştırma-tetik/L3-kart-etki · snapshot'lar registry/discovery (yerel) · zamanlama F12c'ye.
 - **F11 beceri kütüphanesi:** skills/ şeması + indeks + çağrılma kuralı · 4 beceri: haftalik-review, yeni-proje, derle-dogrula (standart doğrulama taraması), donemsel-ozet (opt-in).
 - **F12a kayıt defteri v1:** tools/registry.py (init/validate/list/route/update) · Kanal Sözleşmesi kart şeması (G47) · registry/ YEREL katman (gitignored, G10) · 3 kart (claude-code-cli, opencode-cli aktif; ollama-yerel-aday pasif) · route gerekçeli öneri + --gizli yerel-filtresi.
 - **R-002 kararlı rapor:** yerel kanal = Ollama birincil aday / LocalAI yedek / LM Studio Layer-1 elendi (kapalı kaynak). Karşıt-bulgu: Ollama tool_choice eksikliği belgeli → devreye-alım önşartı ajan-zinciri tool-testi. check TEMİZ.

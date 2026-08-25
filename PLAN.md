@@ -124,8 +124,9 @@ Fren semantiği: inşaat fazlarında duraklama dedektörü (2 hafta sessizlik �
 
 > **Oturum kanıtı (2026-08-25):** R-002 check TEMİZ exit 0 (6 kaynak · 3×T2 tam-çekim · karşıt-sorgu kayıtlı) · registry 3 kart TEMİZ · route deterministik gerekçeli. **AÇIK KALANLAR:** envanter oturumu (SAHİP) → limit doğrulama → yetenek sağlayıcılar → bağımlılık grafiği (G53) → araç-yönlendirme detayı.
 ### ☐ F12b · Keşif + doğrulama hattı (8 adım) — fren: 3 oturum
-- [ ] OpenRouter poller · [ ] RSS/araştırma periyodu · [ ] tetikleme merdiveni · [ ]–[ ] diff raporları · [ ] doğrulama · [ ] test
+- [x] OpenRouter poller (tools/kesif.py poll — canlı: 418 model) · [~] RSS/araştırma periyodu (v1 istek-üzerine; zamanlama F12c Task Scheduler) · [x] tetikleme merdiveni (L1 log · L2 araştırma-tetik · L3 kart-etki; ilk-poll muafiyeti ile) · [ ]–[ ] diff raporları · [x] doğrulama (canlı API + idempotentlik: 2. poll 0-değişiklik) · [x] test (tests/test_kesif.py — toplam 29/29)
 
+> **Oturum kanıtı (2026-08-25):** kesif.py canlı 3 poll (418 model; ilk=taban, sonrakiler sessiz-sağlık) · test 29/29 · gürültü-kusuru yakalandı-düzeltildi (ilk-poll merdiven muafiyeti + not tavanı).
 ### ☐ F12c · Kota takipçisi (7 adım) — fren: 3 oturum
 - [ ] kullanım defteri · [ ] yenileme pencere modeli · [ ] bildirim/düğme · [ ] Task Scheduler · [ ] yönlendirici entegrasyonu · [ ] test · [ ] devreye alma (onayın)
 
