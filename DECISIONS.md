@@ -219,3 +219,10 @@
 - **Karar:** Sahip şu an satın alım yapmıyor; 50 istek/gün taban kapasiteyle devam. Kota baskısı artarsa veya F13 failover çalışınca yeniden gündeme gelir
 - **Gerekçe:** Opsiyonel maliyet; acil değil
 - **Kanıt:** `[gözlendi]` — sahip beyanı 2026-08-25 · R-004 bulgusu referans
+
+## 2026-08-25 · Task Scheduler devreye alma: AIOS-kesif-poll · T-B
+
+- **Karar:** Gunluk kesif-poll gorevi kaydedildi (09:15, _zamanli.bat). Gercek-kosum kaniti: manuel tetikleme -> 418 model, 1 FIYAT degisikligi, LastTaskResult=0. Geri-alma: schtasks /Delete /TN AIOS-kesif-poll /F
+- **Gerekçe:** F12c zamanlama maddesi; izleme sahibin mudahalesi olmadan aksin; sonuc-izle: 30 gun sonra degerlendirilecek
+- **sonuç:** (değerlendirilecek — 4 hafta sonra revisit; sonuç ağırlıkları kalibre eder)
+- **Kanıt:** `[gözlendi]` — Get-ScheduledTask Ready + canli kosum 2026-08-25 · sahip 'sirayla gidelim' ile onay
