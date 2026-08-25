@@ -173,3 +173,13 @@
 - **sonuç:** (değerlendirilecek — 4 hafta sonra revisit; sonuç ağırlıkları kalibre eder)
 - **ilgili:** 2026-08-25 · F9 iki-katmanlı puanlama şeması
 - **Kanıt:** `[üretildi]` — check R-001 TEMİZ exit 0 · testler 13/13 · gate regresyon 11/11 · negatif-arama somut manşet-değişikliği üretti
+
+## 2026-08-25 · Yerel kanal adayı: Ollama birincil, LocalAI yedek; LM Studio elendi · T-B
+
+- **Karar:** R-002 (check TEMIZ): yerel barindirma icin Ollama birincil aday (MIT+daemon+Docker), LocalAI yedek (tam tool-calling), LM Studio kapali-kaynak oldugu icin Layer-1 evrensel-sabit eleme; pasif kart registry'e eklendi - aktiflestirme on sarti: sahibin envanteri + donanim teyidi + ajan zincirinde tool-calling testi
+- **Gerekçe:** sahip CLI-merkezli + acik-kaynak sabiti; Ollama'nin tool_choice eksikligi iki bagimsiz kaynak + canli GitHub issue ile belgelendi (R-002 karsit-bulgu)
+- **Alternatifler:** 1) LM Studio (GUI guzel ama kapali kaynak - sabit ihlali); 2) Jan (Apache2 ama API beta); 3) vLLM (agir, tek-kullanici asiri)
+- **Geri alma:** registry/03 kart silinir; R-002 kararli pencerede (tetik 2027-02-21) tazelenir
+- **Puanlama (0–1, kanıt-atıflı):** uygunluk 0.9 [gözlendi: R-002 manset K1+K2 mutabakati] | bakim-maliyeti 0.8 [gözlendi: R-002 K1 Docker+SDK] | performans 0.7 [gözlendi: R-002 K2 tool-calling sinirli] | ekosistem 0.95 [gözlendi: R-002 K4 179k yildiz] | kilitlenme 0.9 [gözlendi: R-002 MIT lisansi]
+- **ilgili:** 2026-08-25 · F10 v2 arastirma hatti
+- **Kanıt:** `[üretildi]` — R-002 check TEMIZ exit 0 · sindir testleri 13/13

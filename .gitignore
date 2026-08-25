@@ -17,3 +17,6 @@ handoff.md
 # ——— Yedekler (yerel katman) ———
 backups/
 research/cache/
+
+# --- Envanter (yerel katman, G10) ---
+registry/

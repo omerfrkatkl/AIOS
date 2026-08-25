@@ -1,0 +1,5 @@
+{"model": "Ollama", "metrik": "bosta-RAM-MB-ust", "deger": 200.0, "obs": "2026-07-02", "harness": "", "kaynak": "K1", "derece": "T2", "not": ""}
+{"model": "LM Studio", "metrik": "bosta-RAM-MB-alt", "deger": 400.0, "obs": "2026-07-02", "harness": "", "kaynak": "K1", "derece": "T2", "not": ""}
+{"model": "OpenWebUI", "metrik": "Docker-pull-milyon", "deger": 290.0, "obs": "2026-05-30", "harness": "", "kaynak": "K3", "derece": "T2", "not": ""}
+{"model": "Jan", "metrik": "GitHub-yildiz", "deger": 43000.0, "obs": "2026-07-02", "harness": "", "kaynak": "K1", "derece": "T2", "not": ""}
+{"model": "Ollama", "metrik": "GitHub-yildiz", "deger": 179000.0, "obs": "2026-08-24", "harness": "", "kaynak": "K4", "derece": "T1-kendi-beyanı", "not": ""}

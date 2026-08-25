@@ -178,7 +178,7 @@ def cmd_digest(args) -> int:
     if args.report and not report_path(args.report):
         print(f"HATA: {args.report} diye rapor yok — öksüz kaynak kaydı açılmaz.", file=sys.stderr)
         return 1
-    if args.tier and args.tier not in TIERS:
+    if args.tier and _fold(args.tier) not in {_fold(x) for x in TIERS}:
         print(f"HATA: derece {TIERS} içinden olmalı.", file=sys.stderr)
         return 1
     if args.tier and not args.gerekce:
@@ -198,7 +198,7 @@ def cmd_digest(args) -> int:
     rec = {"ts": ts, "url": args.url, "title": args.title, "sha256": sha,
            "bytes": len(raw), "snapshot": snap_name, "report": args.report or "",
            "question_hash": qhash(args.question or ""),
-           "tier": args.tier or "", "gerekce": args.gerekce or "",
+           "tier": next((x for x in TIERS if _fold(x) == _fold(args.tier)), "") if args.tier else "", "gerekce": args.gerekce or "",
            "mode": args.mode}
     append_jsonl(SOURCES, rec)
 
@@ -241,14 +241,15 @@ def cmd_claim(args) -> int:
     if val is None:
         print(f"HATA: değer sayısal değil: {args.deger!r}", file=sys.stderr)
         return 1
-    if args.derece and args.derece not in TIERS:
+    if args.derece and _fold(args.derece) not in {_fold(x) for x in TIERS}:
         print(f"HATA: derece {TIERS} içinden olmalı.", file=sys.stderr)
         return 1
     claims_file = rp.with_name(rp.stem + ".claims.jsonl")
     existing = read_jsonl(claims_file)
+    canon_tier = next((x for x in TIERS if _fold(x) == _fold(args.derece)), "") if args.derece else ""
     row = {"model": args.model, "metrik": args.metrik, "deger": val,
            "obs": args.obs or "", "harness": args.harness or "",
-           "kaynak": args.kaynak or "", "derece": args.derece or "", "not": args.not_ or ""}
+           "kaynak": args.kaynak or "", "derece": canon_tier, "not": args.not_ or ""}
     key = (model_key(row["model"]), _fold(row["metrik"]), row["deger"], row["obs"])
     for e in existing:
         if (model_key(e.get("model", "")), _fold(e.get("metrik", "")),
