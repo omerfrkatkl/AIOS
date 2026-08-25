@@ -128,8 +128,9 @@ Fren semantiği: inşaat fazlarında duraklama dedektörü (2 hafta sessizlik �
 
 > **Oturum kanıtı (2026-08-25):** kesif.py canlı 3 poll (418 model; ilk=taban, sonrakiler sessiz-sağlık) · test 29/29 · gürültü-kusuru yakalandı-düzeltildi (ilk-poll merdiven muafiyeti + not tavanı).
 ### ☐ F12c · Kota takipçisi (7 adım) — fren: 3 oturum
-- [ ] kullanım defteri · [ ] yenileme pencere modeli · [ ] bildirim/düğme · [ ] Task Scheduler · [ ] yönlendirici entegrasyonu · [ ] test · [ ] devreye alma (onayın)
+- [x] kullanım defteri (registry/usage.jsonl — sahibin sohbet girdisiyle AJAN yazar) · [x] yenileme pencere modeli (kart kota_model alanı + window_bounds: ay-devri/31-clamp testli) · [ ] bildirim/düğme · [~] Task Scheduler (gorev-kur komutu hazır; AKTİVASYON sahibin onayı bekliyor) · [x] yönlendirici entegrasyonu (route dolu kanalı atlar + KOTA NOTU basar) · [ ] test · [ ] **devreye alma (onayın)**
 
+> **Oturum kanıtı (2026-08-25):** pencere matematiği 3 hata yakalanıp düzeltildi (ay-devri, önceki-ay, clamp) · canlı G46 kanıtı: DOLU kart route'dan elendi, alternatif önerildi · test 35/35.
 ### ☐ F12d · Empirik zeka (8 adım) — fren: 3 oturum
 - [ ] kanal sicili · [ ] tahminci · [ ] arena · [ ]–[ ] maliyet defteri · [ ] test · [ ] sahip kontrolü
 

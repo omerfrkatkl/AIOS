@@ -189,3 +189,9 @@
 - **Karar:** tools/kesif.py: modeller API'sini ceker, snapshot diff'ler (YENI/KALDI/FIYAT/UCRETSIZ/CTX), merdiven siniflandirmasi (L1 log / L2 arastirma-tetik ucretsiz+buyuk-saglayici / L3 kart-etki G53); snapshotlar registry/discovery yerel bolgede; zamanlama F12c Task Scheduler ile
 - **Gerekçe:** G45 otomatik model kesfi gereksinimi; 'eski model yerine artik bu' bildirimi icin temel altyapi
 - **Kanıt:** `[üretildi]` — canli 3 poll (418 model) + test 29/29 + idempotentlik dogrulandi
+
+## 2026-08-25 · F12c kota takipci v1: kullanim defteri + pencere + dolu-dusme · T-C
+
+- **Karar:** tools/kotu.py: registry/usage.jsonl kullanim defteri (ajan sohbet-girdisiyle yazar), kart kota_model alani (miktar/birim/aylik-pencere), esikler saglikli<80/uyari>=80/DOLU>=100, DOLU kanal route'dan dusulur (G46); gorev-kur Task Scheduler komut uretimi hazir - AKTIVASYON sahibin onayina bagli
+- **Gerekçe:** G46 canli kota takibi; tukemis kanala yonlendirme yapilmaz; kesif poll zamanlamasi da ayni gorevle tasinir
+- **Kanıt:** `[üretildi]` — pencere matematigi 3 hata yakalanip duzeltildi · canli G46 kaniti (DOLU kart elendi, alternatif onerildi) · test 35/35

@@ -155,6 +155,36 @@ def cmd_list(_) -> int:
     return 0
 
 
+def dolu_kanallar() -> set[str]:
+    """G46: kotasını dolduran kanallar yönlendirmeye girmez.
+    Pencere matematiği tek gerçek kaynaktan alınır (kotu.window_bounds)."""
+    usage_p = AIOS_DIR / "registry" / "usage.jsonl"
+    if not usage_p.exists():
+        return set()
+    try:
+        entries = [json.loads(l) for l in usage_p.read_text(encoding="utf-8-sig").splitlines()
+                   if l.strip()]
+    except json.JSONDecodeError:
+        return set()
+    from kotu import window_bounds  # tek gerçek kaynak
+    out = set()
+    today = date.today()
+    for c in load_cards():
+        km = c.get("kota_model")
+        if not km:
+            continue
+        cid = c.get("id", "")
+        gun = int(km.get("pencere", {}).get("baslangic-gunu", 1))
+        start, end = window_bounds(today, gun)
+        used = sum(float(e.get("miktar", 0)) for e in entries
+                   if e.get("kanal") == cid and e.get("birim") == km.get("birim", "istek")
+                   and start.isoformat() <= str(e.get("ts", ""))[:10] <= end.isoformat())
+        miktar = float(km.get("miktar", 0))
+        if miktar and used >= miktar:
+            out.add(cid)
+    return out
+
+
 def cmd_route(args) -> int:
     task = args.task.lower()
     needed = set()
@@ -171,6 +201,12 @@ def cmd_route(args) -> int:
 
     cards = [c for c in load_cards()
              if c.get("durum") == "aktif" and not c.get("id", "").startswith("_")]
+    dolu = dolu_kanallar()
+    atlanan = []
+    if dolu:
+        aktifler = {c.get("id") for c in cards}
+        atlanan = sorted(dolu & aktifler)
+        cards = [c for c in cards if c.get("id") not in dolu]
     hits = []
     for c in cards:
         matched = needed & set(c.get("yetenekler", []))
@@ -189,6 +225,8 @@ def cmd_route(args) -> int:
     print(f"GEREKCE: yetenek eslesmesi {sorted(best_matched)} · gizlilik={best['gizlilik']}"
           f"{' (gorev gizlilik-isaretli, yerel tercih edildi)' if gizli else ''}"
           f" · dogrulanma={best.get('dogrulanma')} · kanit={best.get('kanit')}")
+    if atlanan:
+        print(f"KOTA NOTU: dolu kanal atlandi: {', '.join(atlanan)} (G46)")
     if len(hits) > 1:
         alts = ", ".join(c["id"] for c, _ in hits[1:3])
         print(f"ALTERNATIF: {alts}")
