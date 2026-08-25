@@ -13,6 +13,7 @@ Usage:
 """
 
 import argparse
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -89,9 +90,16 @@ def main() -> int:
         print("If neither applies, it is probably not a T-A.")
         return 1
     if a.scores and "[" not in a.scores:
-        print("ERROR: her puan kanıt atfı taşımmalı — köşeli parantez içinde kaynak yok (G15: atıfsız puan geçersiz).")
+        print("ERROR: her puan kanıt atfı taşımaları — köşeli parantez içinde kaynak yok (G15: atıfsız puan geçersiz).")
         print("Örnek: --scores \"uygunluk 0.9 [gözlendi: F10 raporu] | maliyet 0.6 [gözlendi: test]\"")
         return 1
+    cited = set(re.findall(r"\bR-(\d{3})\b", a.scores))
+    for num in cited:
+        hits = list((AIOS_DIR / "research").glob(f"R-{num}-*.md"))
+        if not hits:
+            print(f"ERROR: atıf geçersiz — R-{num} diye bir rapor yok (research/ altında). "
+                  "Kafadan/uydurma kaynak puanlaması G15 ihlalidir.")
+            return 1
 
     entry = build_entry(a)
     if a.dry_run:

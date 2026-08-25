@@ -106,8 +106,9 @@ Fren semantiği: inşaat fazlarında duraklama dedektörü (2 hafta sessizlik �
 - [ ] **sahip testi:** tarayıcıda açar + tasarım onayı verir (öznel — sahibin yargısı)
 
 ### ☐ F10 · Araştırma motoru v1 (10 adım) — fren: 3 oturum
-- [ ] yöntem seçimi (G17) · [ ] araştırma hattı (soru→yöntem→kaynak→sentez→kanıt-etiketli rapor) · [ ] araştırma önbelleği · [ ] puan girdileri raporlara atıfta zorunlu · [ ] kaynak kütüğü · [ ] araştırma planı formatı (kanal önerileri + kota notu + çoklu-getiri) · [ ] sindir.py (web çıktısı: LEDGER + istek eşleşmesi + verdict) · [ ] provenance rozeti · [ ] **ilk gerçek iş: model-benchmark araştırması** (sahibin düzeltmesi) · [ ] test
+- [x] yöntem seçimi (G17) · [ ] araştırma hattı (soru→yöntem→kaynak→sentez→kanıt-etiketli rapor) · [ ] araştırma önbelleği · [ ] puan girdileri raporlara atıfta zorunlu · [ ] kaynak kütüğü · [ ] araştırma planı formatı (kanal önerileri + kota notu + çoklu-getiri) · [ ] sindir.py (web çıktısı: LEDGER + istek eşleşmesi + verdict) · [ ] provenance rozeti · [ ] **ilk gerçek iş: model-benchmark araştırması** (sahibin düzeltmesi) · [ ] test
 
+> Kapanış kanıtı (2026-08-25): sindir.py digest/badge/lookup canlı · R-001 üretildi (6 kaynak, çapraz-doğrulama) · decide.py R-id atıf doğrulama (R-001 geçti, R-999 exit 1) · tests/test_sindir.py 4/4 · LEDGER eşik ayarı: L-006 yanlış-pozitif ve L-005 zayıf-pozitif gitti, L-003 pozitifi korundu.
 ### ☐ F11 · Beceri kütüphanesi (6 adım) — fren: 2 oturum
 - [ ] skills/ şeması · [ ] ilk beceriler (haftalık-review, yeni-proje, derle-doğrula) · [ ] dönemsel özet (opt-in) · [ ] çağırma kuralı · [ ] test · [ ] sahip kontrolü
 

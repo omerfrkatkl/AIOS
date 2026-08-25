@@ -154,3 +154,12 @@
 - **Alternatifler:** AHP hierarşik analiz (elendi: kisisel olcek icin agir - agirlikli toplam ayni sonucu verir) · Puanlamasiz T-A/B/C devam (elendi: sahibin 'kafaya gore degil' gereksinimi) · TOPSIS (elendi: ayni agirlikli toplam ailesi, karmasiklik gereksiz)
 - **Geri alma:** Ucuz - sema CLAUDE.md kurali + decide alani; kalibrasyon verisiyle zaten guncellenecek
 - **Kanıt:** `[gözlendi]` — ADR/MCDA literatur taramasi 2026-08-25 (web, cok kaynak) + sahibin onayi
+
+## 2026-08-25 · Araştırma hattı v1 (F10) · T-B
+
+- **Karar:** sindir.py (digest/badge/lookup) + research/ rapor formatı + cache önbelleği (G14 lookup-once) + decide.py R-id atıf doğrulaması (G15) kuruldu; ilk gerçek iş R-001 model-benchmark tamamlandı
+- **Gerekçe:** G14/G15 gereksinimleri; objektif soruların sahibe sorulmaması için kanıt hattı gerekli; puanlamalar artık yalnız var olan raporlara atıf yapabilir
+- **Alternatifler:** 1) Harici araçlar (Obsidian plugin/agent memory) — bağımlılık+kilitlenme; 2) SQLite tabanlı araştırma DB — v1 için aşırı mühendislik, markdown+jsonl yeterli ve diff-edilebilir
+- **Geri alma:** research/ ve tools/sindir.py silinir; decide.py atıf bloğu kaldırılır — tek oturum, veri kaybı yok
+- **ilgili:** 2026-08-25 · F9 iki-katmanlı puanlama şeması
+- **Kanıt:** `[üretildi]` — canlı hat: digest→LEDGER eşleşme→badge→decide-atıf zinciri koşuldu; test 4/4
