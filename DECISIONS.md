@@ -144,3 +144,11 @@
 - **Alternatifler:** Sahte harcamalarla P4 olcmek (elendi: kendini dogrulayan olcum - belgelenmis basarisiz modu) · Haftalarca beklemek (elendi: harcama akisi yok, yapay veri) · Pilot yukunu degistirmek (elendi: ucuncu arac degisimi kapsam savkunligi olur)
 - **Geri alma:** Ucuz - P4 olcumu gorunurluk sonrasi tek oturumluk is
 - **Kanıt:** `[gözlendi]` — Sahibin cevabi 2026-08-25: 'hicbir sey yok, neye gore cevap vermeliyim'
+
+## 2026-08-25 · F9 iki-katmanli puanlama semasi onaylandi · T-B
+
+- **Karar:** Katman 1 evrensel sabitler (gecis filtresi): modulerlik, loglama uyumu, acik kaynak, geri-alma yolu - herhangi biri ihlal -> aday elenir (puanlanmaz). Katman 2 proje agirlikli puan (0-1 normalize): uygunluk, bakim maliyeti, performans, ekosistem olgunlugu, kilitlenme riski; varsayilan agirlik 1.0; sahibin proje-basina beyaniyla ayarlanir (kayda gecer). Her puan kanit-etiketli F10 raporuna veya test sonucuna atifli - atifsiz puan gecersiz. Maks 4 alternatif + arastirma suresi siniri; en yuksek uygulanir; berabere -> sahip. Buyuk kararlara sonuc: alani (X hafta sonra revisit -> kalibrasyon). ADR taramasi DECISIONS formatina 2 alan ekletti: sonuclar (pozitif/negatif) + ilgili (baglantili kararlar).
+- **Gerekçe:** Sahibin onayi 2026-08-25. Literatur: ADR pratigi (karar aninda yaz, kisa, asla silme, alternatifsiz olmaz - bizim format zaten uyumlu), QOC (soru-secenek-kriter), MCDA agirlikli toplam (kisisel olcekte AHP/TOPSIS gereksiz - agirlikli toplam yeterli, literatur kucuk olcek icin onerisi). Sahibin eki: evrensel sabitler puanlanmaz saglanir + proje bazli agirlik beyani.
+- **Alternatifler:** AHP hierarşik analiz (elendi: kisisel olcek icin agir - agirlikli toplam ayni sonucu verir) · Puanlamasiz T-A/B/C devam (elendi: sahibin 'kafaya gore degil' gereksinimi) · TOPSIS (elendi: ayni agirlikli toplam ailesi, karmasiklik gereksiz)
+- **Geri alma:** Ucuz - sema CLAUDE.md kurali + decide alani; kalibrasyon verisiyle zaten guncellenecek
+- **Kanıt:** `[gözlendi]` — ADR/MCDA literatur taramasi 2026-08-25 (web, cok kaynak) + sahibin onayi
