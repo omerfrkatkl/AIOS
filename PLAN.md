@@ -180,7 +180,8 @@ Log analizinden tekrarlanan-hata öğrenmesi (kapıya bağlı) · **hata kayıtl
 | → | F6 · Tanıma | sıradaki | 8 adım: soru kuyruğu + adaptif döngü + öğrenme denetimi |
 | 2026-08-24 | F6 · Tanıma | ✅ inşa + 2 tur canlı döngü | kapanış kanıtı sonraki oturumda (tekrar-yasak) |
 | 2026-08-24 | F7 · Kişisel bilgi deposu v1 | ✅ bitti | vault/ + iki-vault disiplini + backup kapsamı; açık soru: öğrenmeler vault'a yansısın mı |
-| 2026-08-25 | F8 · Pilot | ✅ başladı — ritüel + P-ölçütleri kilitli | yük=ledger; ilk dilim: teknik karar araştırması (P2/G43) |
+| 2026-08-25 | F8 · Pilot | ✅ bitti — P1/P2/P3 ✅, **P4 ölçülemedi** (kullanıcı yüzü yok → F15 sonrası) | çalışan CLI (test 5/5) · araştırmalı kararlar (SQLite+Typer) · DECISIONS disiplini · ledger beklemeye çekildi (dönem başlayınca doğal kullanım) · hat kanıtı: G43+sureklilik+kapı |
+| → | F9 · Karar sistemi | sıradaki | literatür taraması + iki-katmanlı şema taslağı → sahip onayı |
 
 ## 9. İzlenebilirlik — sahibin istekleri ↔ plan (2026-08-24 denetimi, sahip onaylı)
 

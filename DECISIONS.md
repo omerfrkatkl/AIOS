@@ -136,3 +136,11 @@
 - **Alternatifler:** Kararlari AIOS DECISIONS'a yazmak (elendi: Topoloji C ADR dersi - proje kararlarindan uzakta duran kayitlar terk edilir) · Arastirma yapmadan dogrudan secim (elendi: P2 gerekliligi + sahibin 'kafamiza gore degil' talimati)
 - **Geri alma:** Ucuz
 - **Kanıt:** `[gözlendi]` — Web arastirmasi 2026-08-25, cok kaynakli; ledger commit 8fa1444
+
+## 2026-08-25 · F8 kapandi: P1-P3 saglandi, P4 olculemedi (kullanici yuzu yok) - F15 sonrasina ertelendi · T-B
+
+- **Karar:** Pilot kapanis: P1 calisan CLI (1. oturumda, test 5/5), P2 teknik soru=0 (SQLite+Typer, web arastirmali, >=2 alternatif), P3 DECISIONS bandinda. P4 OLCULEMEDI: sahibin dogru tespiti - sistemin kullaniciya gorunen bir yuzu yok; tum arac ve ciktilar ajan tarafinda. P4 olcumu kullanici-gorunurlugu saglandiktan sonra (minimal: 3 komut; tam: F15 GUI). Ledger beklemeye cekildi - donem baslayinca (28 Eylul sonrasi) dogal kullanim doner. Pilotun asil hedefi tamam: hat kaniti (G43 sinavi, sureklilik 11 sn, kapi 2 kanal, opt-in kapsam mekanizmasi).
+- **Gerekçe:** Sahibin cevabi ('sistemde hicbir sey yok, neye gore cevap vereyim') P4'un olculemezligini ve yapisal nedenini gosterdi: sistem bugune kadar ajan-bakimli insa edildi; sahibin yuzu F15'e birakilmisti. Dürüst kapanis: 'basardik' yerine 'burası olculemedi, nedeni su' yazmak protokolun kendisi. Kullanici gorunurlugu F15'i beklemez - minimal komut seti simdi tanitilir.
+- **Alternatifler:** Sahte harcamalarla P4 olcmek (elendi: kendini dogrulayan olcum - belgelenmis basarisiz modu) · Haftalarca beklemek (elendi: harcama akisi yok, yapay veri) · Pilot yukunu degistirmek (elendi: ucuncu arac degisimi kapsam savkunligi olur)
+- **Geri alma:** Ucuz - P4 olcumu gorunurluk sonrasi tek oturumluk is
+- **Kanıt:** `[gözlendi]` — Sahibin cevabi 2026-08-25: 'hicbir sey yok, neye gore cevap vermeliyim'
