@@ -207,3 +207,9 @@
 - **Karar:** Sahibin beyanlarıyla registry dolduruldu: gemini-abonelik (Google One/Gemini 5TB katman) + 5 ücretsiz web kanalı (ChatGPT/Qwen/Grok/DeepSeek/Kimi) + 3 ücretsiz API (OpenRouter/NVIDIA NIM bulut/Gemini AI Studio); claude-code-cli'ye gerçek limit deneyimi notlandı ('çok çabuk bitiyor'); ollama-yerel-aday'a donanım gerçeği işlendi (16GB RAM + RTX 5060 8GB VRAM → yalnız 7-8B Q4; sahip deneyimi kaliteyi yetersiz buldu → pasif kaldı)
 - **Gerekçe:** G10 envanter gereksinimi; F12a'nın sahibe-bağlı tek adımıydı; kota baskısı yüksek olduğu için alternatif kanallar stratejik önem kazandı
 - **Kanıt:** `[gözlendi]` — sahip beyanı 2026-08-25 · validate 12 kart TEMİZ
+
+## 2026-08-25 · R-004 ücretsiz API limit doğrulaması — F12a tamamlandı · T-C
+
+- **Karar:** Ücretsiz API kanallarının kotaları araştırıldı (izleme raporu, tetik 2026-09-24): OpenRouter :free 20 RPM + 50/gün taban ( ömür-boyu krediyle kalıcı 1000/gün), NVIDIA NIM hesap-geneli ~40 RPM (kredi sistemi Eylül 2025'te kaldırıldı — kart notu düzeltildi), Gemini sayıları yayınlanmıyor/çakışık (yapısal bulgular güvenilir). Üç karta doğrulanmış limit notları işlendi
+- **Gerekçe:** F12a'nın son adımı; kota-baskısı yüksek claude-code-cli için alternatif kanalların gerçek kapasitesi yönlendirici ve kotu.py tasarımını belirler
+- **Kanıt:** `[gözlendi]` — sindir check TEMİZ exit 0 · 12 kaynak · 3xT2 tam-çekim · karşıt-sorgu muhasebeli
