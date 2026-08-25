@@ -195,3 +195,9 @@
 - **Karar:** tools/kotu.py: registry/usage.jsonl kullanim defteri (ajan sohbet-girdisiyle yazar), kart kota_model alani (miktar/birim/aylik-pencere), esikler saglikli<80/uyari>=80/DOLU>=100, DOLU kanal route'dan dusulur (G46); gorev-kur Task Scheduler komut uretimi hazir - AKTIVASYON sahibin onayina bagli
 - **Gerekçe:** G46 canli kota takibi; tukemis kanala yonlendirme yapilmaz; kesif poll zamanlamasi da ayni gorevle tasinir
 - **Kanıt:** `[üretildi]` — pencere matematigi 3 hata yakalanip duzeltildi · canli G46 kaniti (DOLU kart elendi, alternatif onerildi) · test 35/35
+
+## 2026-08-25 · Gözden geçirildi · T-C
+
+- **Kapsam:** 9 karar gözden geçirildi.
+- **Onay bekleyen:** 0 (yok)
+- **Kanıt:** `[gözlendi]` — `tools/review.py --done`
