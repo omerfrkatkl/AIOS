@@ -11,7 +11,7 @@
 
 ## Durum
 
-- **F0–F12c v1 bitti; F12a'dan yalnız limit-doğrulama kaldı (envanter tamamlandı).** Tek yetkili harita `PLAN.md` (checkbox'lı yürütme haritası). Kilometre taşları: `ms/f5-tamam` · `ms/f12c-v1`.
+- **F0–F12c v1 bitti + F12a çekirdeği bitti (envanter ✓ + R-004 limit-doğrulama ✓). Kalan: Ollama tool-testi + F12a ileri maddeleri.** Tek yetkili harita `PLAN.md` (checkbox'lı yürütme haritası). Kilometre taşları: `ms/f5-tamam` · `ms/f12c-v1`.
 - **Envanter oturumu (2026-08-25) tamamlandı:** registry'de **12 kanal kartı** — claude-code-cli (limit baskısı yüksek: "çok çabuk bitiyor") · opencode-cli · gemini-abonelik (Google One/Gemini 5TB katman) · 5 ücretsiz web (ChatGPT/Qwen/Grok/DeepSeek/Kimi) · 3 ücretsiz API (OpenRouter :free / NVIDIA NIM bulut / Gemini AI Studio) · ollama-yerel-aday PASIF. Donanım: **16GB RAM + RTX 5060 8GB VRAM** → yalnız 7-8B Q4 çalışır; sahip deneyimi kaliteyi yetersiz buldu (R-002 ile uyumlu). PROFILE'a işlendi.
 - **R-004 izleme raporu (check TEMİZ):** ücretsiz API limitleri doğrulandı; NIM kredi-sistemi-kaldırıldı bulgusuyla kart düzeltildi; tetik 2026-09-24 · **$10 OpenRouter sorusu sahibe açık**
 - **3 kararlı araştırma raporu (hepsi check TEMİZ):** R-001 model-benchmark (OpenAI Şubat 2026 SWE-V emeklilik bulgusu; açık-ağırlık farkı bağımsız harness'ta 0,6 puan) · R-002 yerel-barındırma (Ollama aday/LocalAI yedek/LM Studio elendi; Ollama tool_choice eksik → devreye-alım önşartı tool-testi) · R-003 GUI-teknoloji (pywebview birincil aday/Flet yedek/Tauri-Electron dil-ekseniyle elendi; kesin karar F15'te T-A).
@@ -37,7 +37,7 @@
 1. **R-004 karar-noktası (sahibin, soruldu):** OpenRouter’a tek-seferlik $10 kredi → 50→1000 istek/gün (kalıcı, 20×kapasite)
 2. **Ollama devreye-alım önşartı** (R-002): gerçek ajan zincirinde tool-calling testi (yerel kurulum gerekir)
 3. kotu.py’ye OpenRouter GET /api/v1/key gerçek-kota okuması (R-004 önerisi)
-3. gorev-kur onayı (sahip) · F6 kapanış kanıtı (yeni oturum) · interview Tur 2 ("beni tanı")
+4. gorev-kur onayı (sahip) · F6 kapanış kanıtı (yeni oturum) · interview Tur 2 ("beni tanı")
 5. F12d empirik zeka → F13 failover → F14 bağlantı → F15 GUI (P4 gerçek ölçüm) → F16
 
 ## Açık riskler
