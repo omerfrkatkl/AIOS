@@ -149,6 +149,16 @@ Gerçek pencere uygulaması · tasarım referansı opencode · teknoloji araşt�
 ### ☐ F16 · Self-improvement + hata öğrenme kütüğü (kaba)
 Log analizinden öğrenme (kapıya bağlı) · AI-atıf (desen/kaynak/bağlam/düzeltme) · sinyal taksonomisi işletimi · G31 döngüsü · periyodik tatbikat · çoklu-cihaz senkron · offline degrade
 
+## 3.5 · Güncel yol haritası (2026-08-25 sahibin onaylı · 08-26 güncel)
+
+1. **Oturum-A ✓ (2026-08-26):** F12a %100 kapanışı — araç-yönlendirme v1 (`calistirma` 12 kartta + route YÜRÜTME + `--json`)
+2. **Oturum-B ✓ (2026-08-26):** F12d başlangıcı — kanal sicili v1 (sicil.py) · kotu openrouter-kota gerçek okuma
+3. **Ara-işler:** Ollama kurulum + tool-calling testi (sahibin iznine bağlı, R-002 önşartı) · backup.py yerel-katman yedek ritmi (her km taşında)
+4. **Veri dönemi (2026-09-28 dönem açılışı):** ledger + usage.jsonl doğal akış → F12d dolması (sicil→tahminci→arena) → F13 failover (devreye-alma sahibin) → F14 bağlantı → F15 GUI (**T-A framework kararı başta**; P4 ölçümü burada) → F16
+5. **Sistem-bitimi:** kişisel doldurma kampanyası (mevcut PROFILE üzerine, kapsam ≥%80) · F7 vault-yansıtma kararı · $10 OpenRouter yeniden değerlendirme (kota baskısı kanıtıyla)
+
+> Kişisel-veri dondurması haritayı belirledi: interview/yeni kişisel veri yalnız madde 5'te. Rapor-tazelik bakımı haftalık-review becerisinde (ilk tetik R-004: 2026-09-24).
+
 ## 4. Token sözleşmesi
 
 - Oturum açılışı = STATE (≤900 kelime) + PROFILE (≤400) + aktif-karar özeti. Başka hiçbir dosya varsayılan yüklenmez; **logs/ ve vault/ asla**.
