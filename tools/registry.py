@@ -75,6 +75,12 @@ def _fail(msg: str) -> int:
     return 1
 
 
+def _fold(s: str) -> str:
+    """Türkçe-duyarlı normalizasyon: büyük→küçük + ı/i, ş/s eşlemesi."""
+    tablo = str.maketrans({"İ": "i", "I": "i", "ı": "i", "Ş": "s", "ş": "s"})
+    return s.translate(tablo).casefold().strip()
+
+
 def load_cards() -> list[dict]:
     if not CARDS.exists():
         return []
@@ -242,6 +248,70 @@ def cmd_update(args) -> int:
     return 0
 
 
+def cmd_yetenek(args) -> int:
+    """Ters bakış: bir yeteneği sağlayan aktif kanallar."""
+    istenen = _fold(getattr(args, "kodu", None) or getattr(args, "yetenek", ""))
+    saglayici = []
+    for c in load_cards():
+        if c.get("durum") != "aktif":
+            continue
+        yetenekler = {_fold(y) for y in c.get("yetenekler", [])}
+        if istenen in yetenekler:
+            saglayici.append(c)
+    if not saglayici:
+        print(f"UYARI: '{args.yetenek}' için aktif sağlayıcı YOK — kart eksikliği.")
+        return 1
+    saglayici.sort(key=lambda c: (c["kanal"] != "cli", c.get("dogrulanma", "")), reverse=False)
+    print(f"YETENEK: {istenen} · {len(saglayici)} sağlayıcı")
+    for c in saglayici:
+        lim = (c.get("limitler") or {}).get("kota", "-")
+        print(f"  {c['id']:<20} {c['kanal']:<5} doğr:{c.get('dogrulanma', '-')} kota:{lim[:52]}")
+    return 0
+
+
+def cmd_etki(args) -> int:
+    """G53: kanalı çıkarırsan ne kırılır? Yetenek-kapsama etki raporu."""
+    hedef = None
+    for c in load_cards():
+        if c["id"] == args.kanal:
+            hedef = c
+            break
+    if hedef is None:
+        return _fail(f"kart yok: {args.kanal}")
+
+    kalanlar = [c for c in load_cards()
+                if c["id"] != args.kanal and c.get("durum") == "aktif"]
+    kayip, zayiflama = [], []
+    for y in hedef.get("yetenekler", []):
+        yy = _fold(y)
+        kalan = [c for c in kalanlar if yy in {_fold(x) for x in c.get("yetenekler", [])}]
+        if not kalan:
+            kayip.append(y)
+        elif len(kalan) == 1:
+            zayiflama.append((y, kalan[0]["id"]))
+    print(f"ETKİ RAPORU (G53): '{hedef['id']}' çıkarılırsa")
+    print(f"  kanal türü: {hedef['kanal']} · gizlilik: {hedef.get('gizlilik')} · durum: {hedef.get('durum')}")
+    if hedef.get("durum") != "aktif":
+        print("  → kanal zaten PASİF; çıkarılması aktif kapasiteyi değiştirmez")
+        return 0
+    if kayip:
+        print(f"  KIRILIR: {', '.join(kayip)} yetenek(ler)inin hiç sağlayıcısı kalmaz")
+    else:
+        print("  KIRILMAZ: tüm yeteneklerin alternatifi var")
+    for y, tek in zayiflama:
+        print(f"  ZAYIFLAR: '{y}' tek sağlayıcıya düşer → {tek}")
+    dolu_notu = ""
+    try:
+        if hedef["id"] in dolu_kanallar():
+            dolu_notu = " · NOT: kanal şu an DOLU işaretli"
+    except Exception:
+        pass
+    cli_sayisi = sum(1 for c in kalanlar if c["kanal"] == "cli")
+    api_sayisi = sum(1 for c in kalanlar if c["kanal"] == "api")
+    print(f"  Kalan kapasite: {len(kalanlar)} aktif kanal (cli={cli_sayisi}, api={api_sayisi}){dolu_notu}")
+    return 0
+
+
 def main() -> int:
     for stream in (sys.stdout, sys.stderr):
         try:
@@ -258,9 +328,14 @@ def main() -> int:
     r.add_argument("--gizli", action="store_true", help="gizlilik-hassas gorev: yalniz yerel/hibrit")
     u = sub.add_parser("update")
     u.add_argument("card_id")
+    y = sub.add_parser("yetenek")
+    y.add_argument("--kodu", required=True, help="yetenek adi: kod/arastirma/metin/ozet")
+    e = sub.add_parser("etki")
+    e.add_argument("kanal", help="G53 etki-raporu: cikarilacak kanal id")
     a = ap.parse_args()
     return {"init": cmd_init, "validate": cmd_validate, "list": cmd_list,
-            "route": cmd_route, "update": cmd_update}[a.cmd](a)
+            "route": cmd_route, "update": cmd_update,
+            "yetenek": cmd_yetenek, "etki": cmd_etki}[a.cmd](a)
 
 
 if __name__ == "__main__":

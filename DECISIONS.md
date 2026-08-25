@@ -226,3 +226,9 @@
 - **Gerekçe:** F12c zamanlama maddesi; izleme sahibin mudahalesi olmadan aksin; sonuc-izle: 30 gun sonra degerlendirilecek
 - **sonuç:** (değerlendirilecek — 4 hafta sonra revisit; sonuç ağırlıkları kalibre eder)
 - **Kanıt:** `[gözlendi]` — Get-ScheduledTask Ready + canli kosum 2026-08-25 · sahip 'sirayla gidelim' ile onay
+
+## 2026-08-25 · F12a ileri maddeleri v1: yetenek ters-bakışı + G53 etki raporu · T-C
+
+- **Karar:** registry.py'ye iki alt-komut eklendi: 'yetenek --kodu' (bir yeteneği sağlayan aktif kanallar, kota-notuyla) ve 'etki <kanal>' (G53 bağımlılık-grafiği v1: çıkarılırsa hangi yetenekler KIRILIR/ZAYIFLAR/KIRILMAZ). 6 yeni test senaryosu, toplam 41/41. Canlı bulgu: kod-yeteği yalnız 3 sağlayıcı (opencode-cli, claude-code-cli, gemini-abonelik)
+- **Gerekçe:** PLAN F12a'nın kalan ajan-işi maddeleri; G53'ün amacı kanal-çıkarma öncesi etki-görünürlüğü; v1 yetenek-kapsama düzeyinde, araç-yönlendirme detayı sonrası aşama
+- **Kanıt:** `[gözlendi]` — unittest 41/41 · canlı: yetenek kod=3 sağlayıcı · etki opencode-cli/claude-code-cli KIRILMAZ

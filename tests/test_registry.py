@@ -77,6 +77,73 @@ class TestRoute(unittest.TestCase):
     def test_bilinmeyen_gorev(self):
         self.assertEqual(self._route_needed("resim ciz"), set())
 
+class TestYetenekEtki(unittest.TestCase):
+    """F12a ileri: yetenek ters-bakışı + G53 etki raporu."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.old = registry.CARDS
+        registry.CARDS = Path(self.tmp.name)
+        (registry.CARDS / "a.json").write_text(json.dumps(kart(
+            id="tek-kod", yetenekler=["kod"])), encoding="utf-8")
+        (registry.CARDS / "b.json").write_text(json.dumps(kart(
+            id="coklu", saglayici="Y", model="m2", yetenekler=["kod", "metin"])), encoding="utf-8")
+        (registry.CARDS / "c.json").write_text(json.dumps(kart(
+            id="pasif-kanal", saglayici="Z", model="m3", durum="pasif",
+            yetenekler=["ozet"])), encoding="utf-8")
+
+    def tearDown(self):
+        registry.CARDS = self.old
+        self.tmp.cleanup()
+
+    def test_yetenek_ters_bakis_aktif_sayisi(self):
+        import io, contextlib
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            rc = registry.cmd_yetenek(type("A", (), {"yetenek": "KOD"})())
+        out = buf.getvalue()
+        self.assertEqual(rc, 0)
+        self.assertIn("2 sağlayıcı", out)          # pasif hariç
+        self.assertNotIn("pasif-kanal", out)
+
+    def test_yetenek_saglayici_yok(self):
+        rc = registry.cmd_yetenek(type("A", (), {"yetenek": "gorsel"})())
+        self.assertEqual(rc, 1)
+
+    def test_etki_cikarma_yedegi_varsa_zayiflar(self):
+        import io, contextlib
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            rc = registry.cmd_etki(type("A", (), {"kanal": "tek-kod"})())
+        out = buf.getvalue()
+        self.assertEqual(rc, 0)
+        self.assertIn("KIRILMAZ", out)             # coklu da kod sağlıyor
+        self.assertIn("ZAYIFLAR: 'kod' tek sağlayıcıya düşer → coklu", out)
+
+    def test_etki_kirilir_ve_zayiflar_birlikte(self):
+        import io, contextlib
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            rc = registry.cmd_etki(type("A", (), {"kanal": "coklu"})())
+        out = buf.getvalue()
+        self.assertEqual(rc, 0)
+        self.assertIn("KIRILIR: metin", out)       # metni sağlayan başka yok
+        self.assertIn("ZAYIFLAR: 'kod' tek sağlayıcıya düşer → tek-kod", out)
+
+    def test_etki_pasif_nötr(self):
+        import io, contextlib
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            rc = registry.cmd_etki(type("A", (), {"kanal": "pasif-kanal"})())
+        out = buf.getvalue()
+        self.assertEqual(rc, 0)
+        self.assertIn("PASİF", out)
+
+    def test_etki_kart_yok(self):
+        rc = registry.cmd_etki(type("A", (), {"kanal": "yok-boyle"})())
+        self.assertEqual(rc, 1)
+
+
 
 if __name__ == "__main__":
     unittest.main()
