@@ -110,6 +110,31 @@ def context_chip() -> str:
     return '<span class="chip"><span class="dot"></span>Açılış: ölçüm yok</span>'
 
 
+def research_rows() -> str:
+    """Rapor manşetleri + tazelik çipleri (tetik geçen rapor kırmızı)."""
+    rdir = AIOS_DIR / "research"
+    rows = []
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    for rp in sorted(rdir.glob("R-*.md")):
+        text = rp.read_text(encoding="utf-8")
+
+        def field(name):
+            m = re.search(rf"\|\s*\*{{0,2}}{name}\*{{0,2}}\s*\|\s*([^|]+?)\s*\|", text)
+            return m.group(1).strip() if m else "?"
+
+        rid, tetik, guven = field("id"), field("tetik"), field("guven")
+        manset = field("manşet")
+        stale = tetik != "?" and tetik < today
+        cls = "bad" if stale else "ok"
+        kisa = manset[:120] + ("…" if len(manset) > 120 else "")
+        rows.append(
+            f'<div class="row"><span class="date">{rid}</span>'
+            f'<span class="title">{kisa}</span>'
+            f'<span class="meta"><span class="dot {cls}"></span> '
+            f'{guven} · tetik {tetik}{" · STALE" if stale else ""}</span></div>')
+    return "".join(rows) or '<div class="empty">rapor yok</div>'
+
+
 def gate_chip() -> str:
     evs = last_events(source="gate", limit=1)
     if not evs:
@@ -204,6 +229,7 @@ def build() -> str:
     <a href="#kutuk">Kütük</a>
     <a href="#tanima">Tanıma</a>
     <a href="#olcumler">Ölçümler</a>
+    <a href="#arastirma">Araştırma</a>
   </nav>
 </aside>
 
@@ -251,6 +277,11 @@ def build() -> str:
   <section id="olcumler">
     <h2>Ölçümler</h2>
     <div class="panel">{ctx}<div class="sub" style="margin-top:8px">hedef ≤446 satır · bazal 892 · tools/context_cost.py ile ölçülür</div></div>
+  </section>
+
+  <section id="arastirma">
+    <h2>Araştırma raporları (F10)</h2>
+    <div class="panel">{research_rows()}</div>
   </section>
 
   <div class="footer">AIOS panosu · {now} · tools/pano.py üretimi · yerel dosya, git'e girmez</div>

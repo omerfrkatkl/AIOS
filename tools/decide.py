@@ -100,6 +100,11 @@ def main() -> int:
             print(f"ERROR: atıf geçersiz — R-{num} diye bir rapor yok (research/ altında). "
                   "Kafadan/uydurma kaynak puanlaması G15 ihlalidir.")
             return 1
+        text = hits[0].read_text(encoding="utf-8")
+        m = re.search(r"\|\s*\*{0,2}tetik\*{0,2}\s*\|\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", text)
+        if m and m.group(1) < date.today().isoformat():
+            print(f"UYARI: R-{num} raporu bayat (tetik {m.group(1)} geçti) — "
+                  "puanını taze rapora taşı veya gerekçelendir.", file=sys.stderr)
 
     entry = build_entry(a)
     if a.dry_run:

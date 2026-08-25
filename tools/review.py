@@ -199,6 +199,26 @@ def token_trend() -> list[str]:
     return [f"CONTEXT: son açılış {last.get('lines', '?')} satır (hedef ≤446, bazal 892)"]
 
 
+def research_health() -> list[str]:
+    """Rapor tazeliği: tetiği geçmiş raporlar bayat sinyali verir (F10 v2)."""
+    rdir = AIOS_DIR / "research"
+    if not (rdir / "README.md").exists():
+        return ["RESEARCH: hat yok"]
+    today = date.today().isoformat()
+    stale, fresh = [], 0
+    for rp in sorted(rdir.glob("R-*.md")):
+        text = rp.read_text(encoding="utf-8")
+        m = re.search(r"\|\s*\*{0,2}tetik\*{0,2}\s*\|\s*(\d{4}-\d{2}-\d{2})", text)
+        rid_m = re.search(r"\|\s*\*{0,2}id\*{0,2}\s*\|\s*([^|]+?)\s*\|", text)
+        rid = (rid_m.group(1) if rid_m else rp.stem)[:12]
+        if m and m.group(1) < today:
+            stale.append(f"{rid} ({m.group(1)})")
+        else:
+            fresh += 1
+    out = [f"RESEARCH: {fresh} taze" + (f" · STALE: {', '.join(stale)}" if stale else "")]
+    return out
+
+
 def summarise(full: bool) -> int:
     entries = parse_decisions()
     if not entries:
@@ -244,6 +264,7 @@ def summarise(full: bool) -> int:
     lines.extend(ledger_health())
     lines.extend(gate_recency())
     lines.extend(token_trend())
+    lines.extend(research_health())
 
     for line in lines:
         print(line)

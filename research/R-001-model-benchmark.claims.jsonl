@@ -1,0 +1,14 @@
+{"model": "Claude Opus 5", "metrik": "SWE-bench Verified", "deger": 97.0, "obs": "2026-08-19", "harness": "vals.ai-bash-only", "kaynak": "K7", "derece": "T1-nötr", "not": ""}
+{"model": "DeepSeek V4 Pro 0813", "metrik": "SWE-bench Verified", "deger": 96.4, "obs": "2026-08-19", "harness": "vals.ai-bash-only", "kaynak": "K7", "derece": "T1-nötr", "not": ""}
+{"model": "Kimi K3", "metrik": "SWE-bench Verified", "deger": 93.4, "obs": "2026-08-19", "harness": "vals.ai-bash-only", "kaynak": "K7", "derece": "T1-nötr", "not": ""}
+{"model": "Claude Opus 4.8", "metrik": "SWE-bench Verified", "deger": 88.6, "obs": "2026-08-19", "harness": "vals.ai-bash-only", "kaynak": "K7", "derece": "T1-nötr", "not": ""}
+{"model": "Grok 4.5", "metrik": "SWE-bench Verified", "deger": 86.6, "obs": "2026-08-19", "harness": "vals.ai-bash-only", "kaynak": "K7", "derece": "T1-nötr", "not": ""}
+{"model": "Claude Opus 5", "metrik": "SWE-bench Verified", "deger": 96.0, "obs": "2026-08-25", "harness": "benchlm-toplu", "kaynak": "K1", "derece": "T2", "not": ""}
+{"model": "Claude Mythos 5", "metrik": "SWE-bench Verified", "deger": 95.5, "obs": "2026-08-25", "harness": "benchlm-toplu", "kaynak": "K1", "derece": "T2", "not": ""}
+{"model": "Claude Fable 5", "metrik": "SWE-bench Verified", "deger": 95.0, "obs": "2026-08-25", "harness": "llm-stats", "kaynak": "K4", "derece": "T2", "not": ""}
+{"model": "Claude Opus 5", "metrik": "SWE-bench Verified", "deger": 96.0, "obs": "2026-08-16", "harness": "kaynak-belirsiz", "kaynak": "K2", "derece": "T2", "not": ""}
+{"model": "DeepSeek V4 Pro", "metrik": "SWE-bench Verified", "deger": 80.6, "obs": "2026-08-16", "harness": "kaynak-belirsiz", "kaynak": "K2", "derece": "T2", "not": "vals.ai ile 16 puan sapma: kontaminasyon doneminde kendi-harness raporlari ile bagimsiz harness farki — raporda aciklanir"}
+{"model": "Claude Opus 4.7", "metrik": "SWE-bench Pro", "deger": 64.3, "obs": "2026-04-24", "harness": "SEAL-Pro-250-turn", "kaynak": "K8", "derece": "T2", "not": "ozet-kaynaktan — Pro tam-tablosu sonraki tazelemede cekilecek"}
+{"model": "GPT-5.4 xHigh", "metrik": "SWE-bench Pro", "deger": 59.1, "obs": "2026-04-24", "harness": "SEAL-Pro-250-turn", "kaynak": "K8", "derece": "T2", "not": ""}
+{"model": "GPT-5.3 Codex", "metrik": "SWE-bench Pro", "deger": 56.8, "obs": "2026-04-24", "harness": "SEAL-Pro-250-turn", "kaynak": "K8", "derece": "T2", "not": ""}
+{"model": "SWE-V-veriseti", "metrik": "hatali-test-orani", "deger": 59.4, "obs": "2026-02-25", "harness": "OpenAI-audit", "kaynak": "K9", "derece": "T2", "not": ""}
