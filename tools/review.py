@@ -226,10 +226,17 @@ def summarise(full: bool) -> int:
         print("DECISIONS.md is empty or unreadable.")
         return 1
 
-    reviews = [e for e in entries if e["title"] == REVIEW_TITLE]
-    last_review = reviews[-1]["date"] if reviews else None
-    since = [e for e in entries if e["title"] != REVIEW_TITLE
-             and (last_review is None or e["date"] > last_review)]
+    # Aynı-gün kararı kaçırma düzeltmesi: tarih-dizisi karşılaştırması yerine
+    # dosya-sırası (append-only garantisi) — son 'Gözden geçirildi' girişinden
+    # SONRAKİ her şey yeni sayılır.
+    review_indices = [i for i, e in enumerate(entries) if e["title"] == REVIEW_TITLE]
+    if review_indices:
+        cut = review_indices[-1]
+        last_review = entries[cut]["date"]
+        since = [e for e in entries[cut + 1:] if e["title"] != REVIEW_TITLE]
+    else:
+        last_review = None
+        since = [e for e in entries if e["title"] != REVIEW_TITLE]
 
     lines = [f"REVIEW · {date.today().isoformat()}"]
     if last_review:
@@ -283,9 +290,12 @@ def summarise(full: bool) -> int:
 
 def mark_done(_) -> int:
     entries = parse_decisions()
-    reviews = [e for e in entries if e["title"] == REVIEW_TITLE]
-    since = [e for e in entries if e["title"] != REVIEW_TITLE
-             and (not reviews or e["date"] > reviews[-1]["date"])]
+    review_indices = [i for i, e in enumerate(entries) if e["title"] == REVIEW_TITLE]
+    if review_indices:
+        cut = review_indices[-1]
+        since = [e for e in entries[cut + 1:] if e["title"] != REVIEW_TITLE]
+    else:
+        since = [e for e in entries if e["title"] != REVIEW_TITLE]
     closed = closed_keys(entries)
     pending = [e for e in entries if e["title"] != REVIEW_TITLE and is_pending(e, closed)]
 
