@@ -7,45 +7,43 @@
 | **Sahip** | Proje sahibi; Claude yazar, sahip diff'i onaylar |
 | **Okuma tetikleyicisi** | Her oturum açılışı |
 | **Tavan** | ~900 kelime |
-| **Son güncelleme** | 2026-08-25 |
+| **Son güncelleme** | 2026-08-25 (2. büyük oturum kapanışı) |
 
 ## Durum
 
-- Restukturizasyon: **F0–F11 bitti; F12a yarım (sahip envanteri bekliyor); F9.5/F10-v2 kapandı.** Tek yetkili harita `PLAN.md` (checkbox'lı yürütme haritası — her oturum oradan devam eder). Kilometre taşları: `ms/f5-tamam`.
-- **F12b keşif hattı v1:** tools/kesif.py — OpenRouter poller (canlı doğrulandı) · diff tipleri YENI/KALDI/FIYAT/UCRETSIZ/CTX · merdiven L1-log/L2-araştırma-tetik/L3-kart-etki · snapshot'lar registry/discovery (yerel) · zamanlama F12c'ye.
-- **F11 beceri kütüphanesi:** skills/ şeması + indeks + çağrılma kuralı · 4 beceri: haftalik-review, yeni-proje, derle-dogrula (standart doğrulama taraması), donemsel-ozet (opt-in).
-- **F12a kayıt defteri v1:** tools/registry.py (init/validate/list/route/update) · Kanal Sözleşmesi kart şeması (G47) · registry/ YEREL katman (gitignored, G10) · 3 kart (claude-code-cli, opencode-cli aktif; ollama-yerel-aday pasif) · route gerekçeli öneri + --gizli yerel-filtresi.
-- **F12c kota takipçisi v1:** tools/kotu.py — kullanım defteri (ajan sohbet-girdisiyle yazar) · pencere matematiği testli · DOLU kanal yönlendirmeden düşer (G46) · Task Scheduler gorev-kur hazır, AKTİVASYON sahibin onayında.
-- **R-002 kararlı rapor:** yerel kanal = Ollama birincil aday / LocalAI yedek / LM Studio Layer-1 elendi (kapalı kaynak). Karşıt-bulgu: Ollama tool_choice eksikliği belgeli → devreye-alım önşartı ajan-zinciri tool-testi. check TEMİZ.
-- **F9 karar sistemi (10/10):** iki-katmanlı puanlama (evrensel sabitler filtresi + proje ağırlıkları 0–1) · decide.py --scores/--sonuc-izle/--ilgili · sentetik test 3/3 (atıfsız puan reddedilir) · tartışma/geri-çağırma/kademeli otonom/sonuç-izleme kuralları CLAUDE.md'de.
-- **F10 araştırma hattı v2 (makine-denetlenebilir):** kriter kitabı `research/README.md` (T1-T3 kontrol-listesi, manşet=tam-çekim+destek, obs-tabanlı tazelik, negatif-arama zorunlu, mekanik güven) · sindir.py check/claim/badge · **R-001 v2** (check TEMİZ exit 0; negatif-arama OpenAI'ın Şubat 2026 SWE-V emeklilik kararını buldu → bağımsız harness'ta açık-ağırlık farkı yalnız 0,6 puan, Verified rakamları şişik; L-003 gerekçesi güncellendi) · decide.py bayat-atıf uyarısı · pano+review araştırma görünür.
-- **F9.5 HTML panosu:** pano.py SplitWire-formatı (sidebar + çipler + kartlar, koyu/amber). **Sahibin görsel onayı bekliyor.**
-- **F8 pilot:** P1/P2/P3 ✅ · **P4 ⏸ ölçülemedi** (sahibin kullanıcı yüzü yoktu) → görünürlük + gerçek kullanım sonrası. Ledger beklemede (dönem başlayınca doğal kullanım).
-- **F6:** kapanış kanıtı sonraki yeni oturumda (S-1 zinciri sorulmaz + audit temiz). **F6b interview:** Tur 1 tamam (kapsam ~%40), Tur 2+ "beni tanı" tetiklemeli.
-- **Çalışan zorlama:** kapı 6 aktif rejected tarar (test 11/11 · 0/12) — Claude Code blok, opencode tespit. **Kapsam:** AIOS dizini + `.aios` işaretli projeler; DC/Documents-All sessiz.
-- **Çalışan araçlar (18):** gate · review · decide · ledger · why · summary · context_cost · aioslog · bundle · backup · milestone · audit · newproject · pano · sindir · registry · kesif · kotu.
-- **R-003 kararlı rapor:** GUI teknolojisi — pywebview birincil aday (pano.html sarmalar), Flet yedek; Tauri/Electron dil-ekseniyle elendi. Kesin karar F15'te sahibin (T-A).
+- **F0–F12c v1 bitti; F12a'dan yalnız limit-doğrulama kaldı (envanter tamamlandı).** Tek yetkili harita `PLAN.md` (checkbox'lı yürütme haritası). Kilometre taşları: `ms/f5-tamam` · `ms/f12c-v1`.
+- **Envanter oturumu (2026-08-25) tamamlandı:** registry'de **12 kanal kartı** — claude-code-cli (limit baskısı yüksek: "çok çabuk bitiyor") · opencode-cli · gemini-abonelik (Google One/Gemini 5TB katman) · 5 ücretsiz web (ChatGPT/Qwen/Grok/DeepSeek/Kimi) · 3 ücretsiz API (OpenRouter :free / NVIDIA NIM bulut / Gemini AI Studio) · ollama-yerel-aday PASIF. Donanım: **16GB RAM + RTX 5060 8GB VRAM** → yalnız 7-8B Q4 çalışır; sahip deneyimi kaliteyi yetersiz buldu (R-002 ile uyumlu). PROFILE'a işlendi.
+- **3 kararlı araştırma raporu (hepsi check TEMİZ):** R-001 model-benchmark (OpenAI Şubat 2026 SWE-V emeklilik bulgusu; açık-ağırlık farkı bağımsız harness'ta 0,6 puan) · R-002 yerel-barındırma (Ollama aday/LocalAI yedek/LM Studio elendi; Ollama tool_choice eksik → devreye-alım önşartı tool-testi) · R-003 GUI-teknoloji (pywebview birincil aday/Flet yedek/Tauri-Electron dil-ekseniyle elendi; kesin karar F15'te T-A).
+- **F10 hattı v2:** kriter kitabı research/README.md (T1-T3 kontrol-listesi, manşet=tam-çekim+≥1×T1-nötr/≥3×T2, negatif-arama zorunlu, mekanik güven) · sindir.py check/claim/badge · decide.py bayat-atıf uyarısı.
+- **F11 beceriler:** haftalık-review (ilk uçtan-uca koşuldu: 9 karar kaydedildi), yeni-proje, derle-dogrula, donemsel-ozet (opt-in).
+- **F12b keşif v1:** kesif.py OpenRouter poller + diff merdiveni (canlı 418 model, idempotent). **F12c kota v1:** kotu.py kullanım defteri + pencere matematiği + DOLU→route-dışları (G46).
+- **review.py aynı-gün-karar hatası düzeltildi** (dosya-sırası tabanlı; 9 görünmez karar kurtarıldı).
+- **Bekleyen onay:** gorev-kur --kos (günlük kesif-poll'un Task Scheduler kaydı) — sahibin "onayın" bekliyor.
+- **F9.5 panosu sahibin görsel onayını aldı** ("tasarım iyi duruyor"). **F8 pilot:** P1-P3 ✅, P4 ⏸ F15 sonrası. **F6:** kapanış kanıtı yeni oturumda. **F6b interview:** Tur 1 ~%40, Tur 2 "beni tanı" tetiklemeli.
+- **Çalışan zorlama:** kapı FIRED (test 11/11) · kapsam AIOS+.aios. **Araçlar (18):** gate review decide ledger why summary context_cost aioslog bundle backup milestone audit newproject pano sindir registry kesif kotu. Testler 35/35.
 - **Tetikleyici:** 2026-09-28 dönem planı → ritim güncellenir.
 
 ## Çalışma disiplini
 
 - Kanıt etiketleri · T-A/B/C · append-only · dört-alan · tek yetkili plan = PLAN.md.
-- **Sahip Doğrulama Kapısı (revize):** komutla doğrulanan her şey Claude'da; sahibe yalnız erişilemez ortamlar / kararı-beyanı gerekenler / öznel yargı.
+- **Sahip Doğrulama Kapısı:** komutla doğrulanan her şey Claude'da; sahibe erişilemez ortamlar/karar-beyanı/öznel yargı.
 - **Araştırılabilirlik filtresi:** objektif sorular sahibe SORULMAZ — F10 hattına.
-- **Soru disiplini:** kuyruk ≤1/oturum + takip zinciri ≤3/cevap; interview modunda sınırsız (verim kuralı).
-- **Eşzamanlılık v1:** tek yürütücü. **Oturum türleri:** proje/sohbet/araştırma. **Ledger modeli:** sahibin arayüzü sohbet, CLI ajanın aracı.
+- **Soru disiplini:** interview modunda gruplar halinde (3-5 bağlantılı); envanter oturumu bu modelle koştu.
+- **Eşzamanlılık v1 tek-yürütücü. Ledger modeli:** sahibin arayüzü sohbet, CLI ajanın aracı.
 
 ## Sıradaki
 
-1. **F12a kalan adımlar — SAHİP ENVANTER OTURUMU GEREKLİ:** abonelik/kanal/model envanteri (hangi araçlara erişim, limitler, maliyet) → kartlar doldurulur → limit doğrulama araştırmaları → Ollama tool-calling testi (R-002 önşartı)
-2. F6 kapanış kanıtı (yeni oturumda otomatik) · interview Tur 2 ("beni tanı") · pilot gerçek kullanım
-3. F12b/c/d (keşif/kota/empirik) → F13 failover → F14 bağlantı → F15 GUI (P4 gerçek ölçüm) → F16
+1. **Limit doğrulama araştırması** (F12a son ☐): ücretsiz API kotaları (OpenRouter free-tier sınırları / NIM kredisi / Gemini RPM) — F10 hattıyla, R-004
+2. **Ollama devreye-alım önşartı** (R-002): gerçek ajan zincirinde tool-calling testi
+3. gorev-kur onayı (sahip) · F6 kapanış kanıtı (yeni oturum) · interview Tur 2 ("beni tanı")
+4. F12d empirik zeka → F13 failover → F14 bağlantı → F15 GUI (P4 gerçek ölçüm) → F16
 
 ## Açık riskler
 
 | Risk | Erken sinyal |
 |---|---|
-| P4 ölçümü yine ertelenir | görünürlük sonrası da algı oluşmuyorsa F15'te zorunlu ölçüm |
-| opencode spawn ETIMEDOUT (bir kez) | tekrarlanırsa timeout 30s→60s veya direkt python yolu |
-| Tempo kayması (öğrenci ritmi değişken) | 2 hafta sessizlik → duraklama sinyali |
-| Sıkıştırma sonrası bağlam kaybı | PLAN + STATE + DECISIONS güncel tutulmalı (bu dosya) |
+| Claude Pro limit baskısı | "çabuk bitiyor" sıklaşırsa: route alternatiflerine otomatik geçiş (F13 girdisi) |
+| P4 ölçümü yine ertelenir | F15'te zorunlu ölçüm |
+| opencode spawn ETIMEDOUT (bir kez) | tekrarlanırsa timeout 30s→60s |
+| Tempo kayması | 2 hafta sessizlik → duraklama sinyali |
+| Sıkıştırma sonrası bağlam kaybı | PLAN+STATE+DECISIONS güncel (bu dosya) — compact güvenli |
