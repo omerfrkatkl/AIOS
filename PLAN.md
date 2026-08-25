@@ -97,11 +97,12 @@ Fren semantiği: inşaat fazlarında duraklama dedektörü (2 hafta sessizlik �
 - [x] DECISIONS formatına `sonuçlar:` + `ilgili:` alanları (ADR taraması bulgusu)
 - [x] test: 3/3 sentetik vaka — implementasyon raporu bu commit
 
-### ☐ F9.5 · HTML Panosu (4 adım) — fren: 1 oturum — **sahibin seçimi (a)**
-- [ ] üretici script: brain'den (STATE/DECISIONS/LEDGER/kapsam) statik HTML
-- [ ] şablon: koyu/minimal modern (sahibin zevki — vault/Preferences/design-taste.md)
-- [ ] otomatik tazeleme: her oturum sonunda panoyu yenile
-- [ ] **test:** tarayıcıda açılır, veri güncel, Türkçe karakterler doğru
+### 🟡 F9.5 · HTML Panosu (4/4 inşa) — fren: 1 oturum — **sahibin seçimi (a)**
+- [x] üretici script: brain'den (STATE/DECISIONS/LEDGER/kapsam/ölçümler) statik HTML (pano.py, 7.6KB)
+- [x] şablon: koyu/minimal modern (design-taste.md'den)
+- [x] otomatik tazeleme: CLAUDE.md oturum-sonu adımı eklendi
+- [x] üretim testi: Türkçe doğru, tüm bölümler, None kalıntısı yok
+- [ ] **sahip testi:** tarayıcıda açılır + tasarım onayı (öznel — sahibin yargısı)
 
 ### ☐ F10 · Araştırma motoru v1 (10 adım) — fren: 3 oturum
 - [ ] yöntem seçimi (G17) · [ ] araştırma hattı (soru→yöntem→kaynak→sentez→kanıt-etiketli rapor) · [ ] araştırma önbelleği · [ ] puan girdileri raporlara atıfta zorunlu · [ ] kaynak kütüğü · [ ] araştırma planı formatı (kanal önerileri + kota notu + çoklu-getiri) · [ ] sindir.py (web çıktısı: LEDGER + istek eşleşmesi + verdict) · [ ] provenance rozeti · [ ] **ilk gerçek iş: model-benchmark araştırması** (sahibin düzeltmesi) · [ ] test
