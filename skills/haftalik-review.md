@@ -11,9 +11,10 @@
 
 1. `uv run --no-project python tools/review.py`
 2. Bekleyen onay varsa: `review.py --full` ile tam metinleri göster; yoksa "temiz" de
-3. Sahibe **3-7 satırlık Türkçe özet**: kaç yeni karar · bekleyen var mı · kütük/kapı/bağlam durumu · bayat araştırma var mı
-4. Sahip okuduğunu söyledikten SONRA: `uv run --no-project python tools/review.py --done`
-5. `uv run --no-project python tools/pano.py` (pano tazeleme)
+3. **Rapor-tazelik denetimi:** RESEARCH satırındaki tetik tarihlerini oku (örn. R-004 → 2026-09-24); ≤14 günü kalan raporu özet listele ve refresh önerisi hazırla
+4. Sahibe **3-7 satırlık Türkçe özet**: kaç yeni karar · bekleyen var mı · kütük/kapı/bağlam durumu · rapor-tazelik durumu
+5. Sahip okuduğunu söyledikten SONRA: `uv run --no-project python tools/review.py --done`
+6. `uv run --no-project python tools/pano.py` (pano tazeleme)
 
 ## Doğrulama
 

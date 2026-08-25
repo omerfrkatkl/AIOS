@@ -16,6 +16,7 @@
 3. **İyi fikir protokolü:** çalışma sırasında iyi fikir gelirse "önce şunu ekleyeyim" denir, plana işlenir, oradan devam edilir.
 4. İşaretler: ✅ tamam · 🟡 kısmi · ☐ bekleyen · ⏸ ertelendi.
 5. **Sahip Doğrulama Kapısı** ve **Araştırılabilirlik filtresi** her adımda geçerlidir.
+6. **Kişisel-veri dondurması (sahibin kararı 2026-08-25):** sistem inşası boyunca yeni kişisel veri/interview TOPLANMAZ; mevcut PROFILE korunur (silinmez); testlerde sentetik fixture veya `TEST-` etiketli veri kullanılır; sistem tamamlandığında üzerine-ekleme kampanyası yapılır (§3.5 madde 5).
 
 ## 0. Hedef, ilkeler ve mimari yasalar
 
@@ -97,16 +98,16 @@ Fren semantiği: inşaat fazlarında duraklama dedektörü (2 hafta sessizlik �
 - [x] DECISIONS formatına `sonuçlar:` + `ilgili:` alanları (ADR taraması bulgusu)
 - [x] test: 3/3 sentetik vaka — implementasyon raporu bu commit
 
-### 🟡 F9.5 · HTML Panosu (5/5 inşa + redesign) — fren: 1 oturum — **sahibin seçimi (a)**
+### ✅ F9.5 · HTML Panosu (5/5 inşa + redesign + sahip onayı)
 - [x] üretici script: brain'den statik HTML (pano.py)
 - [x] şablon: koyu/minimal modern (design-taste.md'den)
 - [x] otomatik tazeleme: CLAUDE.md oturum-sonu adımı eklendi
 - [x] üretim testi: Türkçe doğru, tüm bölümler, None kalıntısı yok
 - [x] **redesign: SplitWire formatı** (sahibin referansı: sidebar + üst durum çipleri + kart grid, koyu/amber; Yenile butonu; doğrulama taramasıyla — 12/12 kontrol)
-- [ ] **sahip testi:** tarayıcıda açar + tasarım onayı verir (öznel — sahibin yargısı)
+- [x] **sahip testi:** ONAYLANDI 2026-08-25 ("tasarım iyi duruyor")
 
-### ☐ F10 · Araştırma motoru v1 (10 adım) — fren: 3 oturum
-- [x] yöntem seçimi (G17) · [ ] araştırma hattı (soru→yöntem→kaynak→sentez→kanıt-etiketli rapor) · [ ] araştırma önbelleği · [ ] puan girdileri raporlara atıfta zorunlu · [ ] kaynak kütüğü · [ ] araştırma planı formatı (kanal önerileri + kota notu + çoklu-getiri) · [ ] sindir.py (web çıktısı: LEDGER + istek eşleşmesi + verdict) · [ ] provenance rozeti · [ ] **ilk gerçek iş: model-benchmark araştırması** (sahibin düzeltmesi) · [ ] test
+### ✅ F10 · Araştırma motoru v1+v2 (kapanış kanıtı aşağıda)
+- [x] yöntem seçimi (G17) · [x] araştırma hattı (kriter kitabı README + sindir hattı) · [x] araştırma önbelleği (research/cache snapshot'lar, gitignored) · [x] puan girdileri raporlara atıfta zorunlu (decide.py atıf-doğrulama) · [x] kaynak kütüğü (sources.jsonl + queries.jsonl) · [x] araştırma planı formatı (rapor Plan-bölümü pratiği: R-001..R-004) · [x] sindir.py v2 (check/claim/badge/lookup) · [x] provenance rozeti (badge) · [x] **ilk gerçek iş: model-benchmark** (R-001 v2) · [x] test (test_sindir.py 13 senaryo)
 
 > Kapanış kanıtı (2026-08-25): sindir.py digest/badge/lookup canlı · R-001 üretildi (6 kaynak, çapraz-doğrulama) · decide.py R-id atıf doğrulama (R-001 geçti, R-999 exit 1) · tests/test_sindir.py 4/4 · LEDGER eşik ayarı: L-006 yanlış-pozitif ve L-005 zayıf-pozitif gitti, L-003 pozitifi korundu.
 
@@ -116,19 +117,20 @@ Fren semantiği: inşaat fazlarında duraklama dedektörü (2 hafta sessizlik �
 - [x] decide.py bayat-atıf UYARISI (stderr, blok değil)
 - [x] R-001 v2: negatif-arama OpenAI'ın Şubat 2026 SWE-V emeklilik kararını buldu → manşet değişti; vals.ai T1-nötr tam-çekim (açık-ağırlık farkı ~15 puan DEĞİL 0,6 puan); 14 yapılandırılmış iddia; check TEMİZ exit 0
 - [x] pano araştırma bölümü (tazelik çipleri) + review.py RESEARCH satırı
-### ☐ F11 · Beceri kütüphanesi (6 adım) — fren: 2 oturum
-- [x] skills/ şeması · [ ] ilk beceriler (haftalık-review, yeni-proje, derle-doğrula) · [ ] dönemsel özet (opt-in) · [ ] çağırma kuralı · [ ] test · [ ] sahip kontrolü
+### ✅ F11 · Beceri kütüphanesi (6/6)
+- [x] skills/ şeması · [x] ilk beceriler (haftalık-review, yeni-proje, derle-dogrula, donemsel-ozet) · [x] dönemsel özet (opt-in beceri) · [x] çağırma kuralı (CLAUDE.md oturum-başı keşif satırı) · [x] test (derle-dogrula uçtan-uca 7 kontrol) · [x] sahip kontrolü (haftalık-review sahibin katılımıyla uçtan-uca koştu)
 > Kapanış kanıtı (2026-08-25): skills/README.md indeks+şema+çağrılma kuralı · 4 beceri (haftalik-review, yeni-proje, derle-dogrula, donemsel-ozet) · CLAUDE.md oturum-başı keşif satırı · derle-dogrula uçtan-uca koşuldu (7 kontrol: unittest 13/13+5/5, gate %100, review sağlıklı, bağlam hedefte, check TEMİZ)
 ### ☐ F12a · Kayıt defteri + yönlendirici v1 (16 adım) — fren: 4 oturum
-- [x] model kartı şeması (Kanal Sözleşmesi) · [x] OpenWebUI/LM Studio öncül araştırması · [x] üretici script (tools/registry.py: init/validate/list/route/update) · [x] **senin envanter oturumun** (2026-08-25 tamamlandı: 9 yeni kart — gemini-abonelik, 5×ücretsiz-web, openrouter/nim/gemini-API; claude-code-cli limit-deneyimi notlandı; donanım kaydedildi) · [x] limit doğrulama araştırmaları (R-004 izleme raporu, check TEMİZ — OpenRouter 50/gün taban, NIM ~40 RPM hesap-geneli, Gemini yayınlanmıyor) · [x] gizlilik bölgesi (kart şemasında gizlilik alanı + route --gizli filtresi) · [x]–[ ] yönlendirici v1 (route yetenek-eşleşme + gerekçe; kota-takip kısmı F12c'ye) · [x] registry.py --update (sözlü bildirim stub — ajan akışı) · [x] yetenek sağlayıcılar (registry yetenek --kodu ters-bakış; 6 senaryolu test) · [x] bağımlılık grafiği v1 = G53 etki raporu (registry etki <kanal>: KIRILIR/ZAYIFLAR/KIRILMAZ; araç-yönlendirme detayı ayrıca ☐) · [ ] araç-yönlendirme · [x] test (tests/test_registry.py 7 senaryo · 20/20 toplam)
+- [x] model kartı şeması (Kanal Sözleşmesi) · [x] OpenWebUI/LM Studio öncül araştırması · [x] üretici script (tools/registry.py: init/validate/list/route/update) · [x] **senin envanter oturumun** (2026-08-25 tamamlandı: 9 yeni kart — gemini-abonelik, 5×ücretsiz-web, openrouter/nim/gemini-API; claude-code-cli limit-deneyimi notlandı; donanım kaydedildi) · [x] limit doğrulama araştırmaları (R-004 izleme raporu, check TEMİZ — OpenRouter 50/gün taban, NIM ~40 RPM hesap-geneli, Gemini yayınlanmıyor) · [x] gizlilik bölgesi (kart şemasında gizlilik alanı + route --gizli filtresi) · [x]–[ ] yönlendirici v1 (route yetenek-eşleşme + gerekçe; kota-takip kısmı F12c'ye) · [x] registry.py --update (sözlü bildirim stub — ajan akışı) · [x] yetenek sağlayıcılar (registry yetenek --kodu ters-bakış; 6 senaryolu test) · [x] bağımlılık grafiği v1 = G53 etki raporu (registry etki <kanal>: KIRILIR/ZAYIFLAR/KIRILMAZ; araç-yönlendirme detayı ayrıca ☐) · [ ] araç-yönlendirme · [x] test (tests/test_registry.py 13 senaryo · suit toplamı 41/41)
 
 > **Oturum kanıtı (2026-08-25):** R-002 check TEMİZ exit 0 (6 kaynak · 3×T2 tam-çekim · karşıt-sorgu kayıtlı) · registry 3 kart TEMİZ · route deterministik gerekçeli. **AÇIK KALANLAR:** (envanter ✓ R-004 ✓ yetenek-sağlayıcılar ✓ G53-etki ✓) araç-yönlendirme detayı → F12d+
+> **Ara-işler (sahibin iznine bağlı):** Ollama kurulum + tool-calling testi (R-002 devreye-alım önşartı; makine-kurulum izni gerekir) · backup.py yerel-katman yedek ritmi (her kilometre taşında).
 ### ☐ F12b · Keşif + doğrulama hattı (8 adım) — fren: 3 oturum
-- [x] OpenRouter poller (tools/kesif.py poll — canlı: 418 model) · [~] RSS/araştırma periyodu (v1 istek-üzerine; zamanlama F12c Task Scheduler) · [x] tetikleme merdiveni (L1 log · L2 araştırma-tetik · L3 kart-etki; ilk-poll muafiyeti ile) · [ ]–[ ] diff raporları · [x] doğrulama (canlı API + idempotentlik: 2. poll 0-değişiklik) · [x] test (tests/test_kesif.py — toplam 29/29)
+- [x] OpenRouter poller (tools/kesif.py poll — canlı: 418 model) · [~] RSS/araştırma periyodu (v1 istek-üzerine; zamanlama F12c Task Scheduler) · [x] tetikleme merdiveni (L1 log · L2 araştırma-tetik · L3 kart-etki; ilk-poll muafiyeti ile) · [~] diff raporları (stdout biçimli ✓ · kalıcı-rapor dosyası F15 pano entegrasyonuna) · [x] doğrulama (canlı API + idempotentlik: 2. poll 0-değişiklik) · [x] test (tests/test_kesif.py — toplam 29/29)
 
 > **Oturum kanıtı (2026-08-25):** kesif.py canlı 3 poll (418 model; ilk=taban, sonrakiler sessiz-sağlık) · test 29/29 · gürültü-kusuru yakalandı-düzeltildi (ilk-poll merdiven muafiyeti + not tavanı).
-### ☐ F12c · Kota takipçisi (7 adım) — fren: 3 oturum
-- [x] kullanım defteri (registry/usage.jsonl — sahibin sohbet girdisiyle AJAN yazar) · [x] yenileme pencere modeli (kart kota_model alanı + window_bounds: ay-devri/31-clamp testli) · [ ] bildirim/düğme · [~] Task Scheduler (gorev-kur komutu hazır; AKTİVASYON sahibin onayı bekliyor) · [x] yönlendirici entegrasyonu (route dolu kanalı atlar + KOTA NOTU basar) · [ ] test · [ ] **devreye alma (onayın)**
+### 🟡 F12c · Kota takipçisi (6/7 — bildirim/düğme F15'e)
+- [x] kullanım defteri (registry/usage.jsonl — sahibin sohbet girdisiyle AJAN yazar) · [x] yenileme pencere modeli (kart kota_model alanı + window_bounds: ay-devri/31-clamp testli) · [ ] bildirim/düğme ⏸ F15 GUI panosuna · [x] Task Scheduler (AIOS-kesif-poll Ready; canlı koşum: 418 model · 1 FIYAT · sonuç 0) · [x] yönlendirici entegrasyonu (route dolu kanalı atlar + KOTA NOTU basar) · [x] test (tests/test_kotu.py 6 senaryo) · [x] **devreye alma** (sahip onayıyla 2026-08-25; geri-alma: schtasks /Delete)
 
 > **Oturum kanıtı (2026-08-25):** pencere matematiği 3 hata yakalanıp düzeltildi (ay-devri, önceki-ay, clamp) · canlı G46 kanıtı: DOLU kart route'dan elendi, alternatif önerildi · test 35/35.
 ### ☐ F12d · Empirik zeka (8 adım) — fren: 3 oturum
@@ -150,7 +152,7 @@ Log analizinden öğrenme (kapıya bağlı) · AI-atıf (desen/kaynak/bağlam/d�
 ## 4. Token sözleşmesi
 
 - Oturum açılışı = STATE (≤900 kelime) + PROFILE (≤400) + aktif-karar özeti. Başka hiçbir dosya varsayılan yüklenmez; **logs/ ve vault/ asla**.
-- Birincil metrik: açılışta yüklenen dosya hacmi. Hedef: ≤446 satır (bazal 892'nin %50'si altı) — güncel ~92 ✅.
+- Birincil metrik: açılışta yüklenen dosya hacmi. Hedef: ≤446 satır (bazal 892'nin %50'si altı) — güncel ~161 ✅ (hedef korunuyor).
 - Proje oturumları proje STATE + beyin özeti yükler; diğer projeler asla (G16).
 
 ## 5. Taşınanlar / arşive gidenler
@@ -177,6 +179,7 @@ Log analizinden öğrenme (kapıya bağlı) · AI-atıf (desen/kaynak/bağlam/d�
 | Web otomasyon kırılganlığı | otomasyon sık kırılır | manuel-first + sindir.py |
 | Bayat model kartı | son-doğrulanma eski | review uyarısı + sözlü bildirim + keşif hattı |
 | P4 ölçümü yine ertelenir | görünürlük sonrası da algı oluşmuyorsa | F15 sonrası zorunlu ölçüm noktası |
+| Erteleme unutulursa PROFILE bayat kalır | sistem-bitimi kampanyası atlanırsa | yol-haritası madde 5 + DECISIONS kaydı |
 
 ## 7. Faz kapanış formatı ve kapılar
 
@@ -194,6 +197,7 @@ Log analizinden öğrenme (kapıya bağlı) · AI-atıf (desen/kaynak/bağlam/d�
 | 2026-08-24 | PLAN revizyon 3 (platform genişlemesi) | ✅ |
 | 2026-08-25 | F6 canlı döngü + F6b Tur 1 + F7 v1 + F8 pilot (P1–P3 ✅, P4 ⏸) | ✅ |
 | 2026-08-25 | PLAN revizyon 4 (yürütme haritası, checkbox'lı) | ✅ bu dosya |
+| 2026-08-25 | 2. büyük oturum: pano sahip-onaylı · R-001v2/R-002/R-003/R-004 (4×TEMİZ) · F11 · F12a-c v1 + envanter (12 kart) · gorev-kur devrede · **kişisel-veri dondurması** | ✅ |
 
 ## 9. İzlenebilirlik — sahibin istekleri ↔ plan (2026-08-24 denetimi + ekler)
 
@@ -226,3 +230,5 @@ Log analizinden öğrenme (kapıya bağlı) · AI-atıf (desen/kaynak/bağlam/d�
 | P4 gerçek ölçümü | F15 sonrası (veya görünürlük yeterli olursa erken) |
 | Analitik Sistemi → AIOS yönetimine dönüş | F8 pilot sonrası sahibin çağrısıyla |
 | GUI teknolojisi (S3/S4) | F15 başlangıcında |
+| Ollama kurulum izni (tool-calling testi, R-002 önşartı) | Ara-iş için sahibin çağrısında |
+| **Revisit takvimi:** gorev-kur sonuç-izleme ~2026-09-24 · R-002 kararlı tetik 2027-02-21 · R-004 tazelik 2026-09-24 | haftalik-review denetler |

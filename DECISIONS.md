@@ -232,3 +232,9 @@
 - **Karar:** registry.py'ye iki alt-komut eklendi: 'yetenek --kodu' (bir yeteneği sağlayan aktif kanallar, kota-notuyla) ve 'etki <kanal>' (G53 bağımlılık-grafiği v1: çıkarılırsa hangi yetenekler KIRILIR/ZAYIFLAR/KIRILMAZ). 6 yeni test senaryosu, toplam 41/41. Canlı bulgu: kod-yeteği yalnız 3 sağlayıcı (opencode-cli, claude-code-cli, gemini-abonelik)
 - **Gerekçe:** PLAN F12a'nın kalan ajan-işi maddeleri; G53'ün amacı kanal-çıkarma öncesi etki-görünürlüğü; v1 yetenek-kapsama düzeyinde, araç-yönlendirme detayı sonrası aşama
 - **Kanıt:** `[gözlendi]` — unittest 41/41 · canlı: yetenek kod=3 sağlayıcı · etki opencode-cli/claude-code-cli KIRILMAZ
+
+## 2026-08-26 · Kişisel-veri dondurması + PLAN revizyon 4.1 · T-B
+
+- **Karar:** Sistem inşası boyunca yeni kişisel veri/interview toplanmaz; mevcut PROFILE (onaylı öğrenmeler + otonom seviyeleri) KORUNUR, silinmez; testlerde sentetik fixture veya TEST-etiketli veri; sistem tamamlandığında üzerine-ekleme kampanyası (kapsam hedefi ≥%80). PLAN revizyon 4.1: 17 bayat-işaret düzeltmesi + eksik maddeler (Ollama tool-testi, kota-okuma, revisit takvimi, yedek ritmi, F6 kapanış kanıtı adımı)
+- **Gerekçe:** Sahibin verimlilik tercihi: sistem önce, kişisel katman sonra. Bilinen etki: REQUIREMENTS 'Tanıma derinliği' gereksinimi (%40→%80 kapsam) bilinçli olarak gecikir
+- **Kanıt:** `[gözlendi]` — sahibin beyanı 2026-08-25: 'mevcut dursun' · CLAUDE.md+PLAN §3.5+protokol-6 işlendi
