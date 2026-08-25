@@ -85,17 +85,17 @@ Fren semantiği: inşaat fazlarında duraklama dedektörü (2 hafta sessizlik �
 ### ✅ F8 · Pilot (10/10) — 2026-08-25
 - [x] ritüel aracı (newproject.py) · [x] pilot=ledger onayı · [x] P1–P4 eşikleri kilitli · [x] teknik kararlar (SQLite+Typer, araştırmalı, G43) · [x] ilk çalışan dilim (test 5/5) · [x] export (BRIEF #4) · [x] delete · [x] README örnekleri · [x] kapsam opt-in (.aios) · [x] kapanış: P1/P2/P3 ✅ · **P4 ⏸ ölçülemedi (kullanıcı yüzü yok) → görünürlük sonrası**
 
-### ▶️ F9 · Karar sistemi (14 adım) — fren: 3 oturum
-- [x] ADR/MCDA literatür taraması
+### ✅ F9 · Karar sistemi (10/10) — 2026-08-25
+- [x] ADR/MCDA literatür taraması (bulgu: mevcut DECISIONS formatı uyumlu; +2 alan)
 - [x] iki-katmanlı şema taslağı → **sahip onayı** (evrensel sabitler filtresi + proje ağırlıkları, 0–1)
-- [ ] decide.py entegrasyonu (puanlama + kanıt-atfı alanları)
-- [ ] sentetik yanlışlama testi (kafadan puan reddedilir; atıfsız puan geçersiz)
-- [ ] **sonuç-izleme** (`sonuç:` alanı + revisit → ağırlık kalibrasyonu)
-- [ ] **kademeli otonom** (alan-bazlı güven seviyesi, kayıtlı ve görünür)
-- [ ] **tartışma protokolü belgesi** (≥2 AI, ≤3 tur, çıktı = öneri)
-- [ ] **karar geri-çağırma** (bağımlılık zinciri + etki analizi + geri alma planı)
-- [ ] DECISIONS formatına `sonuçlar:` + `ilgili:` alanları (ADR taraması bulgusu)
-- [ ] test + **sahip onayı**
+- [x] decide.py entegrasyonu (--scores kanıt-atıf zorunlu + --sonuc-izle + --ilgili)
+- [x] sentetik yanlışlama testi (atıfsız puan REDDEDİLDİ exit 1; atıflı kabul; sonuç alanı eklendi)
+- [x] **sonuç-izleme** (`sonuç:` alanı + 4 hafta revisit → ağırlık kalibrasyonu)
+- [x] **kademeli otonom** (CLAUDE.md kuralı + PROFILE seviyeleri)
+- [x] **tartışma protokolü** (CLAUDE.md: ≥2 AI, ≤3 tur, çıktı = öneri)
+- [x] **karar geri-çağırma** (CLAUDE.md prosedür: why.py → zincir → etki → plan)
+- [x] DECISIONS formatına `sonuçlar:` + `ilgili:` alanları (ADR taraması bulgusu)
+- [x] test: 3/3 sentetik vaka — implementasyon raporu bu commit
 
 ### ☐ F9.5 · HTML Panosu (4 adım) — fren: 1 oturum — **sahibin seçimi (a)**
 - [ ] üretici script: brain'den (STATE/DECISIONS/LEDGER/kapsam) statik HTML
