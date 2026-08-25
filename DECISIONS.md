@@ -163,3 +163,13 @@
 - **Geri alma:** research/ ve tools/sindir.py silinir; decide.py atıf bloğu kaldırılır — tek oturum, veri kaybı yok
 - **ilgili:** 2026-08-25 · F9 iki-katmanlı puanlama şeması
 - **Kanıt:** `[üretildi]` — canlı hat: digest→LEDGER eşleşme→badge→decide-atıf zinciri koşuldu; test 4/4
+
+## 2026-08-25 · Araştırma hattı v2: makine-denetlenebilir kriter kitabı · T-B
+
+- **Karar:** research/README.md v2 kuralları (T1-T3 kontrol-listesi, lab-çıkar duallığı, manşet=tam-çekim+destek, obs-tabanlı tazelik, negatif-arama zorunlu, mekanik güven eşikleri, yapılandırılmış iddia katmanı, sürüm-bloğu) + sindir.py check/claim/badge motoru + decide.py bayat-atıf uyarısı + pano/review entegrasyonu kuruldu; R-001 v2'ye yeniden yazıldı
+- **Gerekçe:** sahip araştırmayı kendisi doğrulayamıyor → doğrulama makinada olmalı; v1'de çıkar-çatışması körüğü vardı (K5 reklam-icerikti) ve manşet kontaminasyonlu benchmark'ın şişmiş rakamını taşıyordu
+- **Alternatifler:** 1) v1 korunurdu — negatif-arama olmadan OpenAI emeklilik kararı görünmezdi; 2) harici derleme servisi — bağımlılık/kilitlenme riski, evrensel-sabit ihlali
+- **Geri alma:** README v1'e döner, sindir check çağrıları kaldırılır; R-001 v1 metni git geçmişinde durur — tek oturum
+- **sonuç:** (değerlendirilecek — 4 hafta sonra revisit; sonuç ağırlıkları kalibre eder)
+- **ilgili:** 2026-08-25 · F9 iki-katmanlı puanlama şeması
+- **Kanıt:** `[üretildi]` — check R-001 TEMİZ exit 0 · testler 13/13 · gate regresyon 11/11 · negatif-arama somut manşet-değişikliği üretti

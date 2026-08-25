@@ -109,6 +109,13 @@ Fren semantiği: inşaat fazlarında duraklama dedektörü (2 hafta sessizlik �
 - [x] yöntem seçimi (G17) · [ ] araştırma hattı (soru→yöntem→kaynak→sentez→kanıt-etiketli rapor) · [ ] araştırma önbelleği · [ ] puan girdileri raporlara atıfta zorunlu · [ ] kaynak kütüğü · [ ] araştırma planı formatı (kanal önerileri + kota notu + çoklu-getiri) · [ ] sindir.py (web çıktısı: LEDGER + istek eşleşmesi + verdict) · [ ] provenance rozeti · [ ] **ilk gerçek iş: model-benchmark araştırması** (sahibin düzeltmesi) · [ ] test
 
 > Kapanış kanıtı (2026-08-25): sindir.py digest/badge/lookup canlı · R-001 üretildi (6 kaynak, çapraz-doğrulama) · decide.py R-id atıf doğrulama (R-001 geçti, R-999 exit 1) · tests/test_sindir.py 4/4 · LEDGER eşik ayarı: L-006 yanlış-pozitif ve L-005 zayıf-pozitif gitti, L-003 pozitifi korundu.
+
+**v2 yükseltmesi (2026-08-25, 6-tur eleştiri sonrası — hepsi tamam):**
+- [x] kriter kitabı v2 (README): T1-T3 kontrol-listesi · lab-çıkar duallığı · manşet=tam-çekim+destek · obs-tabanlı tazelik · negatif-arama zorunlu · mekanik güven eşikleri · sürüm-bloğu · yerleşim politikası
+- [x] sindir.py v2: check(0/1/2) + claim(normalize/dedupe) + --tier/gerekce/mod + sorgu-kütüğü + R-id doğrulama; test 13/13
+- [x] decide.py bayat-atıf UYARISI (stderr, blok değil)
+- [x] R-001 v2: negatif-arama OpenAI'ın Şubat 2026 SWE-V emeklilik kararını buldu → manşet değişti; vals.ai T1-nötr tam-çekim (açık-ağırlık farkı ~15 puan DEĞİL 0,6 puan); 14 yapılandırılmış iddia; check TEMİZ exit 0
+- [x] pano araştırma bölümü (tazelik çipleri) + review.py RESEARCH satırı
 ### ☐ F11 · Beceri kütüphanesi (6 adım) — fren: 2 oturum
 - [ ] skills/ şeması · [ ] ilk beceriler (haftalık-review, yeni-proje, derle-doğrula) · [ ] dönemsel özet (opt-in) · [ ] çağırma kuralı · [ ] test · [ ] sahip kontrolü
 
