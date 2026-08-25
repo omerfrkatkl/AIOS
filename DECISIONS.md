@@ -9,6 +9,8 @@
 
 > **Eski log:** `arsiv/DECISIONS.md` (2026-08-15 → 2026-08-23). Gerekçe ararken doğrudan arşiv taranır (F4'te why.py gelecek).
 
+**Format:** `tarih · başlık · katman · durum` → Karar / Gerekçe / Alternatifler / Geri alma / Kanıt · büyük kararlarda ek: **Puanlama** (0–1, kanıt-atıflı — atıfsız puan geçersiz) · **sonuç:** (revisit alanı — kalibrasyon) · **ilgili:** (bağlantılı kararlar) · **sonuçlar:** (pozitif/negatif — ADR pratiği)
+
 ---
 
 ## 2026-08-23 · Sıfırdan yeniden inşa: eski sistem arşive, PLAN.md yürürlükte · T-A · onaylandı

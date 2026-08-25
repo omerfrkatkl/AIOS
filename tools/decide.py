@@ -43,8 +43,14 @@ def build_entry(a) -> str:
         lines.append(f"- **Alternatifler:** {' · '.join(parts)}")
     if a.reversal:
         lines.append(f"- **Geri alma:** {a.reversal}")
+    if a.scores:
+        lines.append(f"- **Puanlama (0–1, kanıt-atıflı):** {a.scores}")
+    if a.sonuc_izle:
+        lines.append("- **sonuç:** (değerlendirilecek — 4 hafta sonra revisit; sonuç ağırlıkları kalibre eder)")
     for key in a.closes or []:
         lines.append(f"- **kapatır:** {key}")
+    for key in a.ilgili or []:
+        lines.append(f"- **ilgili:** {key}")
 
     lines.append(f"- **Kanıt:** `[{EVIDENCE[a.evidence]}]`" + (f" — {a.evidence_note}" if a.evidence_note else ""))
     lines.append("")
@@ -69,12 +75,22 @@ def main() -> int:
     p.add_argument("--evidence-note", default="")
     p.add_argument("--pending", action="store_true")
     p.add_argument("--closes", action="append", metavar="DATE/TITLE")
+    p.add_argument("--ilgili", action="append", metavar="DATE/TITLE",
+                   help="bağlantılı karar (ADR 'related' alanı)")
+    p.add_argument("--scores", default="",
+                   help="puanlama özeti; her puan kanıt atfı taşır (ör: 'uygunluk 0.9 [gözlendi: F10 raporu] | maliyet 0.6 [gözlendi: test]')")
+    p.add_argument("--sonuc-izle", action="store_true",
+                   help="sonuç-izleme alanı ekler (büyük kararlar: X hafta sonra revisit → kalibrasyon)")
     p.add_argument("--dry-run", action="store_true")
     a = p.parse_args()
 
     if a.tier == "T-A" and not (a.alternatives and a.reversal):
         print("ERROR: a T-A decision needs --alternatives and --reversal.")
         print("If neither applies, it is probably not a T-A.")
+        return 1
+    if a.scores and "[" not in a.scores:
+        print("ERROR: her puan kanıt atfı taşımmalı — köşeli parantez içinde kaynak yok (G15: atıfsız puan geçersiz).")
+        print("Örnek: --scores \"uygunluk 0.9 [gözlendi: F10 raporu] | maliyet 0.6 [gözlendi: test]\"")
         return 1
 
     entry = build_entry(a)
